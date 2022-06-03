@@ -13,5 +13,4 @@ app.use(cors());
 
 app.listen(port, () => {
  console.log(`servidor corriendo en http://localhost:${port}`);
- console.log(`Prueba commit`);
 })
