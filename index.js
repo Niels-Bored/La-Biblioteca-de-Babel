@@ -1,6 +1,7 @@
 const express = require("express"); //importar express
 const bodyParser = require("body-parser");
 const misRutas = require("./routes/rutas");
+const Libro = require("./models/libro");
 const cors = require("cors");
 
 //Configuración firebase
@@ -20,6 +21,7 @@ app.use('/', misRutas);
 app.use(cors());
 const db = admin.firestore();
 
+//Insertar libros
 app.get('/insercion', (req, res) => {    
     console.log(req.query.titulo);
     const datosLibro = {
@@ -36,12 +38,50 @@ app.get('/insercion', (req, res) => {
     });
 });
 
-app.get('/recuperacion', (req, res) => {    
-    
+//Recuperar todos los libros
+app.get('/recuperacion', async (req, res) => {    
+    try{
+        const libros = await db.collection('Libros').get();
+
+        const librosArreglo = [];
+
+        if(!libros.empty){
+            libros.forEach(doc =>{
+                const libro = new Libro(
+                    doc.data().Titulo,
+                    doc.data().Autor,
+                    doc.data().ISBN_Code,
+                    doc.data().Precio
+                );
+                librosArreglo.push(libro);
+            });
+            console.log(librosArreglo);
+            res.send(librosArreglo);
+        }else{
+            res.status(404).send('No hay libros por mostrar');
+        }
+    }catch(error){
+        res.status(404).send(error.message);
+    }
+});
+
+//Recuperar un libro especifico
+app.get('/recuperacion/:nombre', async (req, res) => {    
+    const { nombre } = req.params;
+
+    const libro = await db.collection('Libros').doc(nombre).get();
+
+    if (!libro.exists) {
+        console.log('No document');
+    } else {
+        console.log(libro.data());
+    }
+
     res.send({
         recuperacion: "true"
     });
 });
+
 
 app.listen(port, () => {
  console.log(`servidor corriendo en http://localhost:${port}`);
