@@ -67,19 +67,19 @@ app.get('/recuperacion', async (req, res) => {
 
 //Recuperar un libro especifico
 app.get('/recuperacion/:nombre', async (req, res) => {    
-    const { nombre } = req.params;
+    try{
+        const { nombre } = req.params;
 
-    const libro = await db.collection('Libros').doc(nombre).get();
+        const libro = await db.collection('Libros').doc(nombre).get();
 
-    if (!libro.exists) {
-        console.log('No document');
-    } else {
-        console.log(libro.data());
+        if (!libro.exists) {
+            res.status(404).send('No hay un libro con ese nombre');
+        } else {
+            res.send(libro.data());
+        }
+    } catch(error){
+        res.status(404).send(error.message);
     }
-
-    res.send({
-        recuperacion: "true"
-    });
 });
 
 
