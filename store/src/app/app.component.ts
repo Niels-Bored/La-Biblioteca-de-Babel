@@ -32,7 +32,11 @@ export class AppComponent {
       console.log(this.libros);
     });
   }  
-  eliminar(){
+  eliminar(libro:string){
+    this.firebase.eliminarLibro(libro).subscribe((res: any) => {
+      console.log(res);
+    });
     alert("Libro eliminado éxitosamente");
+    this.recuperar();
   }
 }

@@ -82,6 +82,16 @@ app.get('/recuperacion/:nombre', async (req, res) => {
     }
 });
 
+app.get('/eliminacion/:nombre', async (req, res) => {   
+    try{
+        const { nombre } = req.params;
+
+        await db.collection('Libros').doc(nombre).delete();
+        res.send("Libro eliminado");
+    } catch(error){
+        res.status(404).send(error.message);
+    }
+});
 
 app.listen(port, () => {
  console.log(`servidor corriendo en http://localhost:${port}`);
