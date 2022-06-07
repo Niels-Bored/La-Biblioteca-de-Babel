@@ -8,10 +8,16 @@ import { FirebaseService } from './services/firebase.service';
 })
 export class AppComponent {
   title = 'store';
+
   titulo:string="";
   autor:string="";
   isbn:string="";
   precio:number=0;
+  mail:string="";
+  phone:string="";
+  password:string="";
+  userName:string="";
+  url:string="";
 
   datos : any;
   libros : any[] = [];
@@ -38,5 +44,11 @@ export class AppComponent {
     });
     alert("Libro eliminado éxitosamente");
     this.recuperar();
+  }
+  insertarUsuario(){
+    this.firebase.insertarUsuario(this.mail, this.phone,this.password,this.userName,this.url).subscribe((res: any) => {
+      console.log(res);
+    });
+    alert("Usuario insertado éxitosamente");
   }
 }

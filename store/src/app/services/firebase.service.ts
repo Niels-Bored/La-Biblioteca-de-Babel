@@ -20,4 +20,8 @@ export class FirebaseService {
   eliminarLibro(libro:string){
     return this.httpClient.get(`http://localhost:3000/eliminacion/${libro}`);
   }
+
+  insertarUsuario(mail:string, phone:string, password:string, displayName:string, photoUrl:string) {
+    return this.httpClient.get(`http://localhost:3000/insercionUsuario/?mail=${mail}&phone=${phone}&password=${password}&displayName=${displayName}&photoUrl=${photoUrl}`);
+  }
 }

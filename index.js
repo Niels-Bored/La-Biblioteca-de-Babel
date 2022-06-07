@@ -19,7 +19,38 @@ app.use(bodyParser.urlencoded({ extended:false}));
 app.use(bodyParser.json());
 app.use('/', misRutas);
 app.use(cors());
+const at = admin.auth();
 const db = admin.firestore();
+
+//Insercion usuario
+app.get('/insercionUsuario', (req, res) =>{
+    console.log(req.query.mail);
+    console.log("+"+req.query.phone);
+    console.log(req.query.password);
+    at.createUser({
+        email: req.query.mail,
+        emailVerified: false,
+        phoneNumber: "+"+req.query.phone,
+        password: req.query.password,
+        displayName: req.query.displayName,
+        photoURL: req.query.photoUrl,
+        disabled: false,
+        //rol:"admin",
+      })
+      .then((userRecord) => {
+        // See the UserRecord reference doc for the contents of userRecord.
+        console.log('Successfully created new user:', userRecord.uid);
+        res.send({
+            insercion: "true"
+        });
+      })
+      .catch((error) => {
+        console.log('Error creating new user:', error);
+        res.send({
+            insercion: "false"
+        });
+      });
+});
 
 //Insertar libros
 app.get('/insercion', (req, res) => {    
