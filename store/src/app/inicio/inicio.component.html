@@ -1,0 +1,15 @@
+<form>
+    <label>Correo:</label>
+    <input type="text" [(ngModel)]="mail">
+    <label>Numero de Telefono:</label>
+    <input type="text" [(ngModel)]="phone">
+    <label>Contraseña:</label>
+    <input type="text" [(ngModel)]="password">
+    <label>Nombre de Usuario: </label>
+    <input type="text" [(ngModel)]="userName">
+    <label>Foto URL: </label>
+    <input type="text" [(ngModel)]="url">
+    <button (click)="insertarUsuario()">Insertar: </button>
+  </form>
+  <br><br><br>
+  <p>{{usuarios.displayName}}</p>

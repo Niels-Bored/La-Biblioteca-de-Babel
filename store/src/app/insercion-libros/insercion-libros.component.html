@@ -1,0 +1,32 @@
+<h1>Insercion libros</h1>
+<form>
+    <label>Titulo:</label>
+    <input type="text" [(ngModel)]="titulo">
+    <label>Autor:</label>
+    <input type="text" [(ngModel)]="autor">
+    <label>ISBN</label>
+    <input type="text" [(ngModel)]="isbn">
+    <label>Precio</label>
+    <input type="text" [(ngModel)]="precio">
+    <button (click)="insertar()">Insertar: </button>
+</form>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Titulo</th>
+        <th scope="col">Autor</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let libro of libros">
+        <th>{{libro.Titulo}}</th>
+        <td>{{libro.Autor}}</td>
+        <td>{{libro.ISBN_Code}}</td>
+        <td>{{libro.Precio}}</td>
+        <td><button (click)="eliminar(libro.Titulo)">Eliminar</button></td>
+      </tr>
+    </tbody>
+</table>
