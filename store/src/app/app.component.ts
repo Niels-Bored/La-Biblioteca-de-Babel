@@ -21,9 +21,11 @@ export class AppComponent {
 
   datos : any;
   libros : any[] = [];
+  usuarios : any;
 
   constructor(public firebase:FirebaseService) { 
     this.recuperar();
+    this.consultaDatos();
   }
   insertar(): void {
     this.firebase.insertar(this.titulo,this.autor,this.isbn,this.precio).subscribe((res: any) => {
@@ -35,7 +37,7 @@ export class AppComponent {
   recuperar():void{
     this.firebase.recuperar().subscribe((res: any) => {
       this.libros = res;
-      console.log(this.libros);
+      //console.log(this.libros);
     });
   }  
   eliminar(libro:string){
@@ -50,5 +52,12 @@ export class AppComponent {
       console.log(res);
     });
     alert("Usuario insertado éxitosamente");
+  }
+
+  consultaDatos(){
+    this.firebase.consultaDatos().subscribe((res: any) => {
+      this.usuarios = res;
+      console.log(this.usuarios);
+    });
   }
 }

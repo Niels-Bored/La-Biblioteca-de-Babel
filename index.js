@@ -34,8 +34,7 @@ app.get('/insercionUsuario', (req, res) =>{
         password: req.query.password,
         displayName: req.query.displayName,
         photoURL: req.query.photoUrl,
-        disabled: false,
-        //rol:"admin",
+        rol:"admin",
       })
       .then((userRecord) => {
         // See the UserRecord reference doc for the contents of userRecord.
@@ -50,6 +49,19 @@ app.get('/insercionUsuario', (req, res) =>{
             insercion: "false"
         });
       });
+});
+
+//Recupera Datos de usuario 
+app.get('/datosu',async (req, res) => {
+    at.getUserByEmail('pruebaadmin@gmail.com')
+  .then((userRecord) => {
+    // See the UserRecord reference doc for the contents of userRecord.
+    const user = userRecord.toJSON();
+    res.send(user);
+  })
+  .catch((error) => {
+    console.log('Error fetching user data:', error);
+  });
 });
 
 //Insertar libros
@@ -86,7 +98,7 @@ app.get('/recuperacion', async (req, res) => {
                 );
                 librosArreglo.push(libro);
             });
-            console.log(librosArreglo);
+            //console.log(librosArreglo);
             res.send(librosArreglo);
         }else{
             res.status(404).send('No hay libros por mostrar');
