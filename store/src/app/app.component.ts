@@ -7,5 +7,7 @@ import { FirebaseService } from './services/firebase.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+  constructor(public firebase:FirebaseService) { 
+  }
+  userLogged = this.firebase.getUserLogged();
 }

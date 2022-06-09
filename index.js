@@ -29,7 +29,7 @@ app.get('/insercionUsuario', (req, res) =>{
     console.log(req.query.password);
     at.createUser({
         email: req.query.mail,
-        emailVerified: false,
+        emailVerified: true,
         phoneNumber: "+"+req.query.phone,
         password: req.query.password,
         displayName: req.query.displayName,
