@@ -12,7 +12,8 @@
                 <input type="email" class="form-control m-2" placeholder="example@mail.com" [(ngModel)]="usuario.email" value="">
                 <label style="float: left;">Contraseña</label>
                 <input type="password" class="form-control m-2" placeholder="Contraseña" [(ngModel)]="usuario.password" value="">
-                <button class="btn btn-primary btn-block m-2" (click)="Ingresar()">Ingresar</button> 
+                <button class="btn btn-primary btn-block m-2" (click)="Ingresar()">Ingresar</button>
+                <button class="btn btn-primary btn-block m-2" routerLink="/logincel">Ingresar con Telefono</button>
                 <label>¿No tienes cuenta? <a routerLink="/registro">Registrate</a></label> 
             </ng-template>
         </div>

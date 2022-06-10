@@ -12,6 +12,8 @@ import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { HaceradminComponent } from './haceradmin/haceradmin.component';
+import { LogincelComponent } from './logincel/logincel.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { environment } from 'src/environments/environment';
     InsercionLibrosComponent,
     RegistroComponent,
     LoginComponent,
+    HaceradminComponent,
+    LogincelComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,11 +5,11 @@
   <li class="nav-item" *ngIf="userLogged|async as user">
     <a *ngIf="user.emailVerified" routerLink="/incersionLibros" class="nav-link active">Insercion Libros</a>
   </li>
+  <li class="nav-item" *ngIf="userLogged|async as user">
+    <a *ngIf="user.emailVerified" routerLink="/actusu" class="nav-link active">Crear admin</a>
+  </li>
   <li class="nav-item">
     <a routerLink="/login" class="nav-link active">Login</a>
-  </li>
-  <li class="nav-item" *ngIf="userLogged|async as user">
-    <a *ngIf="user.emailVerified" routerLink="/registro" class="nav-link active">Registrar usuarios</a>
   </li>
   <li class="nav-item" *ngIf="userLogged|async as user">
     <img style="border-radius: 100%" *ngIf="user.photoURL" src="{{user.photoURL}}" 
