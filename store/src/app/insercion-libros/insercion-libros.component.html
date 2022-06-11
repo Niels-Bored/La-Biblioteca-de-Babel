@@ -1,17 +1,22 @@
-<h1>Insercion libros</h1>
-<form>
-    <label>Titulo:</label>
-    <input type="text" [(ngModel)]="titulo">
-    <label>Autor:</label>
-    <input type="text" [(ngModel)]="autor">
-    <label>ISBN</label>
-    <input type="text" [(ngModel)]="isbn">
-    <label>Precio</label>
-    <input type="text" [(ngModel)]="precio">
-    <button (click)="insertar()">Insertar: </button>
-</form>
-
-<table class="table">
+<div class="divImg"></div>
+<div class="divPrin">
+  <div class="div1">
+    <h1>Insercion libros</h1>
+    <div class="Form">
+      <div class="s1">
+        <input type="text" class="in1 " placeholder="Titulo" [(ngModel)]="titulo">
+        <input type="text" class="in2" placeholder="Autor" [(ngModel)]="autor">
+      </div>
+      <div class="s2">
+        <input type="text" class="in1" placeholder="ISBN" [(ngModel)]="isbn">
+        <input type="text" class="in2" placeholder="Precio" [(ngModel)]="precio">
+      </div>
+      <button class="Enter" (click)="insertar()">Insertar: </button>
+    </div>
+  </div>
+ <img src="../../assets/Insercion/Libro.png" alt="">
+  <br><br><br>
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">Titulo</th>
@@ -29,4 +34,5 @@
         <td><button (click)="eliminar(libro.Titulo)">Eliminar</button></td>
       </tr>
     </tbody>
-</table>
+  </table>
+</div>

@@ -1,0 +1,86 @@
+.divImg {
+    background: url(../../assets/Insercion/Fondo3.jpg);
+    width: 100%;
+    height: 664px;
+    background-size: cover;
+    display: flex;
+    position: absolute;
+    filter: blur(30px);
+}
+
+.divPrin {
+    position: relative;
+}
+
+.div1 {
+    background: rgba(255, 255, 255, 40%);
+    width: 40%;
+    height: 220px;
+    margin: 0px 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    border-style: solid;
+    border-color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+.Form {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "s1 s1"
+        "s2 s2"
+        "Enter Enter";
+    text-align: center;
+}
+
+.Form .s1 {
+    grid-area: s1;
+
+}
+
+.in1 {
+    margin-right: 10px;
+}
+
+.Form .s2 {
+    grid-area: s2;
+}
+
+.in2 {
+    margin-left: 10px;
+}
+
+.Form .Enter {
+    grid-area: Enter;
+    width: 60%;
+    margin: 0px auto;
+    border-radius: 10px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: rgba(33, 5, 189, 0.871);
+    color: white;
+}
+
+input {
+    border-radius: 10px;
+    border: solid;
+    border-color: rgba(255, 255, 255, 30%);
+    outline: 0 none;
+}
+
+input:focus{
+    box-shadow: 0px 0px 8px rgba(33, 5, 189, 0.871);
+}
+
+img{
+    width: 200px;
+    position: absolute;
+    left: 800px;
+    top: 10px;
+
+}
