@@ -6,6 +6,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { HaceradminComponent } from './haceradmin/haceradmin.component';
 import { LogincelComponent } from './logincel/logincel.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'registro', component:  RegistroComponent},
   { path: 'actusu', component: HaceradminComponent },
   { path: 'logincel', component: LogincelComponent },
+  { path: 'contacto', component: ContactoComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'inicio' },
 ];
 

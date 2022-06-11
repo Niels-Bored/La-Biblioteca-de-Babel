@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { HaceradminComponent } from './haceradmin/haceradmin.component';
 import { LogincelComponent } from './logincel/logincel.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LogincelComponent } from './logincel/logincel.component';
     LoginComponent,
     HaceradminComponent,
     LogincelComponent,
+    ContactoComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+<h1>¿En qué podemos ayudarte?</h1>
+<form>
+    <label>Nombre:</label>
+    <input type="text" [(ngModel)]="nombre">
+    <label>Apellido:</label>
+    <input type="text" [(ngModel)]="apellido">
+    <textarea cols="30" rows="10" placeholder="Dejanos tu comentario..." [(ngModel)]="mensaje"></textarea>
+    <button (click)="enviarCorreo()">Enviar </button>
+</form>
+

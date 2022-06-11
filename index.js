@@ -2,6 +2,7 @@ const express = require("express"); //importar express
 const bodyParser = require("body-parser");
 const misRutas = require("./routes/rutas");
 const Libro = require("./models/libro");
+var nodemailer = require('nodemailer');
 const cors = require("cors");
 
 //Configuración firebase
@@ -21,6 +22,8 @@ app.use('/', misRutas);
 app.use(cors());
 const at = admin.auth();
 const db = admin.firestore();
+
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 //Insercion usuario
 app.get('/insercionUsuario', (req, res) =>{
@@ -137,6 +140,37 @@ app.get('/eliminacion/:nombre', async (req, res) => {
         res.status(404).send(error.message);
     }
 });
+
+app.get('/enviarCorreo/:mensaje', (req, res) =>{
+    
+    const { mensaje } = req.params;
+
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'l4b1bl10t3c4d3b4b3l@gmail.com',
+          pass: 'dkqhyuvhtmahrsan'
+        }
+      });
+      
+      var mailOptions = {
+        from: 'l4b1bl10t3c4d3b4b3l@gmail.com',
+        to: 'alberto.sanchez966@gmail.com',
+        subject: 'Un usuario te ha contactado!',
+        text:mensaje
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+          res.send(false);
+        } else {
+          console.log('Email sent: ' + info.response);
+          res.send(true);
+        }
+      });
+});
+
 
 app.listen(port, () => {
  console.log(`servidor corriendo en http://localhost:${port}`);
