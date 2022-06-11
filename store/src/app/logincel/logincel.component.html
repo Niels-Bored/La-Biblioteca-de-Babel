@@ -1,7 +1,34 @@
-<label for="">Cel del usuario</label>
+<!-- <label for="">Cel del usuario</label>
 <input type="number">
 <button>Enviar codigo</button>
 Aqui va un captcha
 <label for="">Codigo que llego por telefono</label>
 <input type="number">
-<button>Ingresar</button>
+<button>Ingresar</button> -->
+
+<div [hidden]="user">
+    <h1>Sign In with Your Phone Number</h1>
+  
+    <label for="phone">Phone Number</label><br>
+    <input type="text" [(ngModel)]="telefono"  class="input">
+  
+    <div id="recaptcha-container"></div>
+  
+    <button (click)="sendLoginCode()">SMS Text Login Code</button>
+  
+    <div *ngIf="windowRef.confirmationResult">
+      <hr>
+      <label for="code">Enter your Verification Code Here</label><br>
+      <input type="text" name="code" [(ngModel)]="codigoVerif">
+  
+      <button (click)="verifyLoginCode()">Verify</button>
+    </div>
+  
+  </div>
+  
+  <div *ngIf="user">
+    You have successfully logged in with your phone number!
+  
+    UserId: {{ user?.uid }}
+  
+  </div>

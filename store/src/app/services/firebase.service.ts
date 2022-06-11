@@ -50,4 +50,8 @@ export class FirebaseService {
   logout(){
     this.afauth.signOut();
   }
+
+  get windowRef() {
+    return window
+  }
 }
