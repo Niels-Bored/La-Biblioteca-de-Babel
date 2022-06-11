@@ -4,6 +4,8 @@
     <input type="text" [(ngModel)]="titulo">
     <label>Autor:</label>
     <input type="text" [(ngModel)]="autor">
+    <label>Imagen:</label>
+    <input type="text" [(ngModel)]="imagen">
     <label>ISBN</label>
     <input type="text" [(ngModel)]="isbn">
     <label>Precio</label>
@@ -26,6 +28,7 @@
         <td>{{libro.Autor}}</td>
         <td>{{libro.ISBN_Code}}</td>
         <td>{{libro.Precio}}</td>
+        <td><img [src]="libro.Imagen"></td>
         <td><button (click)="eliminar(libro.Titulo)">Eliminar</button></td>
       </tr>
     </tbody>

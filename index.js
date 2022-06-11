@@ -71,7 +71,8 @@ app.get('/insercion', (req, res) => {
         Titulo: req.query.titulo,
         Autor: req.query.autor,
         ISBN_Code: req.query.isbn,
-        Precio: req.query.precio
+        Precio: req.query.precio,
+        Imagen: req.query.imagen
     };
     db.collection('Libros').doc(req.query.titulo).set(datosLibro).then(()=>{
         console.log("Nuevo libro");
@@ -94,7 +95,8 @@ app.get('/recuperacion', async (req, res) => {
                     doc.data().Titulo,
                     doc.data().Autor,
                     doc.data().ISBN_Code,
-                    doc.data().Precio
+                    doc.data().Precio,
+                    doc.data().Imagen
                 );
                 librosArreglo.push(libro);
             });
