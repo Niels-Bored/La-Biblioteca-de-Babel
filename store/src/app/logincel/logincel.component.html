@@ -7,28 +7,28 @@ Aqui va un captcha
 <button>Ingresar</button> -->
 
 <div [hidden]="user">
-    <h1>Sign In with Your Phone Number</h1>
+    <h1>Ingresa con tu telefono</h1>
   
-    <label for="phone">Phone Number</label><br>
+    <label for="phone">Número de telefono</label><br>
     <input type="text" [(ngModel)]="telefono"  class="input">
   
     <div id="recaptcha-container"></div>
   
-    <button (click)="sendLoginCode()">SMS Text Login Code</button>
+    <button (click)="sendLoginCode()">Enviar Código</button>
   
     <div *ngIf="windowRef.confirmationResult">
       <hr>
-      <label for="code">Enter your Verification Code Here</label><br>
+      <label for="code">Código de verificación</label><br>
       <input type="text" name="code" [(ngModel)]="codigoVerif">
   
-      <button (click)="verifyLoginCode()">Verify</button>
+      <button (click)="verifyLoginCode()">Verificar</button>
     </div>
   
   </div>
   
   <div *ngIf="user">
-    You have successfully logged in with your phone number!
-  
+    Ingresó con éxito
+    <br>
     UserId: {{ user?.uid }}
   
   </div>
