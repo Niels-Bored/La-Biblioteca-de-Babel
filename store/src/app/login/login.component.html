@@ -1,21 +1,26 @@
-<div class="container">
-    <div class="card text-center">
-        <div class="card-header">
-            <b>Login</b>
+<div class="divP"></div>
+<div class="divForm">
+    <div class="div1">
+        <h1 style="text-align: center;">Login</h1><br><br>
+        <div *ngIf="userLogged|async as user; else entrar">
+            <button class="btn btn-info btn-block m2" (click)="logOut()">LogOut</button>
         </div>
-        <div class="card-body p-4">    
-            <div *ngIf="userLogged|async as user; else entrar">
-                <button class="btn btn-info btn-block m2" (click)="logOut()">LogOut</button>
-            </div>     
-            <ng-template #entrar>
+        <ng-template #entrar>
+            <form>
                 <label style="float: left;">Email</label>
-                <input type="email" class="form-control m-2" placeholder="example@mail.com" [(ngModel)]="usuario.email" value="">
+                <input type="email" class="form-control m-2" placeholder="example@mail.com" [(ngModel)]="usuario.email"
+                    value=""><br>
                 <label style="float: left;">Contraseña</label>
-                <input type="password" class="form-control m-2" placeholder="Contraseña" [(ngModel)]="usuario.password" value="">
+                <input type="password" class="form-control m-2" placeholder="Contraseña" [(ngModel)]="usuario.password"
+                    value=""><br>
                 <button class="btn btn-primary btn-block m-2" (click)="Ingresar()">Ingresar</button>
-                <button class="btn btn-primary btn-block m-2" routerLink="/logincel">Ingresar con Telefono</button>
-                <label>¿No tienes cuenta? <a routerLink="/registro">Registrate</a></label> 
-            </ng-template>
-        </div>
+                <button class="btn btn-primary btn-block m-2" routerLink="/logincel">Ingresar con
+                    Telefono</button>
+                <label>¿No tienes cuenta? <a routerLink="/registro">Registrate</a></label>
+            </form>
+        </ng-template>
+    </div>
+    <div class="div2">
+        <img src="../../assets/Login/SubLogo1.png">
     </div>
 </div>

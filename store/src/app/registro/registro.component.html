@@ -1,13 +1,25 @@
-<form>
-    <label>Correo:</label>
-    <input type="text" [(ngModel)]="mail">
-    <label>Numero de Telefono:</label>
-    <input type="text" [(ngModel)]="phone">
-    <label>Contraseña:</label>
-    <input type="text" [(ngModel)]="password">
-    <label>Nombre de Usuario: </label>
-    <input type="text" [(ngModel)]="userName">
-    <label>Foto URL: </label>
-    <input type="text" [(ngModel)]="url">
-    <button (click)="insertarUsuario()">Insertar: </button>
-  </form>
+<div class="p2"></div> <!-- Esta es la imagen -->
+<div class="divP">
+  <div class="divForm">
+    <div class="div1">
+      <h1>REGISTRO</h1>
+      <form class="Form">
+        <label>Correo:</label>
+        <br>
+        <input type="text" class="form-control" placeholder="example@mail.com" [(ngModel)]="mail">
+        <label>Numero de Telefono:</label><br>
+        <input type="text" class="form-control" placeholder="XXX-XXX-XX-XX" [(ngModel)]="phone">
+        <label>Contraseña:</label><br>
+        <input type="text" class="form-control" placeholder="password" [(ngModel)]="password">
+        <label>Nombre de Usuario: </label><br>
+        <input type="text" class="form-control" placeholder="Name" [(ngModel)]="userName">
+        <label>Foto URL: </label><br>
+        <input type="text" class="form-control" [(ngModel)]="url"><br><!--   cambiar tipo de input  -->
+        <button class="btn btn-primary btn-block" (click)="insertarUsuario()">Registrar</button>
+      </form>
+    </div>
+    <div class="div2">
+      <img src="../../assets/Login/SubLogo2.png" class="imgTipe">
+    </div>
+  </div>
+</div>

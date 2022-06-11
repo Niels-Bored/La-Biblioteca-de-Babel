@@ -8,22 +8,22 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class LoginComponent implements OnInit {
   userLogged = this.firebase.getUserLogged();
-  usuario={
+  usuario = {
     email: '',
     password: ''
   }
-  constructor(public firebase:FirebaseService) { 
+  constructor(public firebase: FirebaseService) {
   }
-  
-  Ingresar(){
+
+  Ingresar() {
     console.log(this.usuario);
     const { email, password } = this.usuario;
-    this.firebase.login(email,password).then(res =>{
+    this.firebase.login(email, password).then(res => {
       console.log("Ingreso ", res);
     });
   }
 
-  logOut(){
+  logOut() {
     this.firebase.logout();
   }
   ngOnInit(): void {
