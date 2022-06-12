@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class RegistroComponent implements OnInit {
   url:string="";
   usuarios : any;
 
-  constructor(public firebase:FirebaseService) { 
+  constructor(public firebase:FirebaseService, private router:Router) { 
     this.consultaDatos();
   }
 
@@ -24,6 +25,7 @@ export class RegistroComponent implements OnInit {
       console.log(res);
     });
     alert("Usuario insertado éxitosamente");
+    this.router.navigate(['inicio']);
   }
 
   consultaDatos(){

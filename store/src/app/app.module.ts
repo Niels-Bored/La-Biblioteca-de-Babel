@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { HaceradminComponent } from './haceradmin/haceradmin.component';
 import { LogincelComponent } from './logincel/logincel.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { FormatoTelPipe } from './formato-tel.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ContactoComponent } from './contacto/contacto.component';
     HaceradminComponent,
     LogincelComponent,
     ContactoComponent,
+    FormatoTelPipe,
   ],
   imports: [
     BrowserModule,

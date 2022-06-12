@@ -17,7 +17,7 @@
   <li class="nav-item" *ngIf="userLogged|async as user">
     <img style="border-radius: 100%" *ngIf="user.photoURL" src="{{user.photoURL}}" 
       alt="" width="30" height="30" class="d-inline-block alignt-top">
-    {{user.displayName}}
+    {{user.displayName | uppercase}}
   </li>
 </ul>
 

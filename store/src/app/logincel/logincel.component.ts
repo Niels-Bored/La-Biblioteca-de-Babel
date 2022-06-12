@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as firebase from '@firebase/app-compat';
 import { FirebaseService } from '../services/firebase.service';
 
@@ -14,7 +15,7 @@ export class LogincelComponent implements OnInit {
   codigoVerif: string = "";
   user: any;
 
-  constructor(private win: FirebaseService) { }
+  constructor(private win: FirebaseService, private router:Router) { }
 
   ngOnInit(): void {
     this.windowRef = this.win.windowRef;
@@ -39,5 +40,6 @@ export class LogincelComponent implements OnInit {
                     this.user = result.user;
     })
     .catch( (error: any) => console.log(error, "Incorrect code entered?"));
+    this.router.navigate(['inicio']);
   }
 }
