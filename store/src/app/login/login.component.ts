@@ -8,10 +8,13 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class LoginComponent implements OnInit {
   userLogged = this.firebase.getUserLogged();
+
+  id:any = "";
   usuario={
     email: '',
     password: ''
   }
+
   constructor(public firebase:FirebaseService) { 
   }
   
@@ -19,7 +22,14 @@ export class LoginComponent implements OnInit {
     console.log(this.usuario);
     const { email, password } = this.usuario;
     this.firebase.login(email,password).then(res =>{
-      console.log("Ingreso ", res);
+      console.log("Ingreso: ", res);
+      this.id = res?.user?.uid;
+    });
+    //Se necesita una forma de encontrar el id del usuario, la de arriba no funciona, pues el valor no sale del método
+    console.log("El id es: "+this.id);
+
+    this.firebase.datosAccesibilidad(this.id).subscribe((res: any) => {
+      console.log(res);
     });
   }
 

@@ -2,6 +2,7 @@ const express = require("express"); //importar express
 const bodyParser = require("body-parser");
 const misRutas = require("./routes/rutas");
 const Libro = require("./models/libro");
+const Datos = require("./models/datos");
 var nodemailer = require('nodemailer');
 const cors = require("cors");
 
@@ -184,6 +185,44 @@ app.get('/enviarCorreo/:mensaje', (req, res) =>{
       });
 });
 
+//Recuperar datos de accesibilidad
+app.get('/recuperacionAccesibilidad/:userID', async (req, res) => {    
+  try{
+    const { userID } = req.params;
+
+    const datos = await db.collection('Usuarios').doc(userID).get();
+
+    
+    if (!datos.exists) {
+        res.status(404).send('No se encontraron los datos');
+    } else {
+        res.send(datos.data());
+    }
+  } catch(error){
+      console.log("llegue aquí");
+      res.status(404).send(error.message);
+  }
+});
+
+app.get('/cambiarAccesibilidad', async (req, res) => {    
+  try{
+
+    const configuracion = {
+        letra: req.query.letra,
+        fondo: req.query.fondo
+    };
+
+    db.collection('Usuarios').doc(req.query.userID).set(configuracion).then(()=>{
+      console.log("Cambios efectuados");
+    })
+
+  } catch(error){
+      res.status(404).send(error.message);
+  }
+});
+/*
+        
+*/
 
 app.listen(port, () => {
  console.log(`servidor corriendo en http://localhost:${port}`);

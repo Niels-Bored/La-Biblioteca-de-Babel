@@ -38,6 +38,14 @@ export class FirebaseService {
     return this.httpClient.get(`http://localhost:3000/datosu`);
   }
 
+  datosAccesibilidad(userID:string){
+    return this.httpClient.get(`http://localhost:3000/recuperacionAccesibilidad/${userID}`);
+  }
+
+  cambiarDatosAccesibilidad(userID:string, letra:string, fondo:string){
+    return this.httpClient.get(`http://localhost:3000/cambiarAccesibilidad/?userID=${userID}&letra=${letra}&fondo=${fondo}`);
+  }
+
   async login(email: string, password: string){
     try {
       return await this.afauth.signInWithEmailAndPassword(email, password);
