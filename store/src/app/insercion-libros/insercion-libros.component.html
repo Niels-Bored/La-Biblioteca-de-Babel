@@ -14,25 +14,18 @@
       <button class="Enter" (click)="insertar()">Insertar: </button>
     </div>
   </div>
- <img src="../../assets/Insercion/Libro.png" alt="">
+  <img src="../../assets/Insercion/Libro.png" alt="">
   <br><br><br>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Titulo</th>
-        <th scope="col">Autor</th>
-        <th scope="col">ISBN</th>
-        <th scope="col">Precio</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let libro of libros">
-        <th>{{libro.Titulo}}</th>
-        <td>{{libro.Autor}}</td>
-        <td>{{libro.ISBN_Code}}</td>
-        <td>{{libro.Precio}}</td>
-        <td><button (click)="eliminar(libro.Titulo)">Eliminar</button></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <div class="card-group">
+    <div *ngFor="let libro of libros" class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{libro.Titulo}}</h5>
+        <p class="card-text">{{libro.Autor}}</p>
+        <p class="card-text">{{libro.ISBN_Code}}</p>
+        <p class="card-text">$ {{libro.Precio}}</p>
+        <button (click)="eliminar(libro.Titulo)">Eliminar</button>
+      </div>
+    </div>
+  </div>
 </div>
