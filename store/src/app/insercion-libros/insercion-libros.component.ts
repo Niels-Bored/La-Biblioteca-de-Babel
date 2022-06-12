@@ -13,6 +13,7 @@ export class InsercionLibrosComponent implements OnInit {
   titulo:string="";
   autor:string="";
   isbn:string="";
+  sinopsis:string="";
   precio:number=0;
   imagen:string="";
   
@@ -27,7 +28,7 @@ export class InsercionLibrosComponent implements OnInit {
   }
 
   insertar(): void {
-    this.firebase.insertar(this.titulo,this.autor,this.isbn,this.precio,this.imagen).subscribe((res: any) => {
+    this.firebase.insertar(this.titulo,this.autor,this.isbn,this.sinopsis,this.precio,this.imagen).subscribe((res: any) => {
       console.log(res);
     });
     alert("Libro insertado éxitosamente");
@@ -36,7 +37,7 @@ export class InsercionLibrosComponent implements OnInit {
   recuperar():void{
     this.firebase.recuperar().subscribe((res: any) => {
       this.libros = res;
-      //console.log(this.libros);
+      console.log(this.libros);
     });
   }  
   eliminar(libro:string){

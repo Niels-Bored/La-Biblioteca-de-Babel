@@ -8,9 +8,11 @@
     <input type="text" [(ngModel)]="imagen">
     <label>ISBN</label>
     <input type="text" [(ngModel)]="isbn">
+    <label>Sinopsis</label>
+    <input type="text" [(ngModel)]="sinopsis">
     <label>Precio</label>
     <input type="text" [(ngModel)]="precio">
-    <button (click)="insertar()">Insertar: </button>
+    <button (click)="insertar()">Insertar </button>
 </form>
 
 <table class="table">
@@ -19,6 +21,8 @@
         <th scope="col">Titulo</th>
         <th scope="col">Autor</th>
         <th scope="col">ISBN</th>
+        <th scope="col">Sinopsis</th>
+        <th scope="col">Imagen</th>
         <th scope="col">Precio</th>
       </tr>
     </thead>
@@ -27,8 +31,9 @@
         <th>{{libro.Titulo}}</th>
         <td>{{libro.Autor}}</td>
         <td>{{libro.ISBN_Code}}</td>
-        <td>{{libro.Precio}}</td>
+        <td>{{libro.Sinopsis}}</td>
         <td><img [src]="libro.Imagen"></td>
+        <td>{{libro.Precio}}</td>
         <td><button (click)="eliminar(libro.Titulo)">Eliminar</button></td>
       </tr>
     </tbody>

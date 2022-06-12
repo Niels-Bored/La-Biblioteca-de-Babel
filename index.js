@@ -42,9 +42,20 @@ app.get('/insercionUsuario', (req, res) =>{
       .then((userRecord) => {
         // See the UserRecord reference doc for the contents of userRecord.
         console.log('Successfully created new user:', userRecord.uid);
+
+        const configuracion = {
+            letra: 20,
+            fondo: 'Normal'
+        };
+
+        db.collection('Usuarios').doc(userRecord.uid).set(configuracion).then(()=>{
+          console.log("Nuevo libro");
+        })
+
         res.send({
             insercion: "true"
         });
+
       })
       .catch((error) => {
         console.log('Error creating new user:', error);
@@ -74,6 +85,7 @@ app.get('/insercion', (req, res) => {
         Titulo: req.query.titulo,
         Autor: req.query.autor,
         ISBN_Code: req.query.isbn,
+        Sinopsis: req.query.sinopsis,
         Precio: req.query.precio,
         Imagen: req.query.imagen
     };
@@ -98,6 +110,7 @@ app.get('/recuperacion', async (req, res) => {
                     doc.data().Titulo,
                     doc.data().Autor,
                     doc.data().ISBN_Code,
+                    doc.data().Sinopsis,
                     doc.data().Precio,
                     doc.data().Imagen
                 );
