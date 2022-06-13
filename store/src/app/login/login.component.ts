@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
   }
   constructor(public firebase:FirebaseService, private router:Router) { 
   }
-  
-  Ingresar(){
+
+  Ingresar() {
     console.log(this.usuario);
     const { email, password } = this.usuario;
     this.firebase.login(email,password).then(res =>{
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     
   }
 
-  logOut(){
+  logOut() {
     this.firebase.logout();
     this.router.navigate(['inicio']);
   }

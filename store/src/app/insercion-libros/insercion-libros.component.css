@@ -1,0 +1,198 @@
+.divImg {
+    background: url(../../assets/Insercion/Fondo3.jpg);
+    width: 100%;
+    height: 664px;
+    background-size: cover;
+    display: flex;
+    position: absolute;
+    filter: blur(30px);
+}
+
+.divPrin {
+    position: relative;
+}
+
+.div1 {
+    background: rgba(255, 255, 255, 40%);
+    width: 50%;
+    margin: 0px 38px;
+    border-radius: 15px;
+    margin-top: 40px;
+    border-style: solid;
+    border-color: white;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "sub1 sub1 sub2";
+    height: 270px;
+}
+
+.div1 .sub1 {
+    grid-area: sub1;
+}
+
+.div1 .sub2 {
+    grid-area: sub2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.Form {
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "s1 s2";
+}
+
+.Form .s1 {
+    grid-area: s1;
+}
+
+.Form .s2 {
+    grid-area: s2;
+}
+
+input {
+    margin-bottom: 8px;
+}
+
+.Form .Enter {
+    width: 60%;
+    margin: 0px auto;
+    border-radius: 10px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: rgba(33, 5, 189, 0.871);
+    color: white;
+}
+
+input {
+    border-radius: 10px;
+    border: solid;
+    border-color: rgba(255, 255, 255, 30%);
+    outline: 0 none;
+}
+
+input:focus {
+    box-shadow: 0px 0px 8px rgba(33, 5, 189, 0.871);
+}
+
+img {
+    width: 80%;
+}
+
+.Enter {
+    width: 60%;
+    margin: 0px auto;
+    border-radius: 10px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: rgba(33, 5, 189, 0.871);
+    color: white;
+}
+
+.divCards {
+    width: 95%;
+    background: rgba(255, 255, 255, 40%);
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+    margin: auto;
+}
+
+.card-columns {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.card {
+    border: 4px solid;
+    border-color: rgba(228, 32, 218, 0.445);
+    border-radius: 15px;
+}
+
+.Eliminar {
+    width: 60%;
+    margin: auto;
+    border-radius: 10px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: yellow;
+    color: black;
+    border: solid black;
+}
+
+@media (min-width: 576px) {
+    .card-columns {
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-columns {
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-columns {
+        -webkit-column-count: 5;
+        column-count: 5;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .div1 {
+        grid-template-columns: 1fr;
+        grid-template-areas: "sub1";
+        margin: auto;
+        margin-top: 40px;
+    }
+
+    .sub2 {
+        display: none;
+    }
+
+    img {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .div1 {
+        margin: auto;
+        margin-top: 40px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .div1 {
+        margin: auto;
+        width: 90%;
+    }
+
+    .Form {
+        grid-template-columns: 1fr;
+        grid-template-areas: "sub1";
+    }
+}
