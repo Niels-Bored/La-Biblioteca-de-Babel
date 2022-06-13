@@ -22,22 +22,22 @@
 .formm {
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: 2fr  1fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-areas: "s1 s2";
     width: 100%;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 
 
-.formm .s1{
+.formm .s1 {
     grid-area: s1;
     width: 100%;
 }
 
-.formm .s2{
+.formm .s2 {
     width: 100%;
     grid-area: s2;
     background: white;
@@ -47,24 +47,23 @@ h1{
     justify-content: center;
 }
 
-.ss1{
-    
-    width: 50%;
+.ss1 {
+    width: 80%;
     height: 150px;
     margin: auto;
 }
 
-.ss2{
-    width: 50%;
+.ss2 {
+    width: 80%;
     height: 150px;
     margin: auto;
 }
 
-label{
+label {
     margin-left: 5px;
 }
 
-input{
+input {
     border-radius: 10px;
     border-color: white;
     outline: none;
@@ -73,11 +72,11 @@ input{
     width: 100%;
 }
 
-input:focus{
+input:focus {
     box-shadow: 0px 0px 5px blue;
 }
 
-button{
+button {
     width: 100%;
     border: none;
     outline: none;
@@ -87,6 +86,31 @@ button{
     height: 35px;
 }
 
-img{
-    width: 300px;
+img {
+    width: 80%;
+}
+
+@media only screen and (max-width: 830px) {
+    .ss1 {
+        width: 80%;
+    }
+
+    .ss2 {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    .formm {
+        grid-template-columns: 1fr;
+        grid-template-areas: "s1";
+    }
+
+    .s2 {
+        display: none;
+    }
+
+    img {
+        display: none;
+    }
 }

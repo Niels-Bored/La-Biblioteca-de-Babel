@@ -1,31 +1,41 @@
 <div class="divImg"></div>
 <div class="divPrin">
   <div class="div1">
-    <h1>Insercion libros</h1>
-    <div class="Form">
-      <div class="s1">
-        <input type="text" class="in1 " placeholder="Titulo" [(ngModel)]="titulo">
-        <input type="text" class="in2" placeholder="Autor" [(ngModel)]="autor">
+    <div class="sub1">
+      <h1>Insercion libros</h1>
+      <div class="Form">
+        <div class="s1">
+          <input type="text" class="in1 " placeholder="Titulo" [(ngModel)]="titulo"><br>
+          <input type="text" class="in1" placeholder="ISBN" [(ngModel)]="isbn"><br>
+        </div>
+        <div class="s2">
+          <input type="text" class="in2" placeholder="Autor" [(ngModel)]="autor">
+          <input type="text" class="in2" placeholder="Precio" [(ngModel)]="precio">
+        </div>
+        <button class="Enter" (click)="insertar()">Insertar: </button>
       </div>
-      <div class="s2">
-        <input type="text" class="in1" placeholder="ISBN" [(ngModel)]="isbn">
-        <input type="text" class="in2" placeholder="Precio" [(ngModel)]="precio">
-      </div>
-      <button class="Enter" (click)="insertar()">Insertar: </button>
     </div>
+    <div class="sub2">
+      <img src="../../assets/Insercion/Libro.png" alt="">
+    </div>
+
   </div>
-  <img src="../../assets/Insercion/Libro.png" alt="">
   <br><br><br>
 
-  <div class="card-group">
-    <div *ngFor="let libro of libros" class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{libro.Titulo}}</h5>
-        <p class="card-text">{{libro.Autor}}</p>
-        <p class="card-text">{{libro.ISBN_Code}}</p>
-        <p class="card-text">$ {{libro.Precio}}</p>
-        <button (click)="eliminar(libro.Titulo)">Eliminar</button>
+  <div class="divCards">
+    <div class="card-columns">
+      <div *ngFor="let libro of libros" class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{libro.Titulo}}</h5>
+          <p class="card-text">{{libro.Autor}}</p>
+          <p class="card-text">{{libro.ISBN_Code}}</p>
+          <p class="card-text">$ {{libro.Precio}}</p>
+          <button class="Eliminar" (click)="eliminar(libro.Titulo)">Eliminar</button>
+        </div>
       </div>
+      <!-- --------------------- -->
+
+      <!-- ------------------------- -->
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-.divP{
+.divP {
     background: url("../../assets/Login/Fondo3.jpeg");
     width: 100%;
     height: 564px;
@@ -8,12 +8,12 @@
     filter: blur(40px);
 }
 
-.divForm{
+.divForm {
     height: 500px;
     width: 80%;
     height: 450px;
     margin: 0px auto;
-    background: rgba(255,255,255,40%);
+    background: rgba(255, 255, 255, 40%);
     position: relative;
     margin-top: 40px;
     display: grid;
@@ -25,37 +25,64 @@
     border-color: white;
 }
 
-.divForm .div1{
+.divForm .div1 {
     grid-area: div1;
     height: 100%;
-    width: 100%;
+    width: 80%;
     border-radius: 15px;
-    width: 45%;
     text-align: center;
     margin: 0px auto;
 }
 
-.divForm .div2{
+.divForm .div2 {
     grid-area: div2;
     background: white;
-    height: 100%;
     width: 100%;
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 445px;
 }
 
-input{
+input {
     border-radius: 50px;
     border-color: white;
 }
 
-button{
+button {
     border-radius: 20px;
 }
 
-img{
-    width: 350px;
-    
+img {
+    width: 30vw;
+}
+
+form {
+
+    margin-top: -40px;
+}
+
+@media only screen and (max-width: 630px) {
+    button {
+        width: 100%;
+    }
+
+    .divForm {
+        grid-template-columns: 1fr;
+        grid-template-areas: "div1";
+    }
+
+    .div1{
+        width: 90%;
+        margin: 0px auto;
+    }
+
+    .div2 {
+        display: none;
+    }
+
+    img {
+        display: none;
+    }
 }
