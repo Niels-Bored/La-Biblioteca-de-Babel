@@ -31,7 +31,9 @@
         <th>{{libro.Titulo}}</th>
         <td>{{libro.Autor}}</td>
         <td>{{libro.ISBN_Code}}</td>
-        <td>{{libro.Sinopsis}}</td>
+        <td>
+          <qrcode [qrdata]="libro.Sinopsis" [width]="256" [errorCorrectionLevel]="'L'"></qrcode>
+        </td>
         <td><img [src]="libro.Imagen"></td>
         <td>{{libro.Precio}}</td>
         <td><button (click)="eliminar(libro.Titulo)">Eliminar</button></td>

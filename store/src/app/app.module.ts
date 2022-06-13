@@ -16,6 +16,7 @@ import { HaceradminComponent } from './haceradmin/haceradmin.component';
 import { LogincelComponent } from './logincel/logincel.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { FormatoTelPipe } from './formato-tel.pipe';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FormatoTelPipe } from './formato-tel.pipe';
     HttpClientModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    QRCodeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
