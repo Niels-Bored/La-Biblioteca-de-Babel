@@ -1,0 +1,35 @@
+.contenedor-libros{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+.libro{
+    width: 300px;
+    height: 550px;
+    border: 1px solid black;
+    box-shadow: 0px 0px 10px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+.libro img{
+    width: 80%;
+}
+
+.boton{
+    width: 80%;
+    height: 40px;
+}
+
+.boton:hover{
+    cursor: pointer;
+}
+

@@ -20,6 +20,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { VistaLComponent } from './vista-l/vista-l.component';
 import { ActualizarLibrosComponent } from './actualizar-libros/actualizar-libros.component';
+import { LibroQRComponent } from './libro-qr/libro-qr.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ActualizarLibrosComponent } from './actualizar-libros/actualizar-libros
     AyudaComponent,
     VistaLComponent,
     ActualizarLibrosComponent,
+    LibroQRComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,8 @@
-<p>vista-l works!</p>
+<div class="contenedor-libros">
+    <div class="libro" *ngFor="let libro of libros">
+        <img src="{{libro.Imagen}}">
+        <p>{{libro.Titulo}}</p>
+        <p>{{libro.Autor}}</p>
+        <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+    </div>
+</div>
