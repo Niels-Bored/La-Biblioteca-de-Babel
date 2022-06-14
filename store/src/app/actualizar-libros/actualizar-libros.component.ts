@@ -14,7 +14,7 @@ export class ActualizarLibrosComponent implements OnInit {
   autor:string="";
   genero:string="";
   sinopsis:string="";
-  precio:number=0;
+  url:string="";
   imagen:string="";
 
   constructor(public activatedRoute:ActivatedRoute, public firebase:FirebaseService, public router:Router) { 
@@ -26,7 +26,7 @@ export class ActualizarLibrosComponent implements OnInit {
   ngOnInit(): void {
   }
   actualizar(): void {
-    this.firebase.insertar(this.titulo,this.autor,this.genero,this.sinopsis,this.imagen).subscribe((res: any) => {
+    this.firebase.insertar(this.titulo,this.autor,this.genero,this.sinopsis,this.imagen,this.url).subscribe((res: any) => {
       console.log(res);
     });
     alert("Libro actualizado éxitosamente");

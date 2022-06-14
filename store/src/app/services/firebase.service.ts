@@ -13,8 +13,8 @@ export class FirebaseService {
 
   constructor(public httpClient: HttpClient, private afauth:AngularFireAuth) { }
 
-  insertar(libro:string, autor:string, genero:string, sinopsis:string, imagen:string) {
-    return this.httpClient.get(`http://localhost:3000/insercion/?titulo=${libro}&autor=${autor}&genero=${genero}&sinopsis=${sinopsis}&imagen=${imagen}`);
+  insertar(libro:string, autor:string, genero:string, sinopsis:string, imagen:string, url:string) {
+    return this.httpClient.get(`http://localhost:3000/insercion/?titulo=${libro}&autor=${autor}&genero=${genero}&sinopsis=${sinopsis}&imagen=${imagen}&url=${url}`);
   }
   recuperar(){
     return this.httpClient.get(`http://localhost:3000/recuperacion`);

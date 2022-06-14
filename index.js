@@ -87,7 +87,8 @@ app.get('/insercion', (req, res) => {
         Genero: req.query.genero,
         Sinopsis: req.query.sinopsis,
         Descargas: 0,
-        Imagen: req.query.imagen
+        Imagen: req.query.imagen,
+        url: req.query.url
     };
     db.collection('Libros').doc(req.query.titulo).set(datosLibro).then(()=>{
         console.log("Nuevo libro");
@@ -112,7 +113,8 @@ app.get('/recuperacion', async (req, res) => {
                     doc.data().Genero,
                     doc.data().Sinopsis,
                     doc.data().Descargas,
-                    doc.data().Imagen
+                    doc.data().Imagen,
+                    doc.data().url
                 );
                 librosArreglo.push(libro);
             });
