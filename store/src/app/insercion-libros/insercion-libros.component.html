@@ -6,7 +6,7 @@
       <div class="Form">
         <div class="s1">
           <input type="text" class="in1 " placeholder="Titulo" [(ngModel)]="titulo"><br>
-          <input type="text" class="in1" placeholder="ISBN" [(ngModel)]="isbn"><br>
+          <input type="text" class="in1" placeholder="Genero" [(ngModel)]="genero"><br>
         </div>
         <div class="s2">
           <input type="text" class="in2" placeholder="Autor" [(ngModel)]="autor">
@@ -32,8 +32,8 @@
         <div class="card-body">
           <h5 class="card-title">{{libro.Titulo}}</h5>
           <p class="card-text">{{libro.Autor}}</p>
-          <p class="card-text">{{libro.ISBN_Code}}</p>
-          <p class="card-text">$ {{libro.Precio}}</p>
+          <p class="card-text">{{libro.Genero}}</p>
+          <p class="card-text">{{libro.Descargas}}</p>
 
 
           //Considerar imagenes y sinopsis

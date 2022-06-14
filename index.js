@@ -2,7 +2,6 @@ const express = require("express"); //importar express
 const bodyParser = require("body-parser");
 const misRutas = require("./routes/rutas");
 const Libro = require("./models/libro");
-const Datos = require("./models/datos");
 var nodemailer = require('nodemailer');
 const cors = require("cors");
 
@@ -85,9 +84,9 @@ app.get('/insercion', (req, res) => {
     const datosLibro = {
         Titulo: req.query.titulo,
         Autor: req.query.autor,
-        ISBN_Code: req.query.isbn,
+        Genero: req.query.genero,
         Sinopsis: req.query.sinopsis,
-        Precio: req.query.precio,
+        Descargas: 0,
         Imagen: req.query.imagen
     };
     db.collection('Libros').doc(req.query.titulo).set(datosLibro).then(()=>{
@@ -110,9 +109,9 @@ app.get('/recuperacion', async (req, res) => {
                 const libro = new Libro(
                     doc.data().Titulo,
                     doc.data().Autor,
-                    doc.data().ISBN_Code,
+                    doc.data().Genero,
                     doc.data().Sinopsis,
-                    doc.data().Precio,
+                    doc.data().Descargas,
                     doc.data().Imagen
                 );
                 librosArreglo.push(libro);

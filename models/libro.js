@@ -1,10 +1,10 @@
 class Libro{
-    constructor(Titulo, Autor, ISBN_Code, Sinopsis, Precio, Imagen){
+    constructor(Titulo, Autor, Genero, Sinopsis, Descargas, Imagen){
         this.Titulo = Titulo;
         this.Autor = Autor;
-        this.ISBN_Code = ISBN_Code;
+        this.Genero = Genero;
         this.Sinopsis = Sinopsis;
-        this.Precio = Precio;
+        this.Descargas = Descargas;
         this.Imagen = Imagen;
     }
 }
