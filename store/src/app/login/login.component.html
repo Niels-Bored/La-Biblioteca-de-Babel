@@ -1,31 +1,28 @@
 <div class="divP"></div>
 <div class="divForm">
     <div class="div1">
-        <h1 style="text-align: center;">Login</h1><br><br>
-        <div *ngIf="userLogged|async as user; else entrar">
-            <button class="btn btn-info btn-block m2" (click)="logOut()">LogOut</button>
-        </div>
+        <h1 style="text-align: center;">Login</h1><br><br>  
         <div class="card-body p-4">    
             <div *ngIf="userLogged|async as user; else entrar">
                 <label>Nombre: {{user.displayName}}</label><br>
                 <label>Telefono: {{user.phoneNumber | formatoTel}}</label><br>
                 <label>Email: {{user.email}}</label><br>
                 <button class="btn btn-info btn-block m2" (click)="logOut()">LogOut</button>
-            </div>     
+            </div>    
+            <ng-template #entrar>
+                <form>
+                    <label style="float: left;">Email</label>
+                    <input type="email" class="form-control m-2" placeholder="example@mail.com" [(ngModel)]="usuario.email"
+                        value=""><br>
+                    <label style="float: left;">Contraseña</label>
+                    <input type="password" class="form-control m-2" placeholder="Contraseña" [(ngModel)]="usuario.password"
+                        value=""><br>
+                    <button class="btn btn-primary btn-block m-2" (click)="Ingresar()">Ingresar</button>
+                    <button class="btn btn-primary btn-block m-2" routerLink="/logincel">Ingresar con Telefono</button>
+                    <label>¿No tienes cuenta? <a routerLink="/registro">Registrate</a></label>
+                </form>
+            </ng-template> 
         </div>
-        <ng-template #entrar>
-            <form>
-                <label style="float: left;">Email</label>
-                <input type="email" class="form-control m-2" placeholder="example@mail.com" [(ngModel)]="usuario.email"
-                    value=""><br>
-                <label style="float: left;">Contraseña</label>
-                <input type="password" class="form-control m-2" placeholder="Contraseña" [(ngModel)]="usuario.password"
-                    value=""><br>
-                <button class="btn btn-primary btn-block m-2" (click)="Ingresar()">Ingresar</button>
-                <button class="btn btn-primary btn-block m-2" routerLink="/logincel">Ingresar con Telefono</button>
-                <label>¿No tienes cuenta? <a routerLink="/registro">Registrate</a></label>
-            </form>
-        </ng-template>
     </div>
     <div class="div2">
         <img src="../../assets/Login/SubLogo1.png">
