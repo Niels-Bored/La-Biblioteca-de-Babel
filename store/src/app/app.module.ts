@@ -17,6 +17,8 @@ import { LogincelComponent } from './logincel/logincel.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { FormatoTelPipe } from './formato-tel.pipe';
 import { QRCodeModule } from 'angularx-qrcode';
+import { AyudaComponent } from './ayuda/ayuda.component';
+import { VistaLComponent } from './vista-l/vista-l.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     LogincelComponent,
     ContactoComponent,
     FormatoTelPipe,
+    AyudaComponent,
+    VistaLComponent,
   ],
   imports: [
     BrowserModule,

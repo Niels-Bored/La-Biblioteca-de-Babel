@@ -12,6 +12,7 @@
                 <label>Email: {{user.email}}</label><br>
                 <button class="btn btn-info btn-block m2" (click)="logOut()">LogOut</button>
             </div>     
+        </div>
         <ng-template #entrar>
             <form>
                 <label style="float: left;">Email</label>
@@ -21,8 +22,7 @@
                 <input type="password" class="form-control m-2" placeholder="Contraseña" [(ngModel)]="usuario.password"
                     value=""><br>
                 <button class="btn btn-primary btn-block m-2" (click)="Ingresar()">Ingresar</button>
-                <button class="btn btn-primary btn-block m-2" routerLink="/logincel">Ingresar con
-                    Telefono</button>
+                <button class="btn btn-primary btn-block m-2" routerLink="/logincel">Ingresar con Telefono</button>
                 <label>¿No tienes cuenta? <a routerLink="/registro">Registrate</a></label>
             </form>
         </ng-template>

@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { HaceradminComponent } from './haceradmin/haceradmin.component';
 import { LogincelComponent } from './logincel/logincel.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { AyudaComponent } from './ayuda/ayuda.component';
+import { VistaLComponent } from './vista-l/vista-l.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'actusu', component: HaceradminComponent },
   { path: 'logincel', component: LogincelComponent },
   { path: 'contacto', component: ContactoComponent },
+  { path: 'ayuda', component: AyudaComponent },
+  { path: 'libros', component: VistaLComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'inicio' },
 ];
 

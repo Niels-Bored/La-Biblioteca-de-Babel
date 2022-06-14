@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   }
   constructor(public firebase:FirebaseService, private router:Router) { 
   }
-
   Ingresar() {
     console.log(this.usuario);
     const { email, password } = this.usuario;
@@ -27,11 +26,11 @@ export class LoginComponent implements OnInit {
     });
 
     setTimeout(() => {  
-      //Se necesita una forma de encontrar el id del usuario, la de arriba no funciona, pues el valor no sale del método
       console.log("El id es: "+this.id);
       
       this.firebase.datosAccesibilidad(this.id).subscribe((res: any) => {
-        console.log(res);
+        //Aquí guardan en  Local los datos de la accesibilidad con res
+         //console.log(res);
       });
       this.router.navigate(['inicio']);
     }, 5000);

@@ -8,8 +8,14 @@
   <li class="nav-item" *ngIf="userLogged|async as user">
     <a *ngIf="user.emailVerified" routerLink="/actusu" class="nav-link active">Crear admin</a>
   </li>
+  <li class="nav-item" *ngIf="userLogged|async as user">
+    <a routerLink="/libros" class="nav-link active">Libros</a>
+  </li>
   <li class="nav-item">
     <a routerLink="/contacto" class="nav-link active">Contacto</a>
+  </li>
+  <li class="nav-item">
+    <a routerLink="/ayuda" class="nav-link active">Ayuda</a>
   </li>
   <li class="nav-item">
     <a routerLink="/login" class="nav-link active">Login</a>
@@ -20,6 +26,7 @@
     {{user.displayName | uppercase}}
   </li>
 </ul>
+<!-- <button *ngIf="userLogged|async as user" (click)="cambiarAccesibilidad({{user.uid}})"></button> -->
 
 <router-outlet></router-outlet>
 
