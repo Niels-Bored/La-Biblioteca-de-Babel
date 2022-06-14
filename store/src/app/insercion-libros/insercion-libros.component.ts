@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-insercion-libros',
@@ -21,7 +22,7 @@ export class InsercionLibrosComponent implements OnInit {
   datos : any;
   libros : any[] = [];
 
-  constructor(public firebase:FirebaseService) { 
+  constructor(public firebase:FirebaseService, public router:Router) { 
     this.recuperar();
   }
   ngOnInit(): void {
@@ -39,6 +40,9 @@ export class InsercionLibrosComponent implements OnInit {
       this.libros = res;
       console.log(this.libros);
     });
+  }
+  actualizar(titulo:string){
+    this.router.navigate(['/actualizarLibros',titulo]);
   }  
   eliminar(libro:string){
     this.firebase.eliminarLibro(libro).subscribe((res: any) => {

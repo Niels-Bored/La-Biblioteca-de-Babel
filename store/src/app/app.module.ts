@@ -19,6 +19,7 @@ import { FormatoTelPipe } from './formato-tel.pipe';
 import { QRCodeModule } from 'angularx-qrcode';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { VistaLComponent } from './vista-l/vista-l.component';
+import { ActualizarLibrosComponent } from './actualizar-libros/actualizar-libros.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { VistaLComponent } from './vista-l/vista-l.component';
     FormatoTelPipe,
     AyudaComponent,
     VistaLComponent,
+    ActualizarLibrosComponent,
   ],
   imports: [
     BrowserModule,

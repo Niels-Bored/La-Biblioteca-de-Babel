@@ -1,0 +1,25 @@
+<div class="divPrin">
+    <div class="div1">
+      <div class="sub1">
+        <h1>{{titulo}}</h1>
+        <div class="Form">
+          <div class="s1">
+            <input type="text" class="in1" placeholder="Genero" [(ngModel)]="genero"><br>
+          </div>
+          <div class="s2">
+            <input type="text" class="in2" placeholder="Autor" [(ngModel)]="autor">
+            <input type="text" class="in2" placeholder="Precio" [(ngModel)]="precio">
+          </div>
+          <div>
+            <input type="text" class="" placeholder="Imagen" [(ngModel)]="imagen">
+            <input type="text" class="" placeholder="Sinopsis" [(ngModel)]="sinopsis">
+          </div>
+          <button class="Enter" (click)="actualizar()">actualizar: </button>
+        </div>
+    </div>
+    <div class="sub2">
+        <img src="../../assets/Insercion/Libro.png" alt="">
+    </div>
+  
+</div>
+  

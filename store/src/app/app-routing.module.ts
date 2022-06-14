@@ -8,11 +8,13 @@ import { HaceradminComponent } from './haceradmin/haceradmin.component';
 import { LogincelComponent } from './logincel/logincel.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
+import { ActualizarLibrosComponent } from './actualizar-libros/actualizar-libros.component';
 import { VistaLComponent } from './vista-l/vista-l.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: 'incersionLibros', component: InsercionLibrosComponent },
+  { path: 'actualizarLibros/:titulo', component: ActualizarLibrosComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component:  RegistroComponent},
   { path: 'actusu', component: HaceradminComponent },
