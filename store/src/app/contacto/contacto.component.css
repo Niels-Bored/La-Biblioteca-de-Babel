@@ -1,0 +1,23 @@
+#accesibilidad{
+    position: fixed;
+    bottom: 0;
+}
+
+.Fondo{
+    background: url(../../assets/Insercion/Fondo3.jpg);
+    width: 100%;
+    height: 664px;
+    background-size: cover;
+    display: flex;
+    position: absolute;
+    filter: blur(30px);
+}
+
+.container{
+    position:relative;
+    background: red;
+    width: 100%;
+    height: 400px;
+
+}
+

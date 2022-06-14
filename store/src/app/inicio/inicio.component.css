@@ -1,0 +1,8 @@
+#accesibilidad{
+    position: fixed;
+    bottom: 0;
+}
+.carrusel{
+    margin: auto;
+    width: 90%;
+}

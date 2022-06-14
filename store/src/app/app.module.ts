@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirebaseService } from './services/firebase.service';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InicioComponent } from './inicio/inicio.component';
 import { InsercionLibrosComponent } from './insercion-libros/insercion-libros.component';
 import { RegistroComponent } from './registro/registro.component';
@@ -19,6 +19,9 @@ import { FormatoTelPipe } from './formato-tel.pipe';
 import { QRCodeModule } from 'angularx-qrcode';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { VistaLComponent } from './vista-l/vista-l.component';
+import { NgxSpinnerModule  } from 'ngx-spinner';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations'; 
+import { InterceptorService } from './interceptor.service';
 
 @NgModule({
   declarations: [
@@ -41,8 +44,12 @@ import { VistaLComponent } from './vista-l/vista-l.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     QRCodeModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

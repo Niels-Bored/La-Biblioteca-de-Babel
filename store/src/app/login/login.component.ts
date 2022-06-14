@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
          //console.log(res);
         this.fondo = this.accesibilidad.getFondo(this.id);
         this.tamano = this.accesibilidad.getTamano(this.id);
+        
       });
       this.router.navigate(['inicio']);
     }, 5000);
