@@ -1,69 +1,87 @@
-<h1>Contactanos</h1>
-<h3>Resuelve tus dudas directamente con nosotros.</h3>
-<form [formGroup]="forma" (ngSubmit)="enviarCorreo()" class="needs-validation" novalidate>
-    <div class="container">
-        <!-- aqui empieza div 1 del nombre -->
-        <div class="form-group row has-danger">
-            <label class="col-2 col-form-label">Nombre:</label>
-            <div class="col-8">
-                <input class="form-control"
-                        [ngClass]="{'is-invalid':!forma.get('nombre')?.valid}"
-                        type="text"
-                        placeholder="Nombre"
-                        formControlName="nombre" [(ngModel)]="nombre">
-            
+<h1>ENVÍANOS TUS COMENTARIOS</h1>
+<h3>¡NOS INTERESA MUCHO TU OPINIÓN!</h3>
+<div>
+    <form [formGroup]="forma" (ngSubmit)="enviarCorreo()" class="needs-validation" novalidate>
+        <div class="container">
+            <!-- aqui empieza div 1 del nombre -->
+            <div class="form-group row has-danger">
+                <!-- <label class="col-2 col-form-label">Nombre:</label> -->
+                <div class="col-8">
+                    <input class="form-control"
+                            [ngClass]="{'is-invalid':!forma.get('nombre')?.valid}"
+                            type="text"
+                            placeholder="Nombre"
+                            formControlName="nombre" [(ngModel)]="nombre">
+                
+                    <div *ngIf="forma.controls['nombre'].errors?.['required']" class="invalid-feedback">
+                        El nombre es necesario
+                    </div>
+                    <div *ngIf="forma.controls['nombre'].errors?.['minlength']" class="invalid-feedback">
+                        Por lo menos tres caracteres
+                    </div>
+                </div>
+            </div>
+
+            <!-- aqui empezamos el div 2 del apellido -->
+            <div class="form-group row">
+                <!-- <label class="col-2 col-form-label">Apellido:</label> -->
+                <div>
+                    <input class="form-control"
+                            type="text"
+                            placeholder="Apellido"
+                            formControlName="Apellido" [(ngModel)]="apellido">
+                </div>
                 <div *ngIf="forma.controls['nombre'].errors?.['required']" class="invalid-feedback">
-                    El nombre es necesario
-                </div>
-                <div *ngIf="forma.controls['nombre'].errors?.['minlength']" class="invalid-feedback">
-                    Por lo menos tres caracteres
+                    El Apellido es necesario
                 </div>
             </div>
-        </div>
 
-        <!-- aqui empezamos el div 2 del apellido -->
-        <div class="form-group row">
-            <label class="col-2 col-form-label">Apellido:</label>
-            <div>
-                <input class="form-control"
-                        type="text"
-                        placeholder="Apellido"
-                        formControlName="apellido" [(ngModel)]="apellido">
+            <!-- aqui empieza el div 3 del correo -->
+            <div class="form-group row">
+                <!-- <label class="col-2 col-form-label">Correo</label> -->
+                <div class="col-8">
+                    <input class="form-control"
+                    [ngClass]="{'is-invalid':!forma.get('correo')?.valid}"
+                    type="text"
+                    placeholder="Correo electronico"
+                    formControlName="correo">
+                    <div *ngIf="forma.controls['correo'].errors?.['required']" class="invalid-feedback">
+                    Correo obligatorio
+                    </div>
+                    <div *ngIf="forma.controls['correo'].errors?.['email']" class="invalid-feedback">
+                    El correo no tiene el formato correcto
+                    </div>           
+                </div>
             </div>
-            <div *ngIf="forma.controls['nombre'].errors?.['required']" class="invalid-feedback">
-                El Apellido es necesario
+            <!-- aqui empieza div 4 del mensaje -->
+            <div class="form-group row">
+                <!-- <label class="col-2 col-form-label">Mensaje</label> -->
+                <textarea class="form-control" cols="20" rows="7" placeholder="Mensaje..." formControlName="mensaje" [(ngModel)]="mensaje"></textarea>
             </div>
-        </div>
 
-        <!-- aqui empieza el div 3 del correo -->
-        <div class="form-group row">
-            <label class="col-2 col-form-label">Correo</label>
-              <div class="col-8">
-                <input class="form-control"
-                [ngClass]="{'is-invalid':!forma.get('correo')?.valid}"
-                type="text"
-                placeholder="Correo electronico"
-                formControlName="correo">
+            <!-- aqui empieza div 5 del asunto -->
+            <div class="form-group row">           
+                <input type="radio" id="html" name="asunto" value="Queja" class="form-control"
+                [ngClass]="{'is-invalid':!forma.get('queja')?.valid}" formControlName="queja">
+                <label for="html">Queja</label><br>
+                <input type="radio" id="css" name="asunto" value="Duda" class="form-control"
+                [ngClass]="{'is-invalid':!forma.get('duda')?.valid}" formControlName="duda">
+                <label for="css">Duda</label><br>
+                <input type="radio" id="javascript" name="asunto" value="Negocio" class="form-control"
+                [ngClass]="{'is-invalid':!forma.get('negocio')?.valid}" formControlName="negocio">
+                <label for="javascript">Negocio</label>
+                
                 <div *ngIf="forma.controls['correo'].errors?.['required']" class="invalid-feedback">
-                  Correo obligatorio
+                    Asunto obligatorio
                 </div>
-                <div *ngIf="forma.controls['correo'].errors?.['email']" class="invalid-feedback">
-                  El correo no tiene el formato correcto
-                </div>           
-              </div>
-        </div>
-        <!-- aqui empieza div 4 del mensaje -->
-        <div class="form-group row">
-            <label class="col-2 col-form-label">Mensaje</label>
-            <textarea class="form-control" cols="30" rows="10" placeholder="Dejanos tu comentario..." formControlName="mensaje" [(ngModel)]="mensaje"></textarea>
-        </div>
+            </div>
 
-        <!-- aqui empieza div 5 del boton -->
-        <div class="form-group row">
-            <div class="input-group col-md-8">
-                <button type="submit" (click)="enviarCorreo()" class="btn btn-outline-primary" [disabled]="forma.invalid">Enviar </button>
+            <!-- aqui empieza div 6 del boton -->
+            <div class="form-group row">
+                <div class="input-group col-md-8">
+                    <button type="submit" (click)="enviarCorreo()" class="btn btn-warning" [disabled]="forma.invalid">Enviar </button>
+                </div>
             </div>
         </div>
-    </div>
-</form>
-
+    </form>
+</div>
