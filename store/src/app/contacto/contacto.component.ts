@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contacto',
@@ -7,22 +8,30 @@ import { FirebaseService } from '../services/firebase.service';
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent implements OnInit {
-
+  forma!: FormGroup;
   nombre:string="";
   apellido:string="";
   mensaje:string="";
+  correo:string="";
 
-  constructor(private servicio:FirebaseService) { }
+  constructor(private servicio:FirebaseService) {
+    this.forma = new FormGroup({
+      'nombre': new FormControl(this.nombre,[Validators.required,Validators.minLength(3)] ),
+      'apellido': new FormControl(this.apellido,Validators.required),
+      'correo': new FormControl(this.correo,[Validators.required,Validators.email]),
+      'mensaje': new FormControl(this.mensaje,Validators.required)
+      });
+   }
 
   ngOnInit(): void {
   }
 
   enviarCorreo(){
-    this.servicio.enviarCorreo(this.nombre+" "+this.apellido+" dice: "+this.mensaje).subscribe((res: any) => {
+    this.servicio.enviarCorreo(this.nombre+" "+this.apellido+" dice: "+this.mensaje+"Responder al correo: "+this.correo).subscribe((res: any) => {
       console.log(res);
     });
-
-    alert("Correo enviado éxitosamente");
   }
 
 }
+
+
