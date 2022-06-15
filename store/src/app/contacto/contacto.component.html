@@ -1,49 +1,39 @@
 <div class="Fondo"></div>
 
 <div class="container">
-  <h1>¿En qué podemos ayudarte?</h1>
-  <form>
-    <label>Nombre:</label>
-    <input type="text" [(ngModel)]="nombre" />
-    <label>Apellido:</label>
-    <input type="text" [(ngModel)]="apellido" />
-    <textarea
-      cols="30"
-      rows="10"
-      placeholder="Dejanos tu comentario..."
-      [(ngModel)]="mensaje"
-    ></textarea>
-    <button (click)="enviarCorreo()">Enviar</button>
-  </form>
+  <div class="a1">
+    <div class="s1">
+      <h1>¿En qué podemos ayudarte?</h1>
+      <form>
+        <div class="input-group">
+          <input type="text" [(ngModel)]="nombre" placeholder=" " /><br>
+          <label>Nombre:</label><br>
+        </div>
+
+        <label>Apellido:</label><br>
+        <input type="text" [(ngModel)]="apellido" /><br>
+        <textarea cols="30" rows="10" placeholder="Dejanos tu comentario..." [(ngModel)]="mensaje"></textarea><br>
+        <button (click)="enviarCorreo()">Enviar</button>
+      </form>
+    </div>
+    <div class="s2">
+      <img src="../../assets/Contacto/Contacto.png">
+    </div>
+  </div>
+
+
 </div>
 
-<button
-  type="button"
-  class="btn"
-  data-toggle="modal"
-  data-target="#exampleModal"
-  id="accesibilidad"
->
+<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad">
   <img src="../../assets/Accesibilidad/icono_normal.png" alt="" srcset="" />
 </button>
 <!-- Modal -->
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

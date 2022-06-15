@@ -1,9 +1,9 @@
-#accesibilidad{
+#accesibilidad {
     position: fixed;
     bottom: 0;
 }
 
-.Fondo{
+.Fondo {
     background: url(../../assets/Insercion/Fondo3.jpg);
     width: 100%;
     height: 664px;
@@ -13,11 +13,92 @@
     filter: blur(30px);
 }
 
-.container{
-    position:relative;
+.container {
+    position: relative;
     background: red;
+    width: 90%;
+    height: 500px;
+}
+
+.a1 {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "s1 s1 s2";
+    background: blue;
     width: 100%;
-    height: 400px;
+    height: 100%;
+    margin-left: 0px;
+}
+
+.a1 .s1 {
+    grid-area: s1;
 
 }
 
+.s1>h1{
+    text-align: center;
+}
+
+Form {
+    margin: auto;
+    width: 90%;
+}
+
+.s1>form {
+    background: red;
+    width: 80%;
+}
+
+form>input,label,textarea,button{
+    margin: a;
+    width: 80%;
+}
+
+.a1 .s2 {
+    grid-area: s2;
+    background-color: white;
+    width: 100%;
+    height: 400px;
+}
+
+.s2>img {
+    width: 80%;
+}
+
+/* Animaciones botones */
+.input-group {
+    margin: 25px 0;
+    position: relative;
+}
+
+.input-group input {
+    width: 300px;
+    padding: 15px;
+    background-color: ryba(255, 255, 255, 0.5);
+    color: #111;
+    outline: none;
+    border: none;
+    font-family: "Century Gothic";
+}
+
+label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #111;
+    pointer-events: none;
+    font-family: "Century Gothic";
+}
+
+label span {
+    display: inline-block;
+    transition: transform 0.2s, color 0.3s;
+}
+
+input:focus+label span,
+input:not(:placeholder-shown)+label span {
+    transform: translateY(-38px);
+    color: #fff;
+}
