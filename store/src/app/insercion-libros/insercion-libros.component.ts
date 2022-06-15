@@ -29,7 +29,7 @@ export class InsercionLibrosComponent implements OnInit {
   }
 
   insertar(): void {
-    this.firebase.insertar(this.titulo,this.autor,this.genero,this.sinopsis,this.imagen,this.url).subscribe((res: any) => {
+    this.firebase.insertar(this.titulo,this.autor,this.genero,this.sinopsis,this.imagen,this.url, 0).subscribe((res: any) => {
       console.log(res);
     });
     alert("Libro insertado éxitosamente");

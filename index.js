@@ -86,7 +86,7 @@ app.get('/insercion', (req, res) => {
         Autor: req.query.autor,
         Genero: req.query.genero,
         Sinopsis: req.query.sinopsis,
-        Descargas: 0,
+        Descargas: req.query.descargas,
         Imagen: req.query.imagen,
         url: req.query.url
     };
