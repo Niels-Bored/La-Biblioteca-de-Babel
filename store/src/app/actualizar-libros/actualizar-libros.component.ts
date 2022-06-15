@@ -16,16 +16,36 @@ export class ActualizarLibrosComponent implements OnInit {
   sinopsis:string="";
   url:string="";
   imagen:string="";
+  libro:any;
 
   constructor(public activatedRoute:ActivatedRoute, public firebase:FirebaseService, public router:Router) { 
     this.activatedRoute.params.subscribe(params=>{
       this.titulo = params['titulo'];
+      this.libro = this.firebase.recuperarLibro(this.titulo).subscribe((res: any) => {
+        this.libro = res;
+        console.log(this.libro);
+      });
     })
   }
 
   ngOnInit(): void {
   }
   actualizar(): void {
+    if (this.autor == "") 
+      this.autor = this.libro['Autor'];
+
+    if (this.genero == "") 
+      this.genero = this.libro['Genero'];
+    
+    if (this.sinopsis == "") 
+      this.sinopsis = this.libro['Sinopsis'];
+    
+    if (this.url == "") 
+      this.url = this.libro['url'];
+    
+    if (this.imagen == "") 
+      this.imagen = this.libro['Genero'];
+    
     this.firebase.insertar(this.titulo,this.autor,this.genero,this.sinopsis,this.imagen,this.url).subscribe((res: any) => {
       console.log(res);
     });

@@ -12,7 +12,6 @@ import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
-import { HaceradminComponent } from './haceradmin/haceradmin.component';
 import { LogincelComponent } from './logincel/logincel.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { FormatoTelPipe } from './formato-tel.pipe';
@@ -29,7 +28,6 @@ import { LibroQRComponent } from './libro-qr/libro-qr.component';
     InsercionLibrosComponent,
     RegistroComponent,
     LoginComponent,
-    HaceradminComponent,
     LogincelComponent,
     ContactoComponent,
     FormatoTelPipe,

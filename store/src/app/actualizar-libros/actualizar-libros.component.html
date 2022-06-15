@@ -1,20 +1,20 @@
 <div class="divPrin">
     <div class="div1">
       <div class="sub1">
-        <h1>{{titulo}}</h1>
+        <h1>{{libro.Titulo}}</h1>
         <div class="Form">
           <div class="s1">
-            <input type="text" class="in1" placeholder="Genero" [(ngModel)]="genero"><br>
+            <input type="text" class="in1" placeholder="Genero" [(ngModel)]="genero" value="{{libro.Genero}}"><br>
+            <input type="text" class="in1" placeholder="Autor" [(ngModel)]="autor" value="{{libro.Autor}}">
           </div>
           <div class="s2">
-            <input type="text" class="in2" placeholder="Autor" [(ngModel)]="autor">
-            <input type="text" class="in2" placeholder="URL" [(ngModel)]="url">
+            <input type="text" class="in2" placeholder="Imagen" [(ngModel)]="imagen" value="{{libro.Imagen}}">
+            <input type="text" class="" placeholder="Sinopsis" [(ngModel)]="sinopsis" value="{{libro.Sinopsis}}">
           </div>
           <div>
-            <input type="text" class="" placeholder="Imagen" [(ngModel)]="imagen">
-            <input type="text" class="" placeholder="Sinopsis" [(ngModel)]="sinopsis">
+            <input type="text" class="" placeholder="URL" [(ngModel)]="url" value="{{libro.url}}">
           </div>
-          <button class="Enter" (click)="actualizar()">Actualizar </button>
+          <button class="Enter" (click)="actualizar()">Actualizar</button>
         </div>
     </div>
     <div class="sub2">

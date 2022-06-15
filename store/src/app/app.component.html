@@ -6,9 +6,6 @@
     <a *ngIf="user.emailVerified" routerLink="/incersionLibros" class="nav-link active">Insercion Libros</a>
   </li>
   <li class="nav-item" *ngIf="userLogged|async as user">
-    <a *ngIf="user.emailVerified" routerLink="/actusu" class="nav-link active">Crear admin</a>
-  </li>
-  <li class="nav-item" *ngIf="userLogged|async as user">
     <a routerLink="/libros" class="nav-link active">Libros</a>
   </li>
   <li class="nav-item">
