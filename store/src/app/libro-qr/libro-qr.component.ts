@@ -13,7 +13,7 @@ export class LibroQRComponent implements OnInit {
   autor:string="";
   genero:string="";
   sinopsis:string="";
-  url:string="";
+  url:string="Gracias por esperar";
   imagen:string="";
   descargas:number = 0;
   libro:any;
@@ -25,28 +25,24 @@ export class LibroQRComponent implements OnInit {
         this.libro = res;
       });
     });
-    this.actualizar();
+    setTimeout(() => {  
+      this.actualizarDescargas();
+    }, 1000);
+    
   }
 
   ngOnInit(): void {
   }
-  actualizar(): void {
-    if (this.autor == "") 
-      this.autor = this.libro['Autor'];
+  actualizarDescargas(): void {
+    this.autor = this.libro['Autor'];
+    this.genero = this.libro['Genero'];
+    this.sinopsis = this.libro['Sinopsis'];
+    this.url = this.libro['url'];
+    this.imagen = this.libro['Imagen'];
+    this.descargas = parseInt(this.libro['Descargas']) + 1;
 
-    if (this.genero == "") 
-      this.genero = this.libro['Genero'];
-    
-    if (this.sinopsis == "") 
-      this.sinopsis = this.libro['Sinopsis'];
-    
-    if (this.url == "") 
-      this.url = this.libro['url'];
-    
-    if (this.imagen == "") 
-      this.imagen = this.libro['Genero'];
-    this.descargas = this.libro['Descargas'] + 1;
     this.firebase.insertar(this.titulo,this.libro['Autor'],this.genero,this.sinopsis,this.imagen,this.url, this.descargas).subscribe((res: any) => {
+      console.log(res);
     });
   }
 

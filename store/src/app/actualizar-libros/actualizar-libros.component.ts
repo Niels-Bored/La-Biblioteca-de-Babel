@@ -44,7 +44,7 @@ export class ActualizarLibrosComponent implements OnInit {
       this.url = this.libro['url'];
     
     if (this.imagen == "") 
-      this.imagen = this.libro['Genero'];
+      this.imagen = this.libro['Imagen'];
     
     this.firebase.insertar(this.titulo,this.autor,this.genero,this.sinopsis,this.imagen,this.url, this.libro['Descargas']).subscribe((res: any) => {
       console.log(res);
