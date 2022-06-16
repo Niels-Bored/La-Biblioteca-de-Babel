@@ -10,12 +10,14 @@ import { Router } from '@angular/router';
 export class VistaLComponent implements OnInit {
   
   libros : any[] = [];
+  opcion : string = "";
 
   constructor(public firebase:FirebaseService, public router:Router) { 
     this.firebase.recuperar().subscribe((res: any) => {
       this.libros = res;
       console.log(this.libros);
     });
+    this.opcion="All";
   }
 
   ngOnInit(): void {
@@ -29,4 +31,8 @@ export class VistaLComponent implements OnInit {
     this.router.navigate(["/libro", titulo]);
   }
 
+  cambioOpcion(filtro:string){
+    this.opcion = filtro;
+    alert(this.opcion);
+  }
 }

@@ -1,7 +1,7 @@
 <div class="elementos">
     <input type="text" class="buscador" #busqueda (keyup.enter)="buscarLibro(busqueda.value)">
     <button class="elemento" (click)="buscarLibro(busqueda.value)">Buscar</button>
-    <select class="elemento">
+    <select #filtro class="elemento" (change)="cambioOpcion(filtro.value)">
         <option>All</option>
         <option>Dark Humor</option>
         <option>Fantasy</option>
@@ -11,11 +11,75 @@
         <option>Thriller</option>
     </select>
 </div>
-<div class="contenedor-libros">
-    <div class="libro" *ngFor="let libro of libros">
-        <img src="{{libro.Imagen}}">
-        <p>{{libro.Titulo}}</p>
-        <p>{{libro.Autor}}</p>
-        <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+<div>
+    <div [ngSwitch]="opcion">
+        <div class="contenedor-libros" *ngSwitchCase="'All'">
+            <div class="libro" *ngFor="let libro of libros">
+                <img src="{{libro.Imagen}}">
+                <p>{{libro.Titulo}}</p>
+                <p>{{libro.Autor}}</p>
+                <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+            </div>    
+        </div>
+        <div class="contenedor-libros" *ngSwitchCase="'Dark Humor'">
+            <div *ngFor="let libro of libros">
+                <div class="libro" *ngIf="libro.Genero == 'Dark Humor'">
+                    <img src="{{libro.Imagen}}">
+                    <p>{{libro.Titulo}}</p>
+                    <p>{{libro.Autor}}</p>
+                    <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                </div>
+            </div>    
+        </div>
+        <div class="contenedor-libros" *ngSwitchCase="'Fantasy'">
+            <div *ngFor="let libro of libros">
+                <div class="libro" *ngIf="libro.Genero == 'Fantasy'">
+                    <img src="{{libro.Imagen}}">
+                    <p>{{libro.Titulo}}</p>
+                    <p>{{libro.Autor}}</p>
+                    <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                </div>
+            </div>    
+        </div>
+        <div class="contenedor-libros" *ngSwitchCase="'Romance'">
+            <div *ngFor="let libro of libros">
+                <div class="libro" *ngIf="libro.Genero == 'Romance'">
+                    <img src="{{libro.Imagen}}">
+                    <p>{{libro.Titulo}}</p>
+                    <p>{{libro.Autor}}</p>
+                    <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                </div>
+            </div>    
+        </div>
+        <div class="contenedor-libros" *ngSwitchCase="'Science Fiction'">
+            <div *ngFor="let libro of libros">
+                <div class="libro" *ngIf="libro.Genero == 'Science Fiction'">
+                    <img src="{{libro.Imagen}}">
+                    <p>{{libro.Titulo}}</p>
+                    <p>{{libro.Autor}}</p>
+                    <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                </div>
+            </div>    
+        </div>
+        <div class="contenedor-libros" *ngSwitchCase="'Terror'">
+            <div *ngFor="let libro of libros">
+                <div class="libro" *ngIf="libro.Genero == 'Terror'">
+                    <img src="{{libro.Imagen}}">
+                    <p>{{libro.Titulo}}</p>
+                    <p>{{libro.Autor}}</p>
+                    <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                </div>
+            </div>    
+        </div>
+        <div class="contenedor-libros" *ngSwitchCase="'Thriller'">
+            <div *ngFor="let libro of libros">
+                <div class="libro" *ngIf="libro.Genero == 'Thriller'">
+                    <img src="{{libro.Imagen}}">
+                    <p>{{libro.Titulo}}</p>
+                    <p>{{libro.Autor}}</p>
+                    <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                </div>
+            </div>    
+        </div>
     </div>
 </div>
