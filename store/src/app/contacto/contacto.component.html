@@ -5,7 +5,7 @@
         <div class="container">
             <!-- aqui empieza div 1 del nombre -->
             <div class="form-group row has-danger">
-                <!-- <label class="col-2 col-form-label">Nombre:</label> -->
+                <!-- <label> class="col-2 col-form-label>">Nombre:</label>> -->
                 <div class="col-8">
                     <input class="form-control"
                             [ngClass]="{'is-invalid':!forma.get('nombre')?.valid}"
@@ -24,8 +24,8 @@
 
             <!-- aqui empezamos el div 2 del apellido -->
             <div class="form-group row">
-                <!-- <label class="col-2 col-form-label">Apellido:</label> -->
-                <div>
+                <!-- <label> class="col-2 col-form-label>">Apellido:</label>> -->
+                <div class="col-8">
                     <input class="form-control"
                             type="text"
                             placeholder="Apellido"
@@ -38,7 +38,7 @@
 
             <!-- aqui empieza el div 3 del correo -->
             <div class="form-group row">
-                <!-- <label class="col-2 col-form-label">Correo</label> -->
+                <!-- <label> class="col-2 col-form-label>">Correo</label>> -->
                 <div class="col-8">
                     <input class="form-control"
                     [ngClass]="{'is-invalid':!forma.get('correo')?.valid}"
@@ -53,27 +53,31 @@
                     </div>           
                 </div>
             </div>
-            <!-- aqui empieza div 4 del mensaje -->
-            <div class="form-group row">
-                <!-- <label class="col-2 col-form-label">Mensaje</label> -->
-                <textarea class="form-control" cols="20" rows="7" placeholder="Mensaje..." formControlName="mensaje" [(ngModel)]="mensaje"></textarea>
-            </div>
 
-            <!-- aqui empieza div 5 del asunto -->
-            <div class="form-group row">           
-                <input type="radio" id="html" name="asunto" value="Queja" class="form-control"
-                [ngClass]="{'is-invalid':!forma.get('queja')?.valid}" formControlName="queja">
-                <label for="html">Queja</label><br>
-                <input type="radio" id="css" name="asunto" value="Duda" class="form-control"
-                [ngClass]="{'is-invalid':!forma.get('duda')?.valid}" formControlName="duda">
-                <label for="css">Duda</label><br>
-                <input type="radio" id="javascript" name="asunto" value="Negocio" class="form-control"
-                [ngClass]="{'is-invalid':!forma.get('negocio')?.valid}" formControlName="negocio">
-                <label for="javascript">Negocio</label>
-                
+             <!-- aqui empieza div 5 del asunto -->
+            <div class="contain">
+                <div class=".margencito">
+                    <input type="radio" id="queja" name="asunto" value="Queja">
+                    <label for="queja">Queja</label>
+                </div>
+                <div class=".margencito">
+                    <input type="radio" id="duda" name="asunto" value="Duda">
+                    <label for="duda">Duda</label>                   
+                </div>  
+                <div class=".margencito">
+                    <input type="radio" id="negocio" name="asunto" value="Negocio">
+                    <label for="negocio">Negocio</label>                  
+                </div>   
+
                 <div *ngIf="forma.controls['correo'].errors?.['required']" class="invalid-feedback">
                     Asunto obligatorio
                 </div>
+            </div>
+
+            <!-- aqui empieza div 4 del mensaje -->
+            <div class="form-group row">
+                <!-- <label> class="col-2 col-form-label>">Mensaje</label>> -->
+                <textarea class="form-control" cols="15" rows="7" placeholder="Mensaje..." formControlName="mensaje" [(ngModel)]="mensaje"></textarea>
             </div>
 
             <!-- aqui empieza div 6 del boton -->

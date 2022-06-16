@@ -1,0 +1,7 @@
+.margencito{
+    padding: 10px;
+}
+.contain{
+    display: flex;
+    gap: 20px;
+}

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
@@ -9,22 +11,42 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class RegistroComponent implements OnInit {
 
+  formu!: FormGroup;  
+  userName:string="";
   mail:string="";
   phone:string="";
-  password:string="";
-  userName:string="";
+  pass_1:string="";
+  pass_2:string="";
+  
   url:string="";
   usuarios : any;
 
   constructor(public firebase:FirebaseService, private router:Router) { 
+
+    this.formu = new FormGroup({
+      'userName': new FormControl(this.userName,[Validators.required,Validators.minLength(3)] ),
+      'mail': new FormControl(this.mail,[Validators.required,Validators.email]),
+      'phone': new FormControl(this.phone,Validators.required),
+      'password_1': new FormControl(this.pass_1,Validators.required),
+      'password_2': new FormControl(this.pass_2,Validators.required),
+    });
+
     this.consultaDatos();
+    
   }
 
   insertarUsuario(){
-    this.firebase.insertarUsuario(this.mail, this.phone,this.password,this.userName,this.url).subscribe((res: any) => {
+    this.firebase.insertarUsuario(this.mail, this.phone,this.pass_1,this.userName,this.url).subscribe((res: any) => {
       console.log(res);
     });
-    alert("Usuario insertado éxitosamente");
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Registro exitoso!',
+      showConfirmButton: false,
+      timer: 2000
+    });
+
     this.router.navigate(['inicio']);
   }
 

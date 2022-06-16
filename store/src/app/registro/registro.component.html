@@ -3,20 +3,106 @@
   <div class="divForm">
     <div class="div1">
       <h1>REGISTRO</h1>
-      <form class="Form">
-        <label>Correo:</label>
-        <br>
-        <input type="text" class="form-control" placeholder="example@mail.com" [(ngModel)]="mail">
-        <label>Numero de Telefono:</label><br>
-        <input type="text" class="form-control" placeholder="XXX-XXX-XX-XX" [(ngModel)]="phone">
-        <label>Contraseña:</label><br>
-        <input type="text" class="form-control" placeholder="password" [(ngModel)]="password">
-        <label>Nombre de Usuario: </label><br>
-        <input type="text" class="form-control" placeholder="Name" [(ngModel)]="userName">
-        <label>Foto URL: </label><br>
-        <input type="text" class="form-control" [(ngModel)]="url"><br><!--   cambiar tipo de input  -->
-        <button class="btn btn-primary btn-block" (click)="insertarUsuario()">Registrar</button>
+      <form class="Form" [formGroup]="formu" (ngSubmit)="insertarUsuario()" class="needs-validation" novalidate>
+        <div class="container">
+           <!-- USER NAME -->
+           <div class="form-group row">
+            <label>Nombre de Usuario: </label>
+            <div class="col-8">
+              <input type="text" class="form-control" 
+                      placeholder="Name" 
+                      [(ngModel)]="userName"
+                      [ngClass]="{'is-invalid':!formu.get('userName')?.valid}"
+                      formControlName="userName">
+            </div>
+            <div *ngIf="formu.controls['userName'].errors?.['required']" class="invalid-feedback">
+              Nombre de usuario obligatorio
+            </div>
+            <div *ngIf="formu.controls['userName'].errors?.['minlength']" class="invalid-feedback">
+              Por lo menos tres caracteres
+            </div>
+          </div>
+
+          <!-- CORREO -->
+          <div class="form-group row">
+            <label>Correo:</label>
+            <div class="col-8">
+              <input type="text" class="form-control"                   
+                    placeholder="example@mail.com" 
+                    [ngClass]="{'is-invalid':!formu.get('mail')?.valid}"
+                    formControlName="mail"
+                    [(ngModel)]="mail">
+              <div *ngIf="formu.controls['mail'].errors?.['required']" class="invalid-feedback">
+                Correo obligatorio
+              </div>
+              <div *ngIf="formu.controls['mail'].errors?.['email']" class="invalid-feedback">
+                El correo no tiene el formato correcto
+              </div>
+            </div>
+          </div>
+
+          <!-- TELEFONO -->
+          <div class="form-group row">
+            <label>Telefono:</label>
+            <div class="col-8">
+              <input type="text" class="form-control" 
+                    placeholder="XXX-XXX-XX-XX" 
+                    [(ngModel)]="phone"
+                    [ngClass]="{'is-invalid':!formu.get('phone')?.valid}"
+                    formControlName="phone"
+                    pattern="[0-9]"
+                    title=" El numero de telefono no tiene el formato correcto">
+              <div *ngIf="formu.controls['phone'].errors?.['required']" class="invalid-feedback">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+          
+          <!-- PASSWORD 1-->
+          <div class="form-group row">
+            <label>Contraseña:</label>
+            <div class="col-8">
+              <input type="text" class="form-control" 
+                      placeholder="password" 
+                      [(ngModel)]="pass_1"
+                      
+                      formControlName="pass_1">
+
+              <div *ngIf="formu.controls['pass_1'].errors?.['required']" class="invalid-feedback">
+                Ingrese contraseña**
+              </div>
+            </div>
+          </div>
+
+          <!-- PASSWORD 2-->
+          <div class="form-group row">
+            <label>Contraseña:</label>
+            <div class="col-8">
+              <input type="text" class="form-control" 
+                      placeholder="password confirm" 
+                      [(ngModel)]="pass_2"
+                      
+                      formControlName="pass_2">
+
+              <div *ngIf="formu.controls['pass_2'].errors?.['required']" class="invalid-feedback">
+                Ingrese contraseña**
+              </div>
+              <div *ngIf="(pass_1 !== pass_2)" class="invalid-feedback">
+                Las contraseñas no coinciden.
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTON DE AGREGAR -->
+          <div class="form-group row">
+            <div class="input-group col-md-8">
+              <button type="submit" class="btn btn-primary btn-block" (click)="insertarUsuario()" [disabled]="formu.invalid">Registrar</button>
+            </div>
+          </div>
+
+        </div>
       </form>
+      <br>
       <button routerLink="/logincel">Resgitrarse con telefono</button>
     </div>
     <div class="div2">
