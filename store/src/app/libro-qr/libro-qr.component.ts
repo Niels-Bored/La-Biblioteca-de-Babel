@@ -27,7 +27,7 @@ export class LibroQRComponent implements OnInit {
     });
     setTimeout(() => {  
       this.actualizarDescargas();
-    }, 1000);
+    }, 500);
     
   }
 
