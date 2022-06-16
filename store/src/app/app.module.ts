@@ -21,6 +21,7 @@ import { VistaLComponent } from './vista-l/vista-l.component';
 import { ActualizarLibrosComponent } from './actualizar-libros/actualizar-libros.component';
 import { LibroQRComponent } from './libro-qr/libro-qr.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     QRCodeModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
