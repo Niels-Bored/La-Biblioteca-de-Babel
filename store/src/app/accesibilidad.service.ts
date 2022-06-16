@@ -12,6 +12,7 @@ export class AccesibilidadService {
   nav_letra:string="black";
   borde:string="#F0E7E6";
   color: string = "";
+  footer:string="#C6DCE4";
   b_color: string = "white";
   enter:string="rgba(33, 5, 189, 0.871)";
   bootstrap: string = "info";
@@ -23,6 +24,10 @@ export class AccesibilidadService {
   img0: string = "../../assets/Insercion/Fondo3.jpg ";
   img1: string = "";
   img2: string = "";
+  f_logo:string="../../assets/Inicio/fimagen.png";
+  redes0="../../assets/Inicio/gmail.png";
+  redes1="../../assets/Inicio/twitter.png";
+  redes2="../../assets/Inicio/instagram.png";
 
   constructor() {
     this.usuarios = JSON.parse(localStorage.getItem('datos') || '[]');
@@ -87,6 +92,7 @@ export class AccesibilidadService {
         this.icono = "../../assets/Accesibilidad/icono_gris.png";
         this.img0="../../assets/Accesibilidad/fondo_gris_0.png";
         this.enter="grey";
+        this.footer="#CDD0CB";
         break;
       case "Normal":
         this.presentacion['color'] = "black";
@@ -98,6 +104,7 @@ export class AccesibilidadService {
         this.icono = "../../assets/Accesibilidad/icono_normal.png";
         this.img0="../../assets/Insercion/Fondo3.jpg";
         this.enter="rgba(33, 5, 189, 0.871)";
+        this.footer="#C6DCE4";
         break;
       case "Alto Contraste":
         this.presentacion['color'] = "blue";
@@ -109,8 +116,10 @@ export class AccesibilidadService {
         this.icono = "../../assets/Accesibilidad/icono_normal.png";
         this.img0="../../assets/Accesibilidad/fondo_alto_0.png";
         this.enter="black";
+        this.footer="#3E065F";
         break;
     } 
+    this.cambiarIcono(fondo);
   }
 
   cambiarFondo(e:any) {
@@ -150,8 +159,32 @@ export class AccesibilidadService {
         this.enter="black";
         break;
     } 
+    this.cambiarIcono(this.fondo);
     this.actualizar(this.activo,this.fondo,this.tamano);
   }
+  cambiarIcono(fondo:string){
+    switch(fondo){
+    case "Escala de Grises":
+        this.redes0="../../assets/Inicio/gmail_gris.png";
+        this.redes1="../../assets/Inicio/twitter_gris.png";
+        this.redes2="../../assets/Inicio/instagram_gris.png";
+        this.f_logo="../../assets/Inicio/fimagen_gris.png";
+        break;
+      case "Normal":
+        this.redes0="../../assets/Inicio/gmail.png";
+        this.redes1="../../assets/Inicio/twitter.png";
+        this.redes2="../../assets/Inicio/instagram.png";
+        this.f_logo="../../assets/Inicio/fimagen.png";
+        break;
+      case "Alto Contraste":
+        this.redes0="../../assets/Inicio/gmail_contraste.png";
+        this.redes1="../../assets/Inicio/twitter_contraste.png";
+        this.redes2="../../assets/Inicio/instagram_contraste.png";
+        this.f_logo="../../assets/Inicio/fimagen_contraste.png";
+        break;
+    } 
+  }
+
   setActivo(id:string){
     this.activo=id;
   this.tamano= 20;

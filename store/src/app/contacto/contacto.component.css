@@ -107,7 +107,7 @@ textarea:focus {
     box-shadow: blue 0px 0px 8px;
 }
 
-button {
+.button {
     width: 95%;
     outline: none;
     border: rgba(255, 255, 255, 0%);
@@ -115,7 +115,7 @@ button {
     transition: all 0.2s ease;
 }
 
-button:hover {
+.button:hover {
     box-shadow: 0px 0px 10px #2ecece;
 }
 
