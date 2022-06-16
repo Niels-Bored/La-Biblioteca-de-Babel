@@ -1,9 +1,9 @@
-<div [ngStyle]="presentacion">
-<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img src={{icono}}  alt="" srcset=""></button>  
+<div [ngStyle]="accesib.presentacion">
+<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img src={{accesib.icono}}  alt="" srcset=""></button>  
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content bg-{{bootstrap}} text-{{b_color}}">
+      <div class="modal-content bg-{{accesib.bootstrap}} text-{{accesib.b_color}}">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Accesibilidad</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -14,11 +14,11 @@
           <form>
             <div class="form-group row container">
               <label for="formControlRange">Tamaño de Letra</label>
-              <input type="range" class="custom-range" min="7" max="60" id="customRange2" (change)="cambiarTamano($event)">
+              <input type="range" class="custom-range" value={{accesib.tamano}} min="7" max="60" id="customRange2" (change)="accesib.cambiarTamano($event)">
             </div>
             <div class="form-group row mx-sm-3">
               <label for="inputPassword" class="col-sm-2 col-form-label">Fondo</label>
-              <select class="form-control" id="Fondo_select" (change)="cambiarFondo($event)">
+              <select class="form-control" id="Fondo_select" (change)="accesib.cambiarFondo($event)">
                 <option>Normal</option>
                 <option>Escala de Grises</option>
                 <option>Alto Contraste</option>
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-<div class="divP" style="background:url('{{img0}}') ;"></div>
+<div class="divP" style="background:url('{{accesib.img0}}') ;"></div>
 <div class="divForm">
     <div class="div1">
         <h1 style="text-align: center;">Login</h1><br><br>  
@@ -39,7 +39,7 @@
                 <label>Nombre: {{user.displayName}}</label><br>
                 <label>Telefono: {{user.phoneNumber | formatoTel}}</label><br>
                 <label>Email: {{user.email}}</label><br>
-                <button class="btn  btn-block m2 bg-{{bootstrap}} text-{{b_color}}" id="button" (click)="logOut()">LogOut</button>
+                <button class="btn  btn-block m2 bg-{{accesib.bootstrap}} text-{{accesib.b_color}}" id="button" (click)="logOut()">LogOut</button>
             </div>    
             <ng-template #entrar>
                 <form>
@@ -49,8 +49,8 @@
                     <label style="float: left;">Contraseña</label>
                     <input type="password" class="form-control m-2" placeholder="Contraseña" [(ngModel)]="usuario.password"
                         value=""><br>
-                    <button class="btn btn-block m-2 bg-{{bootstrap}} text-{{b_color}}" id="button" (click)="Ingresar()">Ingresar</button>
-                    <button class="btn  btn-block m-2 bg-{{bootstrap}} text-{{b_color}}" id="button" routerLink="/logincel">Ingresar con Telefono</button>
+                    <button class="btn btn-block m-2 bg-{{accesib.bootstrap}} text-{{accesib.b_color}}" id="button" (click)="Ingresar()">Ingresar</button>
+                    <button class="btn  btn-block m-2 bg-{{accesib.bootstrap}} text-{{accesib.b_color}}" id="button" routerLink="/logincel">Ingresar con Telefono</button>
                     <label>¿No tienes cuenta? <a routerLink="/registro">Registrate</a></label>
                 </form>
             </ng-template> 

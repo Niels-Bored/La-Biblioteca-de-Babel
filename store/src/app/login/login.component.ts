@@ -14,22 +14,9 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   }
-  fondo: string = "";
-  tamano: number = 20;
-  color: string = "";
-  b_color: string = "white";
-  bootstrap: string = "info";
-  presentacion = {
-    'background-color': this.fondo,
-    'color': this.color,
-    'font-size.px': this.tamano,
-  };
-  icono: string = "../../assets/Accesibilidad/icono_normal.png";
-  img0: string = "../../assets/Login/Fondo3.jpeg";
-  img1: string = "";
-  img2: string = "";
+  
 
-  constructor(public firebase: FirebaseService, private router: Router, private accesibilidad: AccesibilidadService) {
+  constructor(public firebase: FirebaseService, private router: Router, public accesib: AccesibilidadService) {
   }
   Ingresar() {
     console.log(this.usuario);
@@ -45,8 +32,7 @@ export class LoginComponent implements OnInit {
       this.firebase.datosAccesibilidad(this.id).subscribe((res: any) => {
         //Aquí guardan en  Local los datos de la accesibilidad con res
         //console.log(res);
-        this.fondo = this.accesibilidad.getFondo(this.id);
-        this.tamano = this.accesibilidad.getTamano(this.id);
+        this.accesib.Match(this.id);
 
       });
       this.router.navigate(['inicio']);
@@ -56,47 +42,16 @@ export class LoginComponent implements OnInit {
 
   logOut() {
     this.firebase.logout();
+    this.accesib.setActivo("0");
     this.router.navigate(['inicio']);
   }
   ngOnInit(): void {
-  }
-
-
-  cambiarFondo(e: any) {
-    switch (e.target.value) {
-      case "Escala de Grises":
-        this.presentacion['color'] = "black";
-        this.img0 = "../../assets/Accesibilidad/fondo_gris_0.png";
-        this.b_color = "white";
-        this.bootstrap = "secondary";
-        this.icono= "../../assets/Accesibilidad/icono_gris.png";
-        break;
-      case "Normal":
-        this.img0 = "../../assets/Login/Fondo3.jpeg";
-        this.presentacion['color'] = "black";
-        this.b_color = "white";
-        this.bootstrap = "info";
-        this.icono="../../assets/Accesibilidad/icono_normal.png"
-        break;
-      case "Alto Contraste":
-        this.img0 = "../../assets/Accesibilidad/fondo_alto_0.png";
-        this.presentacion['color'] = "blue";
-        this.b_color = "info";
-        this.bootstrap = "dark";
-        this.icono="../../assets/Accesibilidad/icono_normal.png";
-        break;
+    if(this.accesib.activo==""){
+      this.id="0";
+      this.accesib.Match(this.id);
+    }else{
+      this.id=this.accesib.activo;
+      this.accesib.Match(this.accesib.activo);
     }
-
   }
-  cambiarTamano(e: any) {
-    this.presentacion['font-size.px'] = e.target.value;
-  }
-}
-interface Usuario {
-  id: string;
-  tamano: number;
-  fondo: string;
-  color: string;
-  bootstrap: string;
-  b_color: string;
 }

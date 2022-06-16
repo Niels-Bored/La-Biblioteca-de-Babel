@@ -1,4 +1,6 @@
-<div class="divImg"></div>
+<div [ngStyle]="accesib.presentacion">
+  
+<div class="divImg" style="background: url('{{accesib.img0}}');"></div>
 <div class="divPrin">
   <div class="div1">
     <div class="sub1">
@@ -16,7 +18,7 @@
           <input type="text" class="" placeholder="Imagen" [(ngModel)]="imagen">
           <input type="text" class="" placeholder="Sinopsis" [(ngModel)]="sinopsis">
         </div>
-        <button class="Enter" (click)="insertar()">Insertar: </button>
+        <button class="Enter" style="background:{{accesib.enter}} ;" (click)="insertar()">Insertar: </button>
       </div>
     </div>
     <div class="sub2">
@@ -48,27 +50,39 @@
     </div>
   </div>
 </div>
-<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img src="../../assets/Accesibilidad/icono_normal.png"  alt="" srcset=""></button>  
+</div>
+
+<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img src="{{accesib.icono}}"  alt="" srcset=""></button>  
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content bg-{{accesib.bootstrap}} text-{{accesib.b_color}}">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Accesibilidad</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <form>
+            <div class="form-group row container">
+              <label for="formControlRange">Tamaño de Letra</label>
+              <input type="range" class="custom-range" value={{accesib.tamano}} min="7" max="60" id="customRange2" (change)="accesib.cambiarTamano($event)">
+            </div>
+            <div class="form-group row mx-sm-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Fondo</label>
+              <select class="form-control" id="Fondo_select" (change)="accesib.cambiarFondo($event)">
+                <option>Normal</option>
+                <option>Escala de Grises</option>
+                <option>Alto Contraste</option>
+              </select>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
+
   <ngx-spinner>
     <div class="loadingio-spinner-interwind-6lqxuekrkqu"><div class="ldio-am2mjrfupr9">
       <div><div><div><div></div></div></div><div><div><div></div></div></div></div>
