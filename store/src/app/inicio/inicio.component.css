@@ -1,8 +1,40 @@
 #accesibilidad{
     position: fixed;
     bottom: 0;
+    z-index: 2;
 }
 .carrusel{
     margin: auto;
     width: 90%;
+}
+.divP {
+    /* background: url("../../assets/Login/Fondo3.jpeg"); */
+    width: 100%;
+    height: 1028px;
+    display: flex;
+    position: absolute;
+    background-size: cover;
+    filter: blur(40px);
+    z-index: 0;
+}
+footer{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    padding: 60px;
+}
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(234% + 1.3px);
+    height: 446px;
 }

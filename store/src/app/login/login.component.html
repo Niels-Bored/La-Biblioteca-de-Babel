@@ -1,7 +1,7 @@
 <div [ngStyle]="accesib.presentacion">
-<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img src={{accesib.icono}}  alt="" srcset=""></button>  
+  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img src="{{accesib.icono}}"  alt="" srcset=""></button>  
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content bg-{{accesib.bootstrap}} text-{{accesib.b_color}}">
         <div class="modal-header">
@@ -11,7 +11,6 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
             <div class="form-group row container">
               <label for="formControlRange">Tamaño de Letra</label>
               <input type="range" class="custom-range" value={{accesib.tamano}} min="7" max="60" id="customRange2" (change)="accesib.cambiarTamano($event)">
@@ -25,7 +24,6 @@
                 <option>Alto Contraste</option>
               </select>
             </div>
-          </form>
         </div>
       </div>
     </div>
