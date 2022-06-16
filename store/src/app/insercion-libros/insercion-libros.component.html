@@ -46,21 +46,20 @@
 
     </div>
     <br><br><br>
-
     <div class="divCards">
       <div class="card-columns">
         <div *ngFor="let libro of libros" class="card">
           <div class="card-body">
-            <h5 class="card-title">{{libro.Titulo}}</h5>
-            <p class="card-text">{{libro.Autor}}</p>
-            <p class="card-text">{{libro.Genero}}</p>
-            <p class="card-text">{{libro.Descargas}}</p>
-
-
-            //Considerar imagenes y sinopsis
-
-
-            <button class="Eliminar" (click)="eliminar(libro.Titulo)">Eliminar</button>
+            <div class="face font">
+              <img src="../../assets/Insercion/Portada.jpg">
+            </div>
+            <div class="face back">
+              <h5 class="card-title">{{libro.Titulo}}</h5>
+              <p class="card-text">{{libro.Autor}}</p>
+              <p class="card-text">{{libro.Genero}}</p>
+              <p class="card-text">{{libro.Descargas}}</p>
+              <button class="Eliminar" (click)="eliminar(libro.Titulo)">Eliminar</button>
+            </div>
           </div>
         </div>
         <!-- --------------------- -->

@@ -86,25 +86,7 @@ img {
     color: white;
 }
 
-.divCards {
-    width: 95%;
-    background: rgba(255, 255, 255, 40%);
-    border-style: solid;
-    border-color: white;
-    border-radius: 15px;
-    margin: auto;
-}
 
-.card-columns {
-    margin-top: 5px;
-    margin-left: 5px;
-}
-
-.card {
-    border: 4px solid;
-    border-color: rgba(228, 32, 218, 0.445);
-    border-radius: 15px;
-}
 
 .Eliminar {
     width: 60%;
@@ -164,6 +146,77 @@ img {
     
 }
 /* Fin de Estilos Input */
+
+/* Estilos Cards */
+.divCards {
+    width: 95%;
+    background: rgba(255, 255, 255, 40%);
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+    margin: auto;
+}
+
+.card-columns {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.card{
+    background: rgba(255,255,255,0%);
+    border: none;
+}
+
+.card-body{
+    position: relative;
+    width: 300px;
+    height: 350px;
+}
+
+.card-body .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card-body .front{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.card-body .front img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body .back{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3, 35, 54);
+    padding: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+
+.card-body:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card-body:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/* Fin de estilos Cars */
 
 @media (min-width: 576px) {
     .card-columns {
