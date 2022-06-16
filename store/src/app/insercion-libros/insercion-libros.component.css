@@ -7,10 +7,12 @@
     position: absolute;
     filter: blur(30px);
 }
-#accesibilidad{
+
+#accesibilidad {
     position: fixed;
     bottom: 0;
 }
+
 .divPrin {
     position: relative;
 }
@@ -32,7 +34,7 @@
 
 .div1 .sub1 {
     grid-area: sub1;
-    
+
 }
 
 .div1 .sub2 {
@@ -128,23 +130,24 @@ img {
 .form_box {
     position: relative;
     padding: 0px;
-    
+
 }
 
-.form_input:focus{
+.form_input:focus {
     outline: solid 2px rgb(47, 143, 157);
     box-shadow: blue 0px 0px 8px;
 }
 
 .form_input:focus+.form_label {
-    transform: translateY(-1.2rem );
+    transform: translateY(-1.2rem);
     transition: .5s;
 }
 
-.form_input:not(:placeholder-shown)+.form_label{
+.form_input:not(:placeholder-shown)+.form_label {
     transform: translateY(-1.2rem);
-    
+
 }
+
 /* Fin de Estilos Input */
 
 /* Estilos Cards */
@@ -161,55 +164,54 @@ img {
 }
 
 .card-columns {
-    width: 95%;
-    margin-top: 5px;
-    margin-left: 5px;
-    background-color: red;
-}
-
-.card{
-    background: rgba(255,255,255,0%);
-    border: none;
-    width: 250px;
-    margin: 0px;
-    border-radius: 10px;
-    
-}
-
-.card-body{
-    position: relative;
     width: 100%;
-    height: 350px;
-    border-radius: 10px;
+    margin: 0px auto;
 }
 
-.card-body .face{
+.card {
+    background: rgba(255, 255, 255, 0%);
+    border: none;
+    border-radius: 10px;
+    margin: auto;
+    width: 240px;
+}
+
+.card-body {
+    position: relative;
+    height: 330px;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.card-body .face {
     position: absolute;
     width: 250px;
     height: 100%;
     backface-visibility: hidden;
     border-radius: 10px;
-    /* overflow: hidden; */
+    overflow: hidden;
     transition: .5s;
 }
 
-.card-body .front{
+.card-body .front {
     transform: perspective(600px) rotateY(0deg);
-    box-shadow: 0 5px 10px #000;
+    box-shadow: 0px 0px 10px #000;
+    width: 200px;
+    height: 319px;
 }
 
-img{
+img {
     border-radius: 15px;
 }
 
-.card-body .front img{
+.card-body .front img {
     position: relative;
     width: 200px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-.card-body .back{
+.card-body .back {
     transform: perspective(600px) rotateY(180deg);
     background: rgb(3, 35, 54);
     padding: 15px;
@@ -222,17 +224,17 @@ img{
     height: 320px;
 }
 
-.card-body:hover .front{
+.card-body:hover .front {
     transform: perspective(600px) rotateY(180deg);
 }
 
-.card-body:hover .back{
+.card-body:hover .back {
     transform: perspective(600px) rotateY(360deg);
 }
 
 /* Fin de estilos Cars */
 
-.Eliminar{
+.Eliminar {
     border: none;
     background: yellow;
 }
@@ -241,6 +243,13 @@ img{
     .card-columns {
         -webkit-column-count: 1;
         column-count: 1;
+    }
+}
+
+@media (min-width: 700px) {
+    .card-columns {
+        -webkit-column-count: 2;
+        column-count: 2;
     }
 }
 
@@ -277,7 +286,7 @@ img{
         display: none;
     }
 
-    img {
+    .img2 {
         display: none;
     }
 }
