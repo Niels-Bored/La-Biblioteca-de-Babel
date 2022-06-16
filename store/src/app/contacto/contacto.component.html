@@ -6,28 +6,20 @@
       <div class="s1">
         <div class="ss1">
           <h1>¿En qué podemos ayudarte?</h1>
-          <div class="sss1">
-            <div class="fo1">
-              <input type="text" [(ngModel)]="nombre" />
-              <label class="lbl-nombre">
-                <span class="text-nomb">
-                  Nombre
-                </span>
-              </label>
-            </div><br>
-          </div><br>
-          <div class="sss1">
-            <div class="fo1">
-              <input type="text" [(ngModel)]="apellido" />
-              <label class="lbl-nombre">
-                <span class="text-nomb">
-                  Apellido
-                </span>
-              </label>
+          <form action="">
+            <div class="form_box"> 
+              <input class="form_input" type="text" [(ngModel)]="nombre" placeholder=" " />
+              <label for="textUser" class="form_label">Nombre</label>
             </div>
-          </div><br>
-          <textarea cols="30" rows="10" placeholder="Dejanos tu comentario..." [(ngModel)]="mensaje"></textarea><br>
-          <button (click)="enviarCorreo()">Enviar</button>
+
+            <div class="form_box">
+              <input class="form_input" type="text" [(ngModel)]="apellido" placeholder=" " />
+              <label for="textUser" class="form_label">Apellido</label>
+            </div>
+
+            <textarea cols="30" rows="10" placeholder="Dejanos tu comentario..." [(ngModel)]="mensaje"></textarea><br>
+            <button (click)="enviarCorreo()">Enviar</button>
+          </form>
         </div>
       </div><br>
       <div class="s2">

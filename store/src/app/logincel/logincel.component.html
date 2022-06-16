@@ -5,18 +5,25 @@
             <h1>LOGIN CELULAR</h1>
             <form>
                 <div class="ss1">
-                    <label for="phone">Telefono</label><br>
-                    <input type="text" [(ngModel)]="telefono" placeholder="Telefono"  class="input"><br><br>
+                    <div class="form_box">
+                        <input type="text" [(ngModel)]="telefono" placeholder=" " class="form_input">
+                        <label class="form_label" for="phone">Telefono</label><br>
+                        
+                    </div>
                     <div id="recaptcha-container"></div>
                     <button (click)="sendLoginCode()">Enviar Código</button><br>
                 </div>
                 <div class="ss2" *ngIf="windowRef.confirmationResult">
                     <h4>Introducir Codigo</h4>
-                    <label for="code">Codigo que llego por telefono</label>
-                    <input type="text" name="code" [(ngModel)]="codigoVerif"><br><br>
+                    <div class="form_box">
+                        <input class="form_input" type="text" name="code" [(ngModel)]="codigoVerif">
+                        <label for="code" class="form_label">Codigo que llego por telefono</label>
+                        
+                    </div>
+
                     <button (click)="verifyLoginCode()">Ingresar</button>
                 </div>
-            </form>  
+            </form>
         </div>
         <div class="s2">
             <img src="../../assets/Login/Telefono.png">

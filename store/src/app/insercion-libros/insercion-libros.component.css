@@ -27,11 +27,12 @@
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "sub1 sub1 sub2";
-    height: 270px;
+    height: 500px;
 }
 
 .div1 .sub1 {
     grid-area: sub1;
+    
 }
 
 .div1 .sub2 {
@@ -59,10 +60,6 @@ h1 {
     grid-area: s2;
 }
 
-input {
-    margin-bottom: 8px;
-}
-
 .Form .Enter {
     width: 60%;
     margin: 0px auto;
@@ -72,17 +69,6 @@ input {
     border: none;
     background: rgba(33, 5, 189, 0.871);
     color: white;
-}
-
-input {
-    border-radius: 10px;
-    border: solid;
-    border-color: rgba(255, 255, 255, 30%);
-    outline: 0 none;
-}
-
-input:focus {
-    box-shadow: 0px 0px 8px rgba(33, 5, 189, 0.871);
 }
 
 img {
@@ -132,6 +118,52 @@ img {
     border: solid black;
 }
 
+/* Estilos Input */
+.form_input {
+    display: block;
+    margin-bottom: 2rem;
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    border: 0;
+    outline: solid 2px white;
+    height: 32px;
+    width: 90%;
+    margin-left: 50px;
+}
+
+.form_label {
+    position: absolute;
+    top: 5px;
+    left: 2rem;
+    background: white;
+    padding: 0 .5rem;
+    height: 25px;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+
+.form_box {
+    position: relative;
+    padding: 0px;
+    
+}
+
+.form_input:focus{
+    outline: solid 2px rgb(47, 143, 157);
+    box-shadow: blue 0px 0px 8px;
+}
+
+.form_input:focus+.form_label {
+    transform: translateY(-1.2rem );
+    transition: .5s;
+}
+
+.form_input:not(:placeholder-shown)+.form_label{
+    transform: translateY(-1.2rem);
+    
+}
+/* Fin de Estilos Input */
 
 @media (min-width: 576px) {
     .card-columns {
