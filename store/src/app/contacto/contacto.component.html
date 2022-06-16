@@ -1,37 +1,49 @@
 <div [ngStyle]="presentacion">
-<div class="Fondo"></div>
+  <div class="Fondo"></div>
+  <!-- aqui poner la variable de img0, que corresponde al fondo, sofi del futuro no se te olvide perra -->
 
-<div class="container">
-  <div class="a1">
-    <div class="s1">
-      <h1>¿En qué podemos ayudarte?</h1>
-      <form>
-        <div class="input-group">
-          <input type="text" [(ngModel)]="nombre" placeholder=" " /><br>
-          <label>Nombre:</label><br>
+  <div class="container">
+    <div class="a1">
+      <div class="s1">
+        <div class="ss1">
+          <h1>¿En qué podemos ayudarte?</h1>
+          <div class="sss1">
+            <div class="fo1">
+              <input type="text" [(ngModel)]="nombre" />
+              <label class="lbl-nombre">
+                <span class="text-nomb">
+                  Nombre
+                </span>
+              </label>
+            </div><br>
+          </div><br>
+          <div class="sss1">
+            <div class="fo1">
+              <input type="text" [(ngModel)]="apellido" />
+              <label class="lbl-nombre">
+                <span class="text-nomb">
+                  Apellido
+                </span>
+              </label>
+            </div>
+          </div><br>
+          <textarea cols="30" rows="10" placeholder="Dejanos tu comentario..." [(ngModel)]="mensaje"></textarea><br>
+          <button (click)="enviarCorreo()">Enviar</button>
         </div>
-
-        <label>Apellido:</label><br>
-        <input type="text" [(ngModel)]="apellido" /><br>
-        <textarea cols="30" rows="10" placeholder="Dejanos tu comentario..." [(ngModel)]="mensaje"></textarea><br>
-        <button (click)="enviarCorreo()">Enviar</button>
-      </form>
-    </div>
-    <div class="s2">
-      <img src="../../assets/Contacto/Contacto.png">
+      </div><br>
+      <div class="s2">
+        <img src="../../assets/Contacto/Contacto.png">
+      </div>
     </div>
   </div>
 
-
-</div>
-
-<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad">
-  <img src="../../assets/Accesibilidad/icono_normal.png" alt="" srcset="" />
-</button>
+  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad">
+    <img src="../../assets/Accesibilidad/icono_normal.png" alt="" srcset="" />
+  </button>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content bg-{{bootstrap}} text-{{b_color}}">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Accesibilidad</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -42,7 +54,8 @@
           <form>
             <div class="form-group row container">
               <label for="formControlRange">Tamaño de Letra</label>
-              <input type="range" class="custom-range" min="7" max="60" id="customRange2" (change)="cambiarTamano($event)">
+              <input type="range" class="custom-range" min="7" max="60" id="customRange2"
+                (change)="cambiarTamano($event)">
             </div>
             <div class="form-group row mx-sm-3">
               <label for="inputPassword" class="col-sm-2 col-form-label">Fondo</label>

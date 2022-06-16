@@ -11,7 +11,7 @@ export class ContactoComponent implements OnInit {
   nombre:string="";
   apellido:string="";
   mensaje:string="";
-  tamano: number = 0;
+  tamano: number = 20;
   fondo: string = "";
   color: string = "";
   b_color: string = "";
@@ -42,16 +42,22 @@ export class ContactoComponent implements OnInit {
   cambiarFondo(e:any) {
     switch(e.target.value){
       case "Escala de Grises":
-        this.presentacion['background-color'] = "grey";
         this.presentacion['color'] = "black";
+        this.img0 = "../../assets/Accesibilidad/fondo_gris_0.png";
+        this.b_color = "white";
+        this.bootstrap = "secondary";
         break;
       case "Normal":
-        this.presentacion['background-color'] = "pink";
+        this.img0 = "../../assets/Login/Fondo3.jpeg";
         this.presentacion['color'] = "black";
+        this.b_color = "white";
+        this.bootstrap = "info";
         break;
       case "Alto Contraste":
-        this.presentacion['background-color'] = "black";
+        this.img0 = "../../assets/Accesibilidad/fondo_alto_0.png";
         this.presentacion['color'] = "blue";
+        this.b_color = "info";
+        this.bootstrap = "dark";
         break;
     } 
 

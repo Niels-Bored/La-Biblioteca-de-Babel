@@ -1,9 +1,9 @@
 <div [ngStyle]="presentacion">
-<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img src="../../assets/Accesibilidad/icono_normal.png"  alt="" srcset=""></button>  
+<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img src={{icono}}  alt="" srcset=""></button>  
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content bg-{{bootstrap}} text-{{b_color}}">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Accesibilidad</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -39,7 +39,7 @@
                 <label>Nombre: {{user.displayName}}</label><br>
                 <label>Telefono: {{user.phoneNumber | formatoTel}}</label><br>
                 <label>Email: {{user.email}}</label><br>
-                <button class="btn btn-info btn-block m2" id="button" (click)="logOut()">LogOut</button>
+                <button class="btn  btn-block m2 bg-{{bootstrap}} text-{{b_color}}" id="button" (click)="logOut()">LogOut</button>
             </div>    
             <ng-template #entrar>
                 <form>
@@ -49,8 +49,8 @@
                     <label style="float: left;">Contraseña</label>
                     <input type="password" class="form-control m-2" placeholder="Contraseña" [(ngModel)]="usuario.password"
                         value=""><br>
-                    <button class="btn btn-primary btn-block m-2" id="button" (click)="Ingresar()">Ingresar</button>
-                    <button class="btn btn-primary btn-block m-2" id="button" routerLink="/logincel">Ingresar con Telefono</button>
+                    <button class="btn btn-block m-2 bg-{{bootstrap}} text-{{b_color}}" id="button" (click)="Ingresar()">Ingresar</button>
+                    <button class="btn  btn-block m-2 bg-{{bootstrap}} text-{{b_color}}" id="button" routerLink="/logincel">Ingresar con Telefono</button>
                     <label>¿No tienes cuenta? <a routerLink="/registro">Registrate</a></label>
                 </form>
             </ng-template> 

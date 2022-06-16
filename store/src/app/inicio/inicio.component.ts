@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  tamano: number = 0;
+  tamano: number = 20;
   fondo: string = "";
   color: string = "";
-  b_color: string = "";
-  bootstrap: string = "";
+  b_color: string = "white";
+  bootstrap: string = "info";
   presentacion = {
     'background-color': this.fondo,
     'color': this.color,
@@ -28,14 +28,20 @@ export class InicioComponent implements OnInit {
       case "Escala de Grises":
         this.presentacion['background-color'] = "grey";
         this.presentacion['color'] = "black";
+        this.b_color ="white";
+        this.bootstrap = "secondary";
         break;
       case "Normal":
         this.presentacion['background-color'] = "pink";
         this.presentacion['color'] = "black";
+        this.b_color ="white";
+        this.bootstrap = "info";
         break;
       case "Alto Contraste":
         this.presentacion['background-color'] = "black";
         this.presentacion['color'] = "blue";
+        this.b_color ="info";
+        this.bootstrap = "dark";
         break;
     } 
 
