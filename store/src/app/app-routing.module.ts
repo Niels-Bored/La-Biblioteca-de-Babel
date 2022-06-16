@@ -10,6 +10,7 @@ import { AyudaComponent } from './ayuda/ayuda.component';
 import { ActualizarLibrosComponent } from './actualizar-libros/actualizar-libros.component';
 import { VistaLComponent } from './vista-l/vista-l.component';
 import { LibroQRComponent } from './libro-qr/libro-qr.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'ayuda', component: AyudaComponent },
   { path: 'libros', component: VistaLComponent },
   { path: 'qr/:titulo', component: LibroQRComponent},
+  { path: 'analytics', component: AnalyticsComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'inicio' },
 ];
 

@@ -33,6 +33,13 @@ export class InsercionLibrosComponent implements OnInit {
       console.log(res);
     });
     alert("Libro insertado éxitosamente");
+    this.autor = "";
+    this.titulo="";
+    this.autor="";
+    this.genero="";
+    this.sinopsis="";
+    this.url="";
+    this.imagen="";
     this.recuperar();
   }  
   recuperar():void{

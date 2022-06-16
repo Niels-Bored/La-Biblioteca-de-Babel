@@ -8,6 +8,9 @@
   <li class="nav-item" *ngIf="userLogged|async as user">
     <a routerLink="/libros" class="nav-link active">Libros</a>
   </li>
+  <li class="nav-item" *ngIf="userLogged|async as user">
+    <a *ngIf="user.emailVerified" routerLink="/analytics" class="nav-link active">Analíticas</a>
+  </li>
   <li class="nav-item">
     <a routerLink="/contacto" class="nav-link active">Contacto</a>
   </li>

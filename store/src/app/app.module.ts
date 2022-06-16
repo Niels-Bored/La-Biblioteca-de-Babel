@@ -20,6 +20,7 @@ import { AyudaComponent } from './ayuda/ayuda.component';
 import { VistaLComponent } from './vista-l/vista-l.component';
 import { ActualizarLibrosComponent } from './actualizar-libros/actualizar-libros.component';
 import { LibroQRComponent } from './libro-qr/libro-qr.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LibroQRComponent } from './libro-qr/libro-qr.component';
     VistaLComponent,
     ActualizarLibrosComponent,
     LibroQRComponent,
+    AnalyticsComponent,
   ],
   imports: [
     BrowserModule,
