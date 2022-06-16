@@ -11,6 +11,10 @@ import { FirebaseService } from '../services/firebase.service';
 export class AnalyticsComponent implements OnInit {
 
   libros : any[] = [];
+  descargas : any[] = [];
+  nombres: any[] = [];
+  generos: any[] = [];
+  numGen: number[] = [];
   
 
   constructor(public firebase:FirebaseService, public router:Router) { 
@@ -19,29 +23,8 @@ export class AnalyticsComponent implements OnInit {
       console.log(this.libros);
     });
   }
-
   ngOnInit(): void {
-    for (let i = 0; i < this.libros.length; i++) {
-      // const element[i] = array[i];
-    }
-    const grafica = new Chart("mychart", {
-      type: 'bar',
-      data:{
-        labels:["Hola"],
-        datasets:[{
-          label: 'Prueba',
-          data: ["87"]
-        }]
-      },
-      options: {
-        scales:{
-          y:{
-            beginAtZero:true
-          }
-        },
-        responsive:true
-      }
-    });
+    
   }
 
 }
