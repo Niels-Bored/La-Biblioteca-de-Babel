@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirebaseService } from './services/firebase.service';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InicioComponent } from './inicio/inicio.component';
 import { InsercionLibrosComponent } from './insercion-libros/insercion-libros.component';
 import { RegistroComponent } from './registro/registro.component';
@@ -22,6 +22,9 @@ import { ActualizarLibrosComponent } from './actualizar-libros/actualizar-libros
 import { LibroQRComponent } from './libro-qr/libro-qr.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { NgChartsModule } from 'ng2-charts';
+import { NgxSpinnerModule  } from 'ngx-spinner';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations'; 
+import { InterceptorService } from './interceptor.service';
 
 @NgModule({
   declarations: [
@@ -47,8 +50,12 @@ import { NgChartsModule } from 'ng2-charts';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     QRCodeModule,
     NgChartsModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

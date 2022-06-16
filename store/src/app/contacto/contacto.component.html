@@ -1,10 +1,73 @@
-<h1>¿En qué podemos ayudarte?</h1>
-<form>
-    <label>Nombre:</label>
-    <input type="text" [(ngModel)]="nombre">
-    <label>Apellido:</label>
-    <input type="text" [(ngModel)]="apellido">
-    <textarea cols="30" rows="10" placeholder="Dejanos tu comentario..." [(ngModel)]="mensaje"></textarea>
-    <button (click)="enviarCorreo()">Enviar </button>
-</form>
+<div [ngStyle]="accesib.presentacion">
+  <div class="Fondo" style="background:url('{{accesib.img0}}');"></div>
 
+  <div class="container">
+    <div class="a1">
+      <div class="s1">
+        <div class="ss1">
+          <h1>¿En qué podemos ayudarte?</h1>
+          <div class="sss1">
+            <div class="fo1">
+              <input type="text" [(ngModel)]="nombre" />
+              <label class="lbl-nombre">
+                <span class="text-nomb">
+                  Nombre
+                </span>
+              </label>
+            </div><br>
+          </div><br>
+          <div class="sss1">
+            <div class="fo1">
+              <input type="text" [(ngModel)]="apellido" />
+              <label class="lbl-nombre">
+                <span class="text-nomb">
+                  Apellido
+                </span>
+              </label>
+            </div>
+          </div><br>
+          <textarea cols="30" rows="10" placeholder="Dejanos tu comentario..." [(ngModel)]="mensaje"></textarea><br>
+          <button class="button" (click)="enviarCorreo()">Enviar</button>
+        </div>
+      </div><br>
+      <div class="s2">
+        <img src="../../assets/Contacto/Contacto.png">
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad">
+    <img src="{{accesib.icono}}" alt="" srcset="" />
+  </button>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-{{accesib.bootstrap}} text-{{accesib.b_color}}">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Accesibilidad</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group row container">
+              <label for="formControlRange">Tamaño de Letra</label>
+              <input type="range" class="custom-range" min="7" max="60" id="customRange2"
+                (change)="accesib.cambiarTamano($event)" value={{accesib.tamano}}>
+            </div>
+            <div class="form-group row mx-sm-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Fondo</label>
+              <select class="form-control" id="Fondo_select" (change)="accesib.cambiarFondo($event)">
+                <option value="">Elige una opción</option>
+                <option>Normal</option>
+                <option>Escala de Grises</option>
+                <option>Alto Contraste</option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

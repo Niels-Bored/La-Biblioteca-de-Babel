@@ -1,24 +1,25 @@
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a routerLink="/inicio" class="nav-link active">Inicio</a>
+<div [ngStyle]="accesib.presentacion">
+<ul class="nav nav-tabs" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}};">
+  <li class="nav-item" >
+    <a routerLink="/inicio" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};" class="nav-link active">Inicio</a>
   </li>
   <li class="nav-item" *ngIf="userLogged|async as user">
-    <a *ngIf="user.emailVerified" routerLink="/incersionLibros" class="nav-link active">Insercion Libros</a>
+    <a *ngIf="user.emailVerified" routerLink="/incersionLibros" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Insercion Libros</a>
   </li>
   <li class="nav-item" *ngIf="userLogged|async as user">
-    <a routerLink="/libros" class="nav-link active">Libros</a>
+    <a *ngIf="user.emailVerified" routerLink="/analytics" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Analíticas</a>
   </li>
   <li class="nav-item" *ngIf="userLogged|async as user">
-    <a *ngIf="user.emailVerified" routerLink="/analytics" class="nav-link active">Analíticas</a>
+    <a routerLink="/libros" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Libros</a>
   </li>
   <li class="nav-item">
-    <a routerLink="/contacto" class="nav-link active">Contacto</a>
+    <a routerLink="/contacto" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Contacto</a>
   </li>
   <li class="nav-item">
-    <a routerLink="/ayuda" class="nav-link active">Ayuda</a>
+    <a routerLink="/ayuda" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Ayuda</a>
   </li>
   <li class="nav-item">
-    <a routerLink="/login" class="nav-link active">Login</a>
+    <a routerLink="/login" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Login</a>
   </li>
   <li class="nav-item" *ngIf="userLogged|async as user">
     <img style="border-radius: 100%" *ngIf="user.photoURL" src="{{user.photoURL}}" 
@@ -26,6 +27,7 @@
     {{user.displayName | uppercase}}
   </li>
 </ul>
+</div>
 <!-- <button *ngIf="userLogged|async as user" (click)="cambiarAccesibilidad({{user.uid}})"></button> -->
 
 <router-outlet></router-outlet>

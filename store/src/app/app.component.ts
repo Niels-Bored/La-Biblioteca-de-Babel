@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from './services/firebase.service';
-
+import { AccesibilidadService } from './accesibilidad.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +12,7 @@ export class AppComponent {
   title(title: any) {
     throw new Error('Method not implemented.');
   }
-  constructor(public firebase:FirebaseService) { 
+  constructor(public firebase:FirebaseService, public accesib:AccesibilidadService) { 
   } 
 
   userLogged = this.firebase.getUserLogged();

@@ -25,6 +25,7 @@
     "compat": "^1.0.4",
     "firebase": "^9.8.2",
     "ng2-charts": "^3.0.11",
+    "ngx-spinner": "^13.1.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

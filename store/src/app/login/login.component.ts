@@ -9,51 +9,49 @@ import { AccesibilidadService } from '../accesibilidad.service';
 })
 export class LoginComponent implements OnInit {
   userLogged = this.firebase.getUserLogged();
-  id:any;
-  usuario={
+  id: any;
+  usuario = {
     email: '',
     password: ''
   }
-  fondo:string="";
-  tamano:number=20;
+  
 
-  constructor(public firebase:FirebaseService, private router:Router, private accesibilidad: AccesibilidadService) { 
+  constructor(public firebase: FirebaseService, private router: Router, public accesib: AccesibilidadService) {
   }
   Ingresar() {
     console.log(this.usuario);
     const { email, password } = this.usuario;
-    this.firebase.login(email,password).then(res =>{
+    this.firebase.login(email, password).then(res => {
       console.log("Ingreso: ", res?.user?.displayName);
       this.id = res?.user?.uid;
     });
 
-    setTimeout(() => {  
-      console.log("El id es: "+this.id);
-      
+    setTimeout(() => {
+      console.log("El id es: " + this.id);
+
       this.firebase.datosAccesibilidad(this.id).subscribe((res: any) => {
         //Aquí guardan en  Local los datos de la accesibilidad con res
-         //console.log(res);
-        this.fondo = this.accesibilidad.getFondo(this.id);
-        this.tamano = this.accesibilidad.getTamano(this.id);
+        //console.log(res);
+        this.accesib.Match(this.id);
+
       });
       this.router.navigate(['inicio']);
     }, 5000);
-    
+
   }
 
   logOut() {
     this.firebase.logout();
+    this.accesib.setActivo("0");
     this.router.navigate(['inicio']);
   }
   ngOnInit(): void {
+    if(this.accesib.activo==""){
+      this.id="0";
+      this.accesib.Match(this.id);
+    }else{
+      this.id=this.accesib.activo;
+      this.accesib.Match(this.accesib.activo);
+    }
   }
-
-}
-interface Usuario {
-  id: string;
-  tamano: number;
-  fondo: string;
-  color: string;
-  bootstrap: string;
-  b_color: string;
 }

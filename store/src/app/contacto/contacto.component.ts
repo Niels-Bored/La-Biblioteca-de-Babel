@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
-
+import { AccesibilidadService } from '../accesibilidad.service';
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
@@ -11,8 +11,7 @@ export class ContactoComponent implements OnInit {
   nombre:string="";
   apellido:string="";
   mensaje:string="";
-
-  constructor(private servicio:FirebaseService) { }
+  constructor(private servicio:FirebaseService, public accesib:AccesibilidadService) { }
 
   ngOnInit(): void {
   }
@@ -24,5 +23,5 @@ export class ContactoComponent implements OnInit {
 
     alert("Correo enviado éxitosamente");
   }
-
+ 
 }

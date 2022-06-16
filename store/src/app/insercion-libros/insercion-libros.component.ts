@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
+import { SpinnerService } from 'src/app/spinner.service';
+import { AccesibilidadService } from '../accesibilidad.service';
 
 @Component({
   selector: 'app-insercion-libros',
@@ -22,10 +24,11 @@ export class InsercionLibrosComponent implements OnInit {
   datos : any;
   libros : any[] = [];
 
-  constructor(public firebase:FirebaseService, public router:Router) { 
+  constructor(public firebase:FirebaseService, private spinnerService: SpinnerService, public accesib: AccesibilidadService, public router:Router) { 
     this.recuperar();
   }
   ngOnInit(): void {
+    //this.spinnerService.llamarSpinner();
   }
 
   insertar(): void {
