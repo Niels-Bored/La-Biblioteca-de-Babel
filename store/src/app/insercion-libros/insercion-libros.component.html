@@ -23,8 +23,8 @@
               <label for="textUser" class="form_label">Autor</label>
             </div>
             <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="precio">
-              <label for="textUser" class="form_label">Precio</label>
+              <input type="text" class="form_input" placeholder=" " [(ngModel)]="sinopsis">
+              <label for="textUser" class="form_label">Sinopsis</label>
             </div>
           </div>
           <div>
@@ -33,8 +33,8 @@
               <label for="textUser" class="form_label">Imagen</label>
             </div>
             <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="sinopsis">
-              <label for="textUser" class="form_label">Sinopsis</label>
+              <input type="text" class="form_input" placeholder=" " [(ngModel)]="url">
+              <label for="textUser" class="form_label">url</label>
             </div>
           </div>
           <button class="Enter" style="background:{{accesib.enter}};" (click)="insertar()">Insertar: </button>
@@ -58,6 +58,7 @@
               <p class="card-text">{{libro.Autor}}</p>
               <p class="card-text">{{libro.Genero}}</p>
               <p class="card-text">{{libro.Descargas}}</p>
+              <button class="Eliminar" (click)="actualizar(libro.Titulo)">Actualizar</button>
               <button class="Eliminar" (click)="eliminar(libro.Titulo)">Eliminar</button>
             </div>
           </div>
