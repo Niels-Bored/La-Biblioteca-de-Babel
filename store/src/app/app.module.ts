@@ -25,6 +25,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { NgxSpinnerModule  } from 'ngx-spinner';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'; 
 import { InterceptorService } from './interceptor.service';
+import { LibroComponent } from './libro/libro.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { InterceptorService } from './interceptor.service';
     ActualizarLibrosComponent,
     LibroQRComponent,
     AnalyticsComponent,
+    LibroComponent,
   ],
   imports: [
     BrowserModule,

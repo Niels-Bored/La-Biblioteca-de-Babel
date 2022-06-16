@@ -1,0 +1,12 @@
+<div class="libro" *ngIf="mostrar; else Error">
+    <img src="{{libro.Imagen}}">
+    <p>{{libro.Titulo}}</p>
+    <p>{{libro.Autor}}</p>
+    <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+</div>
+<ng-template #Error>
+    <div class="centrado">
+        <p class="error">Error! No se encontraron coincidencias para {{titulo}}</p>
+        <img class="gif" src="https://c.tenor.com/J6lraJXFl4IAAAAC/pokemon-pikachu.gif">
+    </div>
+</ng-template>

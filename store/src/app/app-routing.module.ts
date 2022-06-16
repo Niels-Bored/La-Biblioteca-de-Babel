@@ -9,6 +9,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { ActualizarLibrosComponent } from './actualizar-libros/actualizar-libros.component';
 import { VistaLComponent } from './vista-l/vista-l.component';
+import { LibroComponent } from './libro/libro.component';
 import { LibroQRComponent } from './libro-qr/libro-qr.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'contacto', component: ContactoComponent },
   { path: 'ayuda', component: AyudaComponent },
   { path: 'libros', component: VistaLComponent },
+  { path: 'libro/:titulo', component: LibroComponent},
   { path: 'qr/:titulo', component: LibroQRComponent},
   { path: 'analytics', component: AnalyticsComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'inicio' },

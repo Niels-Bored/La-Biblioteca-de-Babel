@@ -1,3 +1,16 @@
+<div class="elementos">
+    <input type="text" class="buscador" #busqueda (keyup.enter)="buscarLibro(busqueda.value)">
+    <button class="elemento" (click)="buscarLibro(busqueda.value)">Buscar</button>
+    <select class="elemento">
+        <option>All</option>
+        <option>Dark Humor</option>
+        <option>Fantasy</option>
+        <option>Romance</option>
+        <option>Science Fiction</option>
+        <option>Terror</option>
+        <option>Thriller</option>
+    </select>
+</div>
 <div class="contenedor-libros">
     <div class="libro" *ngFor="let libro of libros">
         <img src="{{libro.Imagen}}">

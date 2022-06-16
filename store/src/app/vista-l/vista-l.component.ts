@@ -24,5 +24,9 @@ export class VistaLComponent implements OnInit {
   descargar(titulo:string){
     this.router.navigate(["/qr", titulo]);
   }
+  
+  buscarLibro(titulo:string){
+    this.router.navigate(["/libro", titulo]);
+  }
 
 }
