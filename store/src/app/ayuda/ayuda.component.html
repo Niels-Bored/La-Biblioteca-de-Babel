@@ -1,17 +1,38 @@
-<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img src="../../assets/Accesibilidad/icono_normal.png"  alt="" srcset=""></button>  
+<div [ngStyle]="presentacion">
+  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img src="../../assets/Accesibilidad/icono_normal.png"  alt="" srcset=""></button>  
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Accesibilidad</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ...
+          <form>
+            <div class="form-group row container">
+              <label for="formControlRange">Tamaño de Letra</label>
+              <input type="range" class="custom-range" min="7" max="60" id="customRange2" (change)="cambiarTamano($event)">
+            </div>
+            <div class="form-group row mx-sm-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Fondo</label>
+              <select class="form-control" id="Fondo_select" (change)="cambiarFondo($event)">
+                <option>Normal</option>
+                <option>Escala de Grises</option>
+                <option>Alto Contraste</option>
+              </select>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
+  
+  <!-- aquí sigue el div que contiene todo lo que vaya a tener esta pagina -->
+  <div>
+   <p>nomas ando probando</p>
+  </div>
+
+</div>
