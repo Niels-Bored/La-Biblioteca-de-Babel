@@ -2,10 +2,12 @@
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    flex: wrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 .libro{
     width: 300px;

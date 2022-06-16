@@ -221,9 +221,10 @@ app.get('/cambiarAccesibilidad', async (req, res) => {
       res.status(404).send(error.message);
   }
 });
-/*
-        
-*/
+
+app.get('*', (req,res) => {
+  res.sendFile(process.cwd()+"/store/dist/store/index.html")
+});
 
 app.listen(port, () => {
  console.log(`servidor corriendo en http://localhost:${port}`);
