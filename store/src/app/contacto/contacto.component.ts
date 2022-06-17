@@ -15,6 +15,7 @@ export class ContactoComponent implements OnInit {
   apellido:string="";
   mensaje:string="";
   correo:string="";
+  botoncito:string="";
 
   constructor(private servicio:FirebaseService) {
     this.forma = new FormGroup({
@@ -22,7 +23,8 @@ export class ContactoComponent implements OnInit {
       'nombre': new FormControl(this.nombre,[Validators.required,Validators.minLength(3)] ),
       'apellido': new FormControl(this.apellido,Validators.required),
       'correo': new FormControl(this.correo,[Validators.required,Validators.email]),
-      'mensaje': new FormControl(this.mensaje,Validators.required)
+      'mensaje': new FormControl(this.mensaje,Validators.required),
+      'botoncito': new FormControl(this.botoncito,Validators.required)
       });
    }
 

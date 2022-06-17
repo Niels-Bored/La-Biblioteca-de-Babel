@@ -3,21 +3,87 @@
   <div class="div1">
     <div class="sub1">
       <h1>Insercion libros</h1>
-      <div class="Form">
-        <div class="s1">
-          <input type="text" class="in1 " placeholder="Titulo" [(ngModel)]="titulo"><br>
-          <input type="text" class="in1" placeholder="Genero" [(ngModel)]="genero"><br>
+      <form [formGroup]="forma" (ngSubmit)="insertar()" class="needs-validation" novalidate>
+        <div class="Form container">
+
+          <div class="form-group row has-danger s1">
+            <!-- TITULO -->
+            <div class="col-8">
+              <input type="text" class="in1 form-control" 
+                      placeholder="Titulo" 
+                      [(ngModel)]="titulo"
+                      [ngClass]="{'is-invalid':!forma.get('titulo')?.valid}"
+                      formControlName="titulo">
+              <div *ngIf="forma.controls['titulo'].errors?.['required']" class="invalid-feedback">
+                  Campo necesario
+              </div>
+            </div>
+            <!-- GENERO -->
+            <div class="col-8">
+              <input type="text" class="in1 form-control" 
+                      placeholder="Genero" 
+                      [(ngModel)]="genero"
+                      [ngClass]="{'is-invalid':!forma.get('genero')?.valid}"
+                      formControlName="genero">
+              <div *ngIf="forma.controls['titulo'].errors?.['required']" class="invalid-feedback">
+                  Campo necesario
+              </div>
+            </div>
+          </div>
+          <!-- AUTOR -->
+          <div class="form-group row s2">
+            <div class="col-8">
+              <input type="text" class="in2 form-control" 
+                      placeholder="Autor" 
+                      [(ngModel)]="autor"
+                      [ngClass]="{'is-invalid':!forma.get('autor')?.valid}"
+                      formControlName="autor">
+              <div *ngIf="forma.controls['autor'].errors?.['required']" class="invalid-feedback">
+                  Campo necesario
+              </div>
+            </div>
+            <!-- IMAGEN -->
+            <div class="col-8">
+              <input type="text" class="form-control" 
+                      placeholder="Imagen" 
+                      [(ngModel)]="imagen"
+                      [ngClass]="{'is-invalid':!forma.get('imagen')?.valid}"
+                      formControlName="imagen">
+              <div *ngIf="forma.controls['imagen'].errors?.['required']" class="invalid-feedback">
+                  Campo necesario
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <!-- SINOPSIS -->
+            <div class="col-8">
+              <textarea class="form-control" cols="20" 
+                        rows="4" placeholder="Sinopsis" 
+                        formControlName="sinopsis" 
+                        [(ngModel)]="sinopsis"
+                        [ngClass]="{'is-invalid':!forma.get('sinopsis')?.valid}"
+                        formControlName="sinopsis"></textarea>
+              <div *ngIf="forma.controls['sinopsis'].errors?.['required']" class="invalid-feedback">
+                  Campo necesario
+              </div>
+            </div>
+            <!-- URL -->
+            <div class="col-8">
+              <input type="text" class="form-control" 
+                      placeholder="Url del libro" 
+                      [(ngModel)]="url"
+                      [ngClass]="{'is-invalid':!forma.get('url')?.valid}"
+                      formControlName="url">
+              <div *ngIf="forma.controls['url'].errors?.['required']" class="invalid-feedback">
+                  Campo necesario
+              </div>
+            </div>
+          </div> 
+
+          <button type="submit" class="Enter" (click)="insertar()" [disabled]="forma.invalid">Insertar: </button>
         </div>
-        <div class="s2">
-          <input type="text" class="in2" placeholder="Autor" [(ngModel)]="autor">
-          <input type="text" class="in2" placeholder="Precio" [(ngModel)]="precio">
-        </div>
-        <div>
-          <input type="text" class="" placeholder="Imagen" [(ngModel)]="imagen">
-          <input type="text" class="" placeholder="Sinopsis" [(ngModel)]="sinopsis">
-        </div>
-        <button class="Enter" (click)="insertar()">Insertar: </button>
-      </div>
+      </form>
     </div>
     <div class="sub2">
       <img src="../../assets/Insercion/Libro.png" alt="">

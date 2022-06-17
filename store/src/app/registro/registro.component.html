@@ -87,7 +87,7 @@
               <div *ngIf="formu.controls['pass_2'].errors?.['required']" class="invalid-feedback">
                 Ingrese contraseña**
               </div>
-              <div *ngIf="(pass_1 !== pass_2)" class="invalid-feedback">
+              <div *ngIf="(formu.get(pass_1) !== formu.get(pass_2))" class="invalid-feedback">
                 Las contraseñas no coinciden.
               </div>
             </div>

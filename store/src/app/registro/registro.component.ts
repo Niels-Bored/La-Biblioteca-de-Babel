@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, Validator } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -27,7 +27,16 @@ export class RegistroComponent implements OnInit {
       'userName': new FormControl(this.userName,[Validators.required,Validators.minLength(3)] ),
       'mail': new FormControl(this.mail,[Validators.required,Validators.email]),
       'phone': new FormControl(this.phone,Validators.required),
-      'password_1': new FormControl(this.pass_1,Validators.required),
+      'password_1': new FormControl(this.pass_1,
+        // 1. Password Field is Required
+        Validators.required
+        // 2. check whether the entered password has a number
+        //CustomValidators.patternValidator(/\d/, { hasNumber: true }),
+        // 3. check whether the entered password has upper case letter
+        //CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
+        // 4. check whether the entered password has a lower-case letter
+        //CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true })]
+        ),
       'password_2': new FormControl(this.pass_2,Validators.required),
     });
 
