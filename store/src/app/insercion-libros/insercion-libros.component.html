@@ -1,45 +1,4 @@
 <div [ngStyle]="accesib.presentacion">
-<<<<<<< HEAD
-
-  <div class="divImg" style="background: url('{{accesib.img0}}');"></div>
-  <div class="divPrin">
-    <div class="div1">
-      <div class="sub1">
-        <h1>Insercion libros</h1>
-        <div class="Form">
-          <div class="s1">
-            <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="titulo">
-              <label for="textUser" class="form_label">Titulo</label>
-            </div>
-            <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="genero">
-              <label for="textUser" class="form_label">Genero</label>
-            </div>
-
-          </div>
-          <div class="s2">
-            <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="autor">
-              <label for="textUser" class="form_label">Autor</label>
-            </div>
-            <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="sinopsis">
-              <label for="textUser" class="form_label">Sinopsis</label>
-            </div>
-          </div>
-          <div>
-            <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="imagen">
-              <label for="textUser" class="form_label">Imagen</label>
-            </div>
-            <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="url">
-              <label for="textUser" class="form_label">url</label>
-            </div>
-          </div>
-          <button class="Enter" style="background:{{accesib.enter}};" (click)="insertar()">Insertar: </button>
-=======
   
 <div class="divImg" style="background: url('{{accesib.img0}}');"></div>
 <div class="divPrin">
@@ -50,7 +9,6 @@
         <div class="s1">
           <input type="text" class="in1 " placeholder="Titulo" [(ngModel)]="titulo"><br>
           <input type="text" class="in1" placeholder="Genero" [(ngModel)]="genero"><br>
->>>>>>> parent of 45a3c33 (Merge branch 'Diseños2')
         </div>
         <div class="s2">
           <input type="text" class="in2" placeholder="Autor" [(ngModel)]="autor">
@@ -63,31 +21,9 @@
         <button class="Enter" style="background:{{accesib.enter}} ;" (click)="insertar()">Insertar: </button>
       </div>
     </div>
-<<<<<<< HEAD
-    <br><br><br>
-    <div class="divCards">
-      <div class="card-columns">
-        <div *ngFor="let libro of libros" class="card">
-          <div class="card-body">
-            <div class="face front">
-              <img src="../../assets/Insercion/Portada.jpg">
-            </div>
-            <div class="face back">
-              <h5 class="card-title">{{libro.Titulo}}</h5>
-              <p class="card-text">{{libro.Autor}}</p>
-              <p class="card-text">{{libro.Genero}}</p>
-              <p class="card-text">{{libro.Descargas}}</p>
-              <button class="Eliminar" (click)="actualizar(libro.Titulo)">Actualizar</button>
-              <button class="Eliminar" (click)="eliminar(libro.Titulo)">Eliminar</button>
-            </div>
-          </div>
-        </div>
-        <!-- --------------------- -->
-=======
     <div class="sub2">
       <img src="../../assets/Insercion/Libro.png" alt="">
     </div>
->>>>>>> parent of 45a3c33 (Merge branch 'Diseños2')
 
   </div>
   <br><br><br>
