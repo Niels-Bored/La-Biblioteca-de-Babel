@@ -3,18 +3,45 @@
     <div class="formm">
         <div class="s1">
             <h1>LOGIN CELULAR</h1>
-            <form>
+            <form class="Form" [formGroup]="formu" class="needs-validation" novalidate>
                 <div class="ss1">
                     <label for="phone">Telefono</label><br>
-                    <input type="text" [(ngModel)]="telefono" placeholder="Telefono"  class="input"><br><br>
-                    <div id="recaptcha-container"></div>
-                    <button (click)="sendLoginCode()">Enviar Código</button><br>
+                    <input type="text" [(ngModel)]="telefono" 
+                            placeholder="Telefono"  
+                            class="input"
+                            [ngClass]="{'is-invalid':!formu.get('telefono')?.valid}"
+                            formControlName="telefono"
+                            pattern="[0-9]{1,15}"><br><br>
+                    <div *ngIf="formu.controls['telefono'].errors?.['required']" class="invalid-feedback">
+                        Campo obligatorio. Solo numeros.
+                    </div>
+                    <!-- TERMINOS -->
+                <div class="form-group col">
+                    <input type="checkbox" value="" id="invalidCheck2" required>
+                    <label for="invalidCheck2">
+                        Recibir novedades y ofertas de los productos.
+                    </label>
                 </div>
+                    <div id="recaptcha-container"></div>
+                    <br>
+                    <button (click)="sendLoginCode()" [disabled]="formu.invalid">Enviar Código</button><br>
+                </div>
+                
                 <div class="ss2" *ngIf="windowRef.confirmationResult">
                     <h4>Introducir Codigo</h4>
-                    <label for="code">Codigo que llego por telefono</label>
-                    <input type="text" name="code" [(ngModel)]="codigoVerif"><br><br>
-                    <button (click)="verifyLoginCode()">Ingresar</button>
+                    <div class="form_box form-group row">
+                        <label for="code">Codigo que llego por telefono</label>
+                        <div class="col-8">                           
+                            <input type="text" name="code" [(ngModel)]="codigoVerif" required
+                            [ngClass]="{'is-invalid':!formu.get('codigo')?.valid}"
+                            formControlName="codigo">
+                            <div *ngIf="formu.controls['codigo'].errors?.['required']" class="invalid-feedback">
+                                Campo obligatorio.
+                            </div>
+                            <br><br>
+                        </div>
+                    </div>
+                    <button (click)="verifyLoginCode()" [disabled]="formu.invalid">Ingresar</button>
                 </div>
             </form>  
         </div>

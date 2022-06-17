@@ -21,13 +21,15 @@ export class RegistroComponent implements OnInit {
   url:string="";
   usuarios : any;
 
+  band:boolean=false;
+
   constructor(public firebase:FirebaseService, private router:Router) { 
 
     this.formu = new FormGroup({
       'userName': new FormControl(this.userName,[Validators.required,Validators.minLength(3)] ),
       'mail': new FormControl(this.mail,[Validators.required,Validators.email]),
       'phone': new FormControl(this.phone,Validators.required),
-      'password_1': new FormControl(this.pass_1,
+      'pass_1': new FormControl(this.pass_1,
         // 1. Password Field is Required
         Validators.required
         // 2. check whether the entered password has a number
@@ -37,9 +39,8 @@ export class RegistroComponent implements OnInit {
         // 4. check whether the entered password has a lower-case letter
         //CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true })]
         ),
-      'password_2': new FormControl(this.pass_2,Validators.required),
+      'pass_2': new FormControl(this.pass_2,Validators.required)
     });
-
     this.consultaDatos();
     
   }
@@ -64,6 +65,15 @@ export class RegistroComponent implements OnInit {
       this.usuarios = res;
       console.log(this.usuarios);
     });
+  }
+
+  confirmPass():boolean{
+    if(this.pass_2 !== this.pass_1){
+     return true;
+    }
+    else{
+      return false;
+    }
   }
 
   ngOnInit(): void {

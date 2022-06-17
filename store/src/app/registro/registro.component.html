@@ -50,14 +50,27 @@
                     [(ngModel)]="phone"
                     [ngClass]="{'is-invalid':!formu.get('phone')?.valid}"
                     formControlName="phone"
-                    pattern="[0-9]"
+                    pattern="[0-9]{1,15}"
                     title=" El numero de telefono no tiene el formato correcto">
               <div *ngIf="formu.controls['phone'].errors?.['required']" class="invalid-feedback">
-                Campo obligatorio
+                Campo obligatorio. Solo numeros.
               </div>
             </div>
           </div>
-          
+
+          <!-- SEXO -->
+          <div class="form-group row ">
+            <label>Sexo:</label>
+            <div class="col-8">
+              <select class="custom-select">
+                <option selected>Selecciona una respuesta...</option>
+                <option value="1">Hombre</option>
+                <option value="2">Mujer</option>
+                <option value="3">Prefiero no decirlo</option>
+              </select>
+            </div>
+          </div>
+
           <!-- PASSWORD 1-->
           <div class="form-group row">
             <label>Contraseña:</label>
@@ -65,7 +78,7 @@
               <input type="text" class="form-control" 
                       placeholder="password" 
                       [(ngModel)]="pass_1"
-                      
+                      [ngClass]="{'is-invalid':!formu.get('pass_1')?.valid}"
                       formControlName="pass_1">
 
               <div *ngIf="formu.controls['pass_1'].errors?.['required']" class="invalid-feedback">
@@ -76,21 +89,46 @@
 
           <!-- PASSWORD 2-->
           <div class="form-group row">
-            <label>Contraseña:</label>
+            <label>Confirmar contraseña:</label>
             <div class="col-8">
               <input type="text" class="form-control" 
-                      placeholder="password confirm" 
+                      placeholder=" Confirm password"
                       [(ngModel)]="pass_2"
-                      
+                      [ngClass]="{'is-invalid':!formu.get('pass_2')?.valid}"
                       formControlName="pass_2">
 
               <div *ngIf="formu.controls['pass_2'].errors?.['required']" class="invalid-feedback">
                 Ingrese contraseña**
               </div>
-              <div *ngIf="(formu.get(pass_1) !== formu.get(pass_2))" class="invalid-feedback">
-                Las contraseñas no coinciden.
-              </div>
+              
             </div>
+          </div>
+
+          <!-- URL FOTO -->
+          <div class="form_box form-group row">
+            <label class="form_label">Foto URL: </label> 
+            <div class="col-8">
+              <input type="text" class="form-control form_input" 
+                      placeholder="Url de tu foto" 
+                      [(ngModel)]="url"
+                      [ngClass]="{'is-invalid':!formu.get('url')?.valid}"
+                      formControlName="url">
+              <div *ngIf="formu.controls['url'].errors?.['required']" class="invalid-feedback">
+                  Campo necesario
+              </div>
+            </div>          
+          </div>
+          
+
+          <!-- TERMINOS -->
+          <div class="form-group col">
+            <input type="checkbox" value="" id="invalidCheck2" required>
+            <label for="invalidCheck2">
+              Recibir novedades y ofertas de los productos.
+            </label>
+          </div>
+          <div *ngIf="confirmPass()" class="invalid-feedback">
+            Las contraseñas no coinciden.
           </div>
 
           <!-- BOTON DE AGREGAR -->
@@ -98,6 +136,7 @@
             <div class="input-group col-md-8">
               <button type="submit" class="btn btn-primary btn-block" (click)="insertarUsuario()" [disabled]="formu.invalid">Registrar</button>
             </div>
+
           </div>
 
         </div>

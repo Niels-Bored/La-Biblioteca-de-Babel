@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from '@firebase/app-compat';
 import { FirebaseService } from '../services/firebase.service';
+import { FormGroup, FormControl, Validators, Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-logincel',
@@ -10,12 +11,17 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class LogincelComponent implements OnInit {
 
+  formu!: FormGroup; 
   telefono:string = "";
   windowRef: any;
   codigoVerif: string = "";
   user: any;
 
-  constructor(private win: FirebaseService, private router:Router) { }
+  constructor(private win: FirebaseService, private router:Router) {
+    this.formu = new FormGroup({
+      'telefono': new FormControl(this.telefono,Validators.required)
+    });
+  }
 
   ngOnInit(): void {
     this.windowRef = this.win.windowRef;

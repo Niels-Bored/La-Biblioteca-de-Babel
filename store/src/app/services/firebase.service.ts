@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
+import Swal from 'sweetalert2';
 /*Para la librería  de arriba se necesita:
 npm i firebase
 npm i @angular/fire
@@ -51,6 +52,14 @@ export class FirebaseService {
       return await this.afauth.signInWithEmailAndPassword(email, password);
     } catch (error) {
       console.log("error en login: ",error);
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Oops...',
+        text:  'Algo salio mal.',
+        showConfirmButton: false,
+        timer: 2000
+      });
       return null;
     }
   }
