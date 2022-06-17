@@ -22,7 +22,7 @@ export class AccesibilidadService {
   };
   icono: string = "../../assets/Accesibilidad/icono_normal.png";
   img0: string = "../../assets/Insercion/Fondo3.jpg ";
-  img1: string = "";
+  img1: string = "../../assets/Inicio/logo.png";
   img2: string = "";
   f_logo:string="../../assets/Inicio/fimagen.png";
   redes0="../../assets/Inicio/gmail.png";
@@ -169,18 +169,21 @@ export class AccesibilidadService {
         this.redes1="../../assets/Inicio/twitter_gris.png";
         this.redes2="../../assets/Inicio/instagram_gris.png";
         this.f_logo="../../assets/Inicio/fimagen_gris.png";
+        this.img1 = "../../assets/Inicio/logo_gris.png";
         break;
       case "Normal":
         this.redes0="../../assets/Inicio/gmail.png";
         this.redes1="../../assets/Inicio/twitter.png";
         this.redes2="../../assets/Inicio/instagram.png";
         this.f_logo="../../assets/Inicio/fimagen.png";
+        this.img1 = "../../assets/Inicio/logo.png";
         break;
       case "Alto Contraste":
         this.redes0="../../assets/Inicio/gmail_contraste.png";
         this.redes1="../../assets/Inicio/twitter_contraste.png";
         this.redes2="../../assets/Inicio/instagram_contraste.png";
         this.f_logo="../../assets/Inicio/fimagen_contraste.png";
+        this.img1 = "../../assets/Inicio/logo_contraste.png";
         break;
     } 
   }
