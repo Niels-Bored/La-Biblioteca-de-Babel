@@ -17,7 +17,7 @@ export class LibroQRComponent implements OnInit {
   imagen:string="";
   descargas:number = 0;
   libro:any;
-  urltemp:string="";
+  urltemp:any;
 
   constructor(public activatedRoute:ActivatedRoute, public firebase:FirebaseService) { 
     this.activatedRoute.params.subscribe(params=>{
@@ -25,14 +25,14 @@ export class LibroQRComponent implements OnInit {
       this.firebase.recuperarLibro(this.titulo).subscribe((res: any) => {
         this.libro = res;
       });
-      this.firebase.consultaURL(this.titulo).subscribe((res: any) => {
-        this.urltemp = res;
-        console.log("El libro es " + res);
+      this.firebase.consultaURL(this.titulo).subscribe((resp: any) => {
+        this.urltemp = resp['url'];
       });
     });
+    
     setTimeout(() => {  
       this.actualizarDescargas();
-    }, 500);
+    }, 1500);
     
   }
 
@@ -51,5 +51,7 @@ export class LibroQRComponent implements OnInit {
     });
   }
 
-  
+  btnDescarga(){   
+    window.location.href =  this.urltemp;
+  }  
 }
