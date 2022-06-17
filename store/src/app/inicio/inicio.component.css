@@ -1,6 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Fascinate+Inline&display=swap');
-
 #accesibilidad{
     position: fixed;
     bottom: 0;
@@ -9,12 +7,6 @@
 .carrusel{
     margin: auto;
     width: 90%;
-}
-h1{
-    font-family: 'Fascinate Inline', cursive;
-}
-h2{
-    font-family: 'Dancing Script', cursive;
 }
 .divP {
     /* background: url("../../assets/Login/Fondo3.jpeg"); */

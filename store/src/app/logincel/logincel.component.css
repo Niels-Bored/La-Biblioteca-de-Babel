@@ -34,7 +34,6 @@ h1 {
     text-align: center;
 }
 
-
 .formm .s1 {
     grid-area: s1;
     width: 100%;
@@ -62,36 +61,56 @@ h1 {
     margin: auto;
 }
 
-label {
-    margin-left: 5px;
-}
-
-input {
-    border-radius: 10px;
-    border-color: white;
-    outline: none;
-    border: none;
-    height: 35px;
-    width: 100%;
-}
-
-input:focus {
-    box-shadow: 0px 0px 5px blue;
-}
-
-button {
-    width: 100%;
-    border: none;
-    outline: none;
-    border-radius: 8px;
-    background-color: blue;
-    color: white;
-    height: 35px;
-}
-
 img {
     width: 80%;
 }
+
+/* Estilos Input */
+.form_input {
+    display: block;
+    margin-bottom: 2rem;
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    border: 0;
+    outline: solid 2px white;
+    height: 32px;
+    width: 100%;
+}
+
+.form_label {
+    position: absolute;
+    top: 20px;
+    left: 2rem;
+    background: white;
+    padding: 0 .5rem;
+    height: 25px;
+    font-size: 15px;
+    border-radius: 5px;
+   
+}
+
+.form_box {
+    position: relative;
+    padding: 1rem;
+    
+}
+
+.form_input:focus{
+    outline: solid 2px rgb(47, 143, 157);
+    box-shadow: blue 0px 0px 8px;
+}
+
+.form_input:focus+.form_label {
+    transform: translateY(-1.2rem );
+    transition: .5s;
+}
+
+.form_input:not(:placeholder-shown)+.form_label{
+    transform: translateY(-1.2rem);
+    
+}
+
+/* Fin de Estilos Input */
 
 @media only screen and (max-width: 830px) {
     .ss1 {
