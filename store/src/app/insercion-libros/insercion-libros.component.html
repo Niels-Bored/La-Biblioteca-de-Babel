@@ -26,19 +26,15 @@
               <input type="text" class="form_input" placeholder=" " [(ngModel)]="sinopsis">
               <label for="textUser" class="form_label">Sinopsis</label>
             </div>
-
           </div>
           <div>
             <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="imagen">
+              <input type="file" accept="image/png, image/jpg, image/jpeg" class="form_input" placeholder=" "
+                [(ngModel)]="imagen">
               <label for="textUser" class="form_label">Imagen</label>
             </div>
             <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="sinopsis">
-              <label for="textUser" class="form_label">Sinopsis</label>
-            </div>
-            <div>
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="url">
+              <input type="url" class="form_input" placeholder=" " [(ngModel)]="url">
               <label for="textUser" class="form_label">url</label>
             </div>
           </div>
@@ -56,7 +52,7 @@
         <div *ngFor="let libro of libros" class="card">
           <div class="card-body">
             <div class="face front">
-              <img src="{{libro.Imagen}}">
+              <img class="imagen" src="{{libro.Imagen}}">
             </div>
             <div class="face back">
               <h5 class="card-title">{{libro.Titulo}}</h5>

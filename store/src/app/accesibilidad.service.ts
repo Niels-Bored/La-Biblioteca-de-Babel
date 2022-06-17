@@ -20,8 +20,9 @@ export class AccesibilidadService {
     'color': this.color,
     'font-size.px': this.tamano,
   };
+  filtro: string ="";
   icono: string = "../../assets/Accesibilidad/icono_normal.png";
-  img0: string = "../../assets/Insercion/Fondo3.jpg ";
+  img0: string = "../../assets/Insercion/Nubes.jpg ";
   img1: string = " ../../assets/Inicio/logo.png";
   img2: string = "";
   f_logo:string="../../assets/Inicio/fimagen.png";
@@ -102,7 +103,7 @@ export class AccesibilidadService {
         this.nav_letra="gray";
         this.borde="#F0E7E6";
         this.icono = "../../assets/Accesibilidad/icono_normal.png";
-        this.img0="../../assets/Insercion/Fondo3.jpg";
+        this.img0="../../assets/Insercion/Nubes.jpg";
         this.enter="rgba(33, 5, 189, 0.871)";
         this.footer="#C6DCE4";
         break;
@@ -135,6 +136,7 @@ export class AccesibilidadService {
         this.icono = "../../assets/Accesibilidad/icono_gris.png";
         this.img0="../../assets/Accesibilidad/fondo_gris_0.png";
         this.enter="grey";
+        this.filtro="grayscale(100%)";
         break;
       case "Normal":
         this.presentacion['color'] = "black";
@@ -144,8 +146,10 @@ export class AccesibilidadService {
         this.nav_letra="gray";
         this.borde="#F0E7E6";
         this.icono = "../../assets/Accesibilidad/icono_normal.png";
-        this.img0="../../assets/Insercion/Fondo3.jpg";
+        this.img0="../../assets/Insercion/Nubes.jpg";
         this.enter="rgba(33, 5, 189, 0.871)";
+        this.filtro="brightness(1%)";
+
         break;
       case "Alto Contraste":
         this.presentacion['color'] = "blue";
@@ -157,6 +161,7 @@ export class AccesibilidadService {
         this.icono = "../../assets/Accesibilidad/icono_normal.png";
         this.img0="../../assets/Accesibilidad/fondo_alto_0.png";
         this.enter="black";
+        this.filtro="contrast(100%)";
         break;
     } 
     this.cambiarIcono(this.fondo);
@@ -203,7 +208,7 @@ export class AccesibilidadService {
     'font-size.px': this.tamano,
   };
   this.icono= "../../assets/Accesibilidad/icono_normal.png";
-  this.img0= "../../assets/Insercion/Fondo3.jpg ";
+  this.img0= "../../assets/Insercion/Nubes.jpg ";
   }
 
   cambiarTamano(e:any) {

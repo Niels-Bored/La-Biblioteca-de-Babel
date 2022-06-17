@@ -1,37 +1,127 @@
-.contenedor-libros{
-    margin-top: 20px;
+/* Estilos Cards */
+.divCards {
+    margin: auto;
+    width: 95%;
+    background: rgba(255, 255, 255, 40%);
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
 }
-.libro{
-    width: 300px;
-    height: 550px;
-    border: 1px solid black;
-    box-shadow: 0px 0px 10px black;
+
+.card-columns {
+    width: 100%;
+    margin: 0px auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0%);
+    border: none;
+    border-radius: 10px;
+    margin: auto;
+    width: 240px;
+}
+
+.card-body {
+    position: relative;
+    height: 330px;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.card-body .face {
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card-body .front {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0px 0px 10px #000;
+    width: 200px;
+    height: 319px; 
+}
+
+img {
+    border-radius: 15px;
+}
+
+.card-body .front img {
+    position: relative;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.img{
+    height: 100%;
+}
+
+.card-body .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3, 35, 54);
+    padding: 15px;
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    box-sizing: border-box;
+    width: 200px;
+    height: 320px;
 }
 
-.libro img{
-    width: 80%;
+.card-body:hover .front {
+    transform: perspective(600px) rotateY(180deg);
 }
 
-.boton{
-    width: 80%;
-    height: 40px;
+.card-body:hover .back {
+    transform: perspective(600px) rotateY(360deg);
 }
 
-.boton:hover{
-    cursor: pointer;
+/* Fin de estilos Cars */
+
+.imagen{
+    width: 100%;
+    height: 100%;;
 }
 
+@media (min-width: 576px) {
+    .card-columns {
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media (min-width: 700px) {
+    .card-columns {
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-columns {
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-columns {
+        -webkit-column-count: 5;
+        column-count: 5;
+    }
+}

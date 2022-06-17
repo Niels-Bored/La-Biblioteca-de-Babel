@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
 import { FirebaseService } from '../services/firebase.service';
+import { SpinnerService } from 'src/app/spinner.service';
 
 @Component({
   selector: 'app-analytics',
@@ -10,21 +11,21 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class AnalyticsComponent implements OnInit {
 
-  libros : any[] = [];
-  genaux:any[] = [];
-  descargas : any[] = [];
-  descargasaux : any[] = [];
-  orden : any[] = [];
+  libros: any[] = [];
+  genaux: any[] = [];
+  descargas: any[] = [];
+  descargasaux: any[] = [];
+  orden: any[] = [];
 
   nombres: any[] = [];
-  gen:any[] = [];
-  topD:any[] = [];
-  topN:any[] = [];
-  generos: any[] = ["Dark Humor","Fantasy","Romance","Science Fiction","Terror","Thriller","Other"];
-  numGen: number[] = [0,0,0,0,0,0,0]; 
-  
+  gen: any[] = [];
+  topD: any[] = [];
+  topN: any[] = [];
+  generos: any[] = ["Dark Humor", "Fantasy", "Romance", "Science Fiction", "Terror", "Thriller", "Other"];
+  numGen: number[] = [0, 0, 0, 0, 0, 0, 0];
 
-  constructor(public firebase:FirebaseService, public router:Router) { 
+
+  constructor(public firebase: FirebaseService, public router: Router, private spinnerService: SpinnerService) {
     this.firebase.consultaDescargas().subscribe((res: any) => {
       this.libros = res;
       console.log(this.libros);
@@ -34,24 +35,24 @@ export class AnalyticsComponent implements OnInit {
       console.log(this.genaux);
     });
 
-    setTimeout(() => {  
+    setTimeout(() => {
       this.generaGraf();
     }, 4000);
   }
   ngOnInit(): void {
-    
+
   }
 
-  generaGraf(){
+  generaGraf() {
     for (let i = 0; i < this.libros.length; i++) {
       this.descargas[i] = parseInt(this.libros[i]['Descargas']);
       this.descargasaux[i] = this.descargas[i];
       this.gen[i] = this.genaux[i];
     }
-    this.descargasaux.sort((a,b)=>a-b);
+    this.descargasaux.sort((a, b) => a - b);
     var x = 0;
-    for (let index = this.descargas.length-1; index >= this.descargas.length-10; index--) {
-      this.orden[x++] =  this.descargas.indexOf(this.descargasaux[index])
+    for (let index = this.descargas.length - 1; index >= this.descargas.length - 10; index--) {
+      this.orden[x++] = this.descargas.indexOf(this.descargasaux[index])
     }
     for (let j = 0; j < 10; j++) {
       this.topD[j] = this.libros[this.orden[j]]['Descargas'];
@@ -60,20 +61,20 @@ export class AnalyticsComponent implements OnInit {
 
     const graficatop = new Chart("top10", {
       type: 'bar',
-      data:{
-        labels:this.topN,
-        datasets:[{
+      data: {
+        labels: this.topN,
+        datasets: [{
           label: 'Descargas',
           data: this.topD
         }]
       },
       options: {
-        scales:{
-          y:{
-            beginAtZero:true
+        scales: {
+          y: {
+            beginAtZero: true
           }
         },
-        responsive:true
+        responsive: true
       }
     });
 
@@ -102,25 +103,28 @@ export class AnalyticsComponent implements OnInit {
           break;
       }
     }
-    
+
     const graficat = new Chart("topCat", {
       type: 'pie',
-      data:{
-        labels:this.generos,
-        datasets:[{
+      data: {
+        labels: this.generos,
+        datasets: [{
           label: 'Descargas',
-          data: this.numGen
+          data: this.numGen,
+          backgroundColor: [
+            
+          ]
         }]
       },
       options: {
-        scales:{
-          y:{
-            beginAtZero:true
+        scales: {
+          y: {
+            beginAtZero: true
           }
         },
-        responsive:true
+        responsive: true
       }
     });
-    
+
   }
 }

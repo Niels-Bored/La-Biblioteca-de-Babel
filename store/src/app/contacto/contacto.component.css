@@ -19,7 +19,7 @@
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "s1 s1 s2";
-    background: rgb(179, 232, 229);
+    background: rgb(179, 232, 229,50%);
     border-radius: 20px;
     margin-top: 30px;
     border: solid white;

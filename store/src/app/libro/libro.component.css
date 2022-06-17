@@ -1,4 +1,4 @@
-.libro{
+/* .libro {
     width: 300px;
     height: 550px;
     border: 1px solid black;
@@ -11,15 +11,103 @@
     box-sizing: border-box;
 }
 
-.libro img{
+.libro img {
     width: 80%;
-}
+} */
 
-.boton{
+.boton {
     width: 80%;
     height: 40px;
 }
 
-.boton:hover{
+.boton:hover {
     cursor: pointer;
 }
+
+/* Estilos Cards */
+.divCards {
+    margin: auto;
+    width: 95%;
+    background: rgba(255, 255, 255, 40%);
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-columns {
+    width: 100%;
+    margin: 0px auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0%);
+    border: none;
+    border-radius: 10px;
+    margin: auto;
+    width: 240px;
+}
+
+.card-body {
+    position: relative;
+    height: 330px;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.card-body .face {
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card-body .front {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0px 0px 10px #000;
+    width: 200px;
+    height: 319px;
+}
+
+img {
+    border-radius: 15px;
+}
+
+.card-body .front img {
+    position: relative;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.img {
+    height: 100%;
+}
+
+.card-body .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3, 35, 54);
+    padding: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 320px;
+}
+
+.card-body:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card-body:hover .back {
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/* Fin de estilos Cars */
