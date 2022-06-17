@@ -1,2 +1,4 @@
 <h1>Disfruta tu libro</h1>
+<h4>Escanea el código o presiona el botón</h4>
 <qrcode [qrdata]="url" [width]="256" [errorCorrectionLevel]="'L'"></qrcode>
+<button (click)="btnDescarga()">Descarga el libro</button>

@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const misRutas = require("./routes/rutas");
 const Libro = require("./models/libro");
 const Informacion = require("./models/informacion");
+const URL = require("./models/urlM");
 var nodemailer = require('nodemailer');
 const cors = require("cors");
 
@@ -158,9 +159,11 @@ app.get('/recuperacionURL/:nombre', async (req, res) => {
       if (!libro.exists) {
           res.status(404).send('No hay un libro con ese nombre');
       } else {
-          const url = libro.data();
-          console.log(url['url']);
-          res.send(url['url']);
+        const url = new URL(
+            libro.data().url
+        );
+          //console.log(url);
+          res.send(url);
       }
   } catch(error){
       res.status(404).send(error.message);
