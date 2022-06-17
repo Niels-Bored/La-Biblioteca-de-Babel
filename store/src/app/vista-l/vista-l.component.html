@@ -1,7 +1,9 @@
 <div class="elementos">
-    <input type="text" class="buscador" #busqueda (keyup.enter)="buscarLibro(busqueda.value)">
-    <button class="elemento" (click)="buscarLibro(busqueda.value)">Buscar</button>
-    <select #filtro class="elemento" (change)="cambioOpcion(filtro.value)">
+    <div class="form_box">
+        <input type="text" class="form_input" #busqueda (keyup.enter)="buscarLibro(busqueda.value)" placeholder=" ">
+        <label class="form_label" for="">Buscar</label>
+    </div>
+    <select #filtro class="select-css" (change)="cambioOpcion(filtro.value)">
         <option>All</option>
         <option>Dark Humor</option>
         <option>Fantasy</option>
@@ -10,17 +12,17 @@
         <option>Terror</option>
         <option>Thriller</option>
     </select>
+    <button class="button" (click)="buscarLibro(busqueda.value)">Buscar</button>
 </div>
 
 
-<!-- Aqui inicia el card -->
 <div class="divCards">
-    <div class="card-columns">
-        <div [ngSwitch]="opcion">
-            <div *ngSwitchCase="'All'">
+    <div [ngSwitch]="opcion">
+        <div *ngSwitchCase="'All'">
+            <div class="card-columns">
                 <div class="card" *ngFor="let libro of libros">
                     <div class="card-body">
-                        <div class="face font">
+                        <div class="face front">
                             <img src="{{libro.Imagen}}">
                         </div>
                         <div class="face back">
@@ -31,66 +33,238 @@
                     </div>
                 </div>
             </div>
-            <div class="contenedor-libros" *ngSwitchCase="'Dark Humor'">
+        </div>
+        <div *ngSwitchCase="'Dark Humor'">
+            <div class="card-columns">
                 <div *ngFor="let libro of libros">
-                    <div class="libro" *ngIf="libro.Genero == 'Dark Humor'">
-                        <img src="{{libro.Imagen}}">
-                        <p>{{libro.Titulo}}</p>
-                        <p>{{libro.Autor}}</p>
-                        <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                    <div class="card" *ngIf="libro.Genero == 'Dark Humor'">
+                        <div class="card-body">
+                            <div class="face front">
+                                <img src="{{libro.Imagen}}">
+                            </div>
+                            <div class="face back">
+                                <p>{{libro.Titulo}}</p>
+                                <p>{{libro.Autor}}</p>
+                                <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="contenedor-libros" *ngSwitchCase="'Fantasy'">
+        </div>
+        <div *ngSwitchCase="'Fantasy'">
+            <div class="card-columns">
                 <div *ngFor="let libro of libros">
-                    <div class="libro" *ngIf="libro.Genero == 'Fantasy'">
-                        <img src="{{libro.Imagen}}">
-                        <p>{{libro.Titulo}}</p>
-                        <p>{{libro.Autor}}</p>
-                        <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                    <div class="card" *ngIf="libro.Genero == 'Fantasy'">
+                        <div class="card-body">
+                            <div class="face front">
+                                <img src="{{libro.Imagen}}">
+                            </div>
+                            <div class="face back">
+                                <p>{{libro.Titulo}}</p>
+                                <p>{{libro.Autor}}</p>
+                                <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="contenedor-libros" *ngSwitchCase="'Romance'">
+        </div>
+        <div *ngSwitchCase="'Romance'">
+            <div class="card-columns">
                 <div *ngFor="let libro of libros">
-                    <div class="libro" *ngIf="libro.Genero == 'Romance'">
-                        <img src="{{libro.Imagen}}">
-                        <p>{{libro.Titulo}}</p>
-                        <p>{{libro.Autor}}</p>
-                        <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                    <div class="card" *ngIf="libro.Genero == 'Romance'">
+                        <div class="card-body">
+                            <div class="face front">
+                                <img src="{{libro.Imagen}}">
+                            </div>
+                            <div class="face back">
+                                <p>{{libro.Titulo}}</p>
+                                <p>{{libro.Autor}}</p>
+                                <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="contenedor-libros" *ngSwitchCase="'Science Fiction'">
+        </div>
+        <div *ngSwitchCase="'Science Fiction'">
+            <div class="card-columns">
                 <div *ngFor="let libro of libros">
-                    <div class="libro" *ngIf="libro.Genero == 'Science Fiction'">
-                        <img src="{{libro.Imagen}}">
-                        <p>{{libro.Titulo}}</p>
-                        <p>{{libro.Autor}}</p>
-                        <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                    <div class="card" *ngIf="libro.Genero == 'Science Fiction'">
+                        <div class="card-body">
+                            <div class="face front">
+                                <img src="{{libro.Imagen}}">
+                            </div>
+                            <div class="face back">
+                                <p>{{libro.Titulo}}</p>
+                                <p>{{libro.Autor}}</p>
+                                <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="contenedor-libros" *ngSwitchCase="'Terror'">
+        </div>
+        <div *ngSwitchCase="'Terror'">
+            <div class="card-columns">
                 <div *ngFor="let libro of libros">
-                    <div class="libro" *ngIf="libro.Genero == 'Terror'">
-                        <img src="{{libro.Imagen}}">
-                        <p>{{libro.Titulo}}</p>
-                        <p>{{libro.Autor}}</p>
-                        <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                    <div class="card" *ngIf="libro.Genero == 'Terror'">
+                        <div class="card-body">
+                            <div class="face front">
+                                <img src="{{libro.Imagen}}">
+                            </div>
+                            <div class="face back">
+                                <p>{{libro.Titulo}}</p>
+                                <p>{{libro.Autor}}</p>
+                                <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="contenedor-libros" *ngSwitchCase="'Thriller'">
+        </div>
+        <div *ngSwitchCase="'Thriller'">
+            <div class="card-columns">
                 <div *ngFor="let libro of libros">
-                    <div class="libro" *ngIf="libro.Genero == 'Thriller'">
-                        <img src="{{libro.Imagen}}">
-                        <p>{{libro.Titulo}}</p>
-                        <p>{{libro.Autor}}</p>
-                        <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                    <div class="card" *ngIf="libro.Genero == 'Thriller'">
+                        <div class="card-body">
+                            <div class="face front">
+                                <img src="{{libro.Imagen}}">
+                            </div>
+                            <div class="face back">
+                                <p>{{libro.Titulo}}</p>
+                                <p>{{libro.Autor}}</p>
+                                <button class="boton" (click)="descargar(libro.Titulo)">Descargar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<ngx-spinner>
+    <div class="loadingio-spinner-interwind-6lqxuekrkqu">
+        <div class="ldio-am2mjrfupr9">
+            <div>
+                <div>
+                    <div>
+                        <div></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+        @keyframes ldio-am2mjrfupr9-r {
+
+            0%,
+            100% {
+                animation-timing-function: cubic-bezier(0.2 0 0.8 0.8)
+            }
+
+            50% {
+                animation-timing-function: cubic-bezier(0.2 0.2 0.8 1)
+            }
+
+            0% {
+                transform: rotate(0deg)
+            }
+
+            50% {
+                transform: rotate(180deg)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes ldio-am2mjrfupr9-s {
+
+            0%,
+            100% {
+                animation-timing-function: cubic-bezier(0.2 0 0.8 0.8)
+            }
+
+            50% {
+                animation-timing-function: cubic-bezier(0.2 0.2 0.8 1)
+            }
+
+            0% {
+                transform: translate(-81.4px, -81.4px) scale(0)
+            }
+
+            50% {
+                transform: translate(-81.4px, -81.4px) scale(1)
+            }
+
+            100% {
+                transform: translate(-81.4px, -81.4px) scale(0)
+            }
+        }
+
+        .ldio-am2mjrfupr9>div {
+            transform: translate(0px, -40.7px)
+        }
+
+        .ldio-am2mjrfupr9>div>div {
+            animation: ldio-am2mjrfupr9-r 0.9345794392523364s linear infinite;
+            transform-origin: 203.5px 203.5px;
+        }
+
+        .ldio-am2mjrfupr9>div>div>div {
+            position: absolute;
+            transform: translate(203.5px, 154.66000000000003px);
+        }
+
+        .ldio-am2mjrfupr9>div>div>div>div {
+            width: 162.8px;
+            height: 162.8px;
+            border-radius: 50%;
+            background: #fe718d;
+            animation: ldio-am2mjrfupr9-s 0.9345794392523364s linear infinite;
+        }
+
+        .ldio-am2mjrfupr9>div>div:last-child {
+            animation-delay: -0.4672897196261682s;
+        }
+
+        .ldio-am2mjrfupr9>div>div:last-child>div>div {
+            animation-delay: -0.4672897196261682s;
+            background: #46dff0;
+        }
+
+        .loadingio-spinner-interwind-6lqxuekrkqu {
+            width: 407px;
+            height: 407px;
+            display: inline-block;
+            overflow: hidden;
+            background: none;
+        }
+
+        .ldio-am2mjrfupr9 {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform: translateZ(0) scale(1);
+            backface-visibility: hidden;
+            transform-origin: 0 0;
+            /* see note above */
+        }
+
+        .ldio-am2mjrfupr9 div {
+            box-sizing: content-box;
+        }
+
+        /* generated by https://loading.io/ */
+    </style>
+</ngx-spinner>

@@ -38,7 +38,7 @@
 }
 
 .card-columns {
-    width: 100%;
+    width: 90wv;
     margin: 0px auto;
 }
 
@@ -47,20 +47,21 @@
     border: none;
     border-radius: 10px;
     margin: auto;
-    width: 240px;
+    width: 220px;
+    height: 300px;
 }
 
 .card-body {
     position: relative;
-    height: 330px;
     border-radius: 10px;
-    width: 200px;
+    width: 220px;
+    height: 300px;
 }
 
 .card-body .face {
     position: absolute;
-    width: 250px;
-    height: 100%;
+    width: 220px;
+    height: 300px;
     backface-visibility: hidden;
     border-radius: 10px;
     overflow: hidden;
@@ -70,23 +71,22 @@
 .card-body .front {
     transform: perspective(600px) rotateY(0deg);
     box-shadow: 0px 0px 10px #000;
-    width: 200px;
-    height: 319px;
+    width: 220px;
+    height: 300px;
 }
 
 img {
     border-radius: 15px;
+    width: 220px;
+    height: 300px;
 }
 
 .card-body .front img {
     position: relative;
-    width: 200px;
+    width: 220px;
+    height: 300px;
     object-fit: cover;
     border-radius: 10px;
-}
-
-.img {
-    height: 100%;
 }
 
 .card-body .back {
@@ -98,8 +98,8 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 320px;
+    width: 220px;
+    height: 300px;
 }
 
 .card-body:hover .front {
@@ -108,6 +108,18 @@ img {
 
 .card-body:hover .back {
     transform: perspective(600px) rotateY(360deg);
+}
+
+.boton{
+    border: none;
+    background: yellow;
+    color: black;
+    border-radius: 8px;
+    height: 30px;
+}
+
+.boton:hover{
+    box-shadow: red 0px 0px 5px;
 }
 
 /* Fin de estilos Cars */

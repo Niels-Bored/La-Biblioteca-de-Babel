@@ -1,7 +1,7 @@
 <div [ngStyle]="accesib.presentacion">
-  
+
   <div class="divP" style="background:url('{{accesib.img0}}') ;"></div>
-  <div class="info container" >
+  <div class="info container">
     <div class="row justify-content-md-center">
       <div class="col col-lg-2">
       </div>
@@ -21,64 +21,68 @@
       <div class="col col-lg-2">
       </div>
     </div>
-</div>
-
-<div class="carrusel" >
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="../../assets/Inicio/carrusel_0.jpg" style="filter: grayscale(100%);" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="../../assets/Inicio/carrusel_1.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="../../assets/Inicio/carrusel_3.jpg" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </button>
   </div>
-</div>
 
-  <footer >
+  <div class="carrusel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../../assets/Inicio/carrusel_0.jpg" style="filter: grayscale(100%);" class="d-block w-100"
+            alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../assets/Inicio/carrusel_1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../assets/Inicio/carrusel_3.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <footer>
     <div class="wave" style="fill:{{accesib.footer}}">
       <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="wave-fill" style="fill:{{accesib.footer}}"></path>
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          class="wave-fill" style="fill:{{accesib.footer}}"></path>
       </svg>
-  </div>
+    </div>
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col col-lg-2"><br>About<br>
-          <a routerLink="/contacto"  style="color: {{accesib.nav_letra}};">Contacto</a><br>
-          <a routerLink="/ayuda"  style="color: {{accesib.nav_letra}};">Ayuda</a>
+          <a routerLink="/contacto" style="color: {{accesib.nav_letra}};">Contacto</a><br>
+          <a routerLink="/ayuda" style="color: {{accesib.nav_letra}};">Ayuda</a>
         </div>
         <div class="col-md-auto">Redes Sociales <br>
           <div style="color: {{accesib.nav_letra}};">
-            
-          <img src="{{accesib.redes0}}" alt="..."> Gmail<br>
-          <img src="{{accesib.redes1}}" alt="..."> Twitter<br>
-          <img src="{{accesib.redes2}}" alt="..."> Instagram<br>
-        </div>
+
+            <img src="{{accesib.redes0}}" alt="..."> Gmail<br>
+            <img src="{{accesib.redes1}}" alt="..."> Twitter<br>
+            <img src="{{accesib.redes2}}" alt="..."> Instagram<br>
+          </div>
         </div>
         <div class="col col-lg-2"><img src="{{accesib.f_logo}}" alt="..."><br>
           <div style="color: {{accesib.nav_letra}};">Copyright &#169; 2022</div>
         </div>
-    </div>
       </div>
+    </div>
   </footer>
-  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img src="{{accesib.icono}}"  alt="" srcset=""></button>  
+  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" id="accesibilidad"><img
+      src="{{accesib.icono}}" alt="" srcset=""></button>
   <!-- Modal -->
   <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -93,7 +97,8 @@
           <form>
             <div class="form-group row container">
               <label for="formControlRange">Tamaño de Letra</label>
-              <input type="range" class="custom-range" value={{accesib.tamano}} min="7" max="60" id="customRange2" (change)="accesib.cambiarTamano($event)">
+              <input type="range" class="custom-range" value={{accesib.tamano}} min="7" max="60" id="customRange2"
+                (change)="accesib.cambiarTamano($event)">
             </div>
             <div class="form-group row mx-sm-3">
               <label for="inputPassword" class="col-sm-2 col-form-label">Fondo</label>
@@ -109,4 +114,127 @@
       </div>
     </div>
   </div>
-</div>  
+</div>
+
+<ngx-spinner>
+  <div class="loadingio-spinner-interwind-6lqxuekrkqu">
+    <div class="ldio-am2mjrfupr9">
+      <div>
+        <div>
+          <div>
+            <div></div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style type="text/css">
+    @keyframes ldio-am2mjrfupr9-r {
+
+      0%,
+      100% {
+        animation-timing-function: cubic-bezier(0.2 0 0.8 0.8)
+      }
+
+      50% {
+        animation-timing-function: cubic-bezier(0.2 0.2 0.8 1)
+      }
+
+      0% {
+        transform: rotate(0deg)
+      }
+
+      50% {
+        transform: rotate(180deg)
+      }
+
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes ldio-am2mjrfupr9-s {
+
+      0%,
+      100% {
+        animation-timing-function: cubic-bezier(0.2 0 0.8 0.8)
+      }
+
+      50% {
+        animation-timing-function: cubic-bezier(0.2 0.2 0.8 1)
+      }
+
+      0% {
+        transform: translate(-81.4px, -81.4px) scale(0)
+      }
+
+      50% {
+        transform: translate(-81.4px, -81.4px) scale(1)
+      }
+
+      100% {
+        transform: translate(-81.4px, -81.4px) scale(0)
+      }
+    }
+
+    .ldio-am2mjrfupr9>div {
+      transform: translate(0px, -40.7px)
+    }
+
+    .ldio-am2mjrfupr9>div>div {
+      animation: ldio-am2mjrfupr9-r 0.9345794392523364s linear infinite;
+      transform-origin: 203.5px 203.5px;
+    }
+
+    .ldio-am2mjrfupr9>div>div>div {
+      position: absolute;
+      transform: translate(203.5px, 154.66000000000003px);
+    }
+
+    .ldio-am2mjrfupr9>div>div>div>div {
+      width: 162.8px;
+      height: 162.8px;
+      border-radius: 50%;
+      background: #fe718d;
+      animation: ldio-am2mjrfupr9-s 0.9345794392523364s linear infinite;
+    }
+
+    .ldio-am2mjrfupr9>div>div:last-child {
+      animation-delay: -0.4672897196261682s;
+    }
+
+    .ldio-am2mjrfupr9>div>div:last-child>div>div {
+      animation-delay: -0.4672897196261682s;
+      background: #46dff0;
+    }
+
+    .loadingio-spinner-interwind-6lqxuekrkqu {
+      width: 407px;
+      height: 407px;
+      display: inline-block;
+      overflow: hidden;
+      background: none;
+    }
+
+    .ldio-am2mjrfupr9 {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform: translateZ(0) scale(1);
+      backface-visibility: hidden;
+      transform-origin: 0 0;
+      /* see note above */
+    }
+
+    .ldio-am2mjrfupr9 div {
+      box-sizing: content-box;
+    }
+
+    /* generated by https://loading.io/ */
+  </style>
+</ngx-spinner>

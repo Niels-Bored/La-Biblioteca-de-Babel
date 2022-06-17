@@ -29,9 +29,14 @@
           </div>
           <div>
             <div class="form_box">
-              <input type="file" accept="image/png, image/jpg, image/jpeg" class="form_input" placeholder=" "
+              <!-- <input type="file" accept="image/png, image/jpg, image/jpeg" class="form_input" placeholder=" "
                 [(ngModel)]="imagen">
-              <label for="textUser" class="form_label">Imagen</label>
+              <label for="textUser" class="form_label">Imagen</label> -->
+
+              <label class="file">
+                <input  [(ngModel)]="imagen" type="file" id="file" aria-label="File browser example">
+                <span class="file-custom"></span>
+              </label>
             </div>
             <div class="form_box">
               <input type="url" class="form_input" placeholder=" " [(ngModel)]="url">
