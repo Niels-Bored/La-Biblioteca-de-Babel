@@ -2,6 +2,7 @@ const express = require("express"); //importar express
 const bodyParser = require("body-parser");
 const misRutas = require("./routes/rutas");
 const Libro = require("./models/libro");
+const Informacion = require("./models/informacion");
 var nodemailer = require('nodemailer');
 const cors = require("cors");
 
@@ -138,11 +139,76 @@ app.get('/recuperacion/:nombre', async (req, res) => {
         if (!libro.exists) {
             res.status(404).send('No hay un libro con ese nombre');
         } else {
+            const url = libro.data();
+            console.log(url['url']);
             res.send(libro.data());
         }
     } catch(error){
         res.status(404).send(error.message);
     }
+});
+
+//Recuperar el url de un libro específico
+app.get('/recuperacionURL/:nombre', async (req, res) => {    
+  try{
+      const { nombre } = req.params;
+
+      const libro = await db.collection('Libros').doc(nombre).get();
+
+      if (!libro.exists) {
+          res.status(404).send('No hay un libro con ese nombre');
+      } else {
+          const url = libro.data();
+          console.log(url['url']);
+          res.send(url['url']);
+      }
+  } catch(error){
+      res.status(404).send(error.message);
+  }
+});
+
+//Recuperar todas las descargas
+app.get('/recuperacionDescargas', async (req, res) => {    
+  try{
+      const libros = await db.collection('Libros').get();
+
+      const informacionDescargas = [];
+
+      if(!libros.empty){
+          libros.forEach(doc =>{
+              const descarga = new Informacion(
+                  doc.data().Titulo,
+                  doc.data().Descargas
+              );
+              informacionDescargas.push(descarga);
+          });
+          res.send(informacionDescargas);
+      }else{
+          res.status(404).send('No hay descargas');
+      }
+  }catch(error){
+      res.status(404).send(error.message);
+  }
+});
+
+//Recuperar todos los generos
+app.get('/recuperacionGeneros', async (req, res) => {    
+  try{
+      const generos = await db.collection('Libros').get();
+
+      const generoExtraido = [];
+
+      if(!generos.empty){
+          generos.forEach(doc =>{
+              generoExtraido.push(doc.data().Genero);
+          });
+          res.send(generoExtraido);
+      }else{
+          res.status(404).send('No hay generos');
+      }
+  }catch(error){
+      res.status(404).send(error.message);
+  }
 });
 
 app.get('/eliminacion/:nombre', async (req, res) => {   
