@@ -11,17 +11,15 @@
                         
                     </div>
                     <div id="recaptcha-container"></div>
-                    <button (click)="sendLoginCode()">Enviar Código</button><br>
+                    <button (click)="sendLoginCode()"  class="button">Enviar Código</button><br>
                 </div>
                 <div class="ss2" *ngIf="windowRef.confirmationResult">
                     <h4>Introducir Codigo</h4>
                     <div class="form_box">
                         <input class="form_input" type="text" name="code" [(ngModel)]="codigoVerif">
                         <label for="code" class="form_label">Codigo que llego por telefono</label>
-                        
                     </div>
-
-                    <button (click)="verifyLoginCode()">Ingresar</button>
+                    <button (click)="verifyLoginCode()" class="button">Ingresar</button>
                 </div>
             </form>
         </div>

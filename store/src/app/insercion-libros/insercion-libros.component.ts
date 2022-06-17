@@ -19,7 +19,7 @@ export class InsercionLibrosComponent implements OnInit {
   sinopsis:string="";
   url:string="";
   imagen:string="";
-  
+
 
   datos : any;
   libros : any[] = [];

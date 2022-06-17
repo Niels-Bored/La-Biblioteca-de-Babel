@@ -20,9 +20,10 @@
           <input type="text" class="form_input" placeholder=" " [(ngModel)]="userName">
           <label class="form_label">Nombre de Usuario: </label>
         </div>
-        <div class="form_box"></div>
-        <label>Foto URL: </label><br>
-        <input type="text" class="form-control" [(ngModel)]="url"><br><!--   cambiar tipo de input  -->
+        <div class="form_box">
+          <input type="text" class="form_input" [(ngModel)]="url" placeholder=" ">
+          <label class="form_label">Foto URL: </label>
+        </div>
         <button class="btn btn-primary btn-block" (click)="insertarUsuario()">Registrar</button>
         <button class="btn btn-primary btn-block" routerLink="/logincel">Resgitrarse con telefono</button>
       </form>
