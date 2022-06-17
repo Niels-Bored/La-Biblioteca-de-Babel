@@ -7,5 +7,6 @@ export const environment = {
     storageBucket: "store-a8c07.appspot.com",
     messagingSenderId: "708713251195",
     appId: "1:708713251195:web:44edd934d81824728cbdde"
-  }
+  },
+  BASE_URL: 'https://<store>.firebaseapp.com'
 };
