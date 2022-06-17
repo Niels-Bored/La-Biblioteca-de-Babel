@@ -1,31 +1,24 @@
+
 <div class="p2"></div> <!-- Esta es la imagen -->
 <div class="divP">
   <div class="divForm">
     <div class="div1">
       <h1>REGISTRO</h1>
       <form class="Form">
-        <div class="form_box">
-          <input type="text" class="form_input" placeholder=" " [(ngModel)]="mail">
-          <label class="form_label">Correo:</label>
-        </div>
-        <div class="form_box">
-          <input type="text" class="form_input" placeholder=" " [(ngModel)]="phone">
-          <label class="form_label">Numero de Telefono:</label>
-        </div>
-        <div class="form_box">
-          <input type="text" class="form_input" placeholder=" " [(ngModel)]="password">
-          <label class="form_label">Contraseña:</label>
-        </div>
-        <div class="form_box">
-          <input type="text" class="form_input" placeholder=" " [(ngModel)]="userName">
-          <label class="form_label">Nombre de Usuario: </label>
-        </div>
-        <div class="form_box"></div>
+        <label>Correo:</label>
+        <br>
+        <input type="text" class="form-control" placeholder="example@mail.com" [(ngModel)]="mail">
+        <label>Numero de Telefono:</label><br>
+        <input type="text" class="form-control" placeholder="XXX-XXX-XX-XX" [(ngModel)]="phone">
+        <label>Contraseña:</label><br>
+        <input type="text" class="form-control" placeholder="password" [(ngModel)]="password">
+        <label>Nombre de Usuario: </label><br>
+        <input type="text" class="form-control" placeholder="Name" [(ngModel)]="userName">
         <label>Foto URL: </label><br>
         <input type="text" class="form-control" [(ngModel)]="url"><br><!--   cambiar tipo de input  -->
         <button class="btn btn-primary btn-block" (click)="insertarUsuario()">Registrar</button>
-        <button class="btn btn-primary btn-block" routerLink="/logincel">Resgitrarse con telefono</button>
       </form>
+      <button routerLink="/logincel">Resgitrarse con telefono</button>
     </div>
     <div class="div2">
       <img src="../../assets/Login/SubLogo2.png" class="imgTipe">

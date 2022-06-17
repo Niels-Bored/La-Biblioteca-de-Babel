@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
-
 .p2 {
     background: url("../../assets/Login/Fondo3.jpeg");
     width: 100%;
@@ -29,7 +28,7 @@
     color: white;
     position: relative;
     top: 10px;
-    height: 520px;
+    height: 480px;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
@@ -67,55 +66,39 @@ h1 {
     color: black;
 }
 
+label,
+#button {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+    word-spacing: 0.5px;
+}
+
+input {
+    width: 100%;
+    border-radius: 50px;
+    border-style: solid;
+    border-left-color: white;
+    border-top-color: white;
+    border-right-color: rgb(179, 182, 183);
+    border-bottom-color: rgb(179, 182, 183);
+    ;
+    background: rgba(255, 255, 255, 45%);
+    outline: none;
+    height: 34px;
+}
+
+
+#button {
+    width: 100%;
+    border-radius: 50px;
+
+}
+
+
 .imgTipe {
     margin: 50px auto;
     width: 250px;
 }
-
-/* Estilos Input */
-.form_input {
-    display: block;
-    margin-bottom: 2rem;
-    padding: .5rem 2rem;
-    border-radius: 5px;
-    border: 0;
-    outline: solid 2px white;
-    height: 32px;
-    width: 100%;
-}
-
-.form_label {
-    position: absolute;
-    top: 5px;
-    left: 2rem;
-    background: white;
-    padding: 0 .5rem;
-    height: 25px;
-    font-size: 15px;
-    border-radius: 5px;
-}
-
-.form_box {
-    position: relative;
-    padding: 0px 0px;
-}
-
-.form_input:focus{
-    outline: solid 2px rgb(47, 143, 157);
-    box-shadow: blue 0px 0px 8px;
-}
-
-.form_input:focus+.form_label {
-    transform: translateY(-1.2rem );
-    transition: .5s;
-}
-
-.form_input:not(:placeholder-shown)+.form_label{
-    transform: translateY(-1.2rem);
-    
-}
-
-/* Fin de Estilos Input */
 
 @media only screen and (min-width: 730px){
     .Form{
