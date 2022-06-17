@@ -2,3 +2,6 @@
     position: fixed;
     bottom: 0;
 }
+.container{
+    width: 100%;
+}
