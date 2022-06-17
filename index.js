@@ -300,5 +300,5 @@ app.get('*', (req,res) => {
 // })
 
 app.listen(port, () => {
-  console.log(`Node Express server listening on https://store.firebaseapp.com:${port}`);
+  console.log(`Node Express server listening on https://<store>.firebaseapp.com:${port}`);
 });
