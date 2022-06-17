@@ -1,0 +1,36 @@
+{ 
+    "short_name": "Biblio Babel",
+    "name": "Babel",  
+    "description": "El que se acuesta leyendo, se levanta sabiendo.",  
+    "background_color": "#b0c4de",  
+    "theme_color": "#fa9efa7a",  
+    "orientation": "portrait",  
+    "display": "standalone",  
+    "icons":[
+      {  
+        "src": "assets/Login/SubLogo1.png",  
+        "type": "image/png",  
+        "sizes": "512x512",  
+        "purpose": "maskable"
+      },
+      {
+        "src": "assets/Login/SubLogo1.png",  
+        "type": "image/png",  
+        "sizes": "192x192", 
+        "purpose": "maskable"  
+      },
+      {
+        "src": "assets/Login/SubLogo1.png",  
+        "type": "image/png",  
+        "sizes": "96x96", 
+        "purpose": "maskable"  
+      },
+      {
+        "src": "assets/Login/SubLogo1.png",  
+        "type": "image/png",  
+        "sizes": "48x48", 
+        "purpose": "maskable"  
+      }
+    ]
+    
+  }

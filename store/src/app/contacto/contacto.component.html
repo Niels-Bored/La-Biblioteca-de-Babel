@@ -14,7 +14,7 @@
                             formControlName="nombre" [(ngModel)]="nombre">
                 
                     <div *ngIf="forma.controls['nombre'].errors?.['required']" class="invalid-feedback">
-                        El nombre es necesario
+                        Campo obligatorio
                     </div>
                     <div *ngIf="forma.controls['nombre'].errors?.['minlength']" class="invalid-feedback">
                         Por lo menos tres caracteres
@@ -33,7 +33,7 @@
                             formControlName="apellido" [(ngModel)]="apellido">
                 </div>
                 <div *ngIf="forma.controls['apellido'].errors?.['required']" class="invalid-feedback">
-                    El Apellido es necesario
+                    Campo obligatorio
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
                     placeholder="Correo electronico"
                     formControlName="correo">
                     <div *ngIf="forma.controls['correo'].errors?.['required']" class="invalid-feedback">
-                    Correo obligatorio
+                        Campo obligatorio
                     </div>
                     <div *ngIf="forma.controls['correo'].errors?.['email']" class="invalid-feedback">
                     El correo no tiene el formato correcto
@@ -71,7 +71,7 @@
                 </div>   
 
                 <div *ngIf="forma.controls['asunto'].errors?.['required']" class="invalid-feedback">
-                    Asunto obligatorio
+                    Campo obligatorio
                 </div>
             </div>
 
@@ -84,10 +84,8 @@
             <!-- aqui empieza div 6 del boton -->
             <div class="form-group row">
                 <div class="input-group col-md-8">
-                    <button type="submit" (click)="enviarCorreo()" class="btn btn-warning" formControlName="botoncito" [disabled]="forma.invalid">Enviar </button>
-                    <div *ngIf="forma.controls['imagen'].errors?.['valid']" class="invalid-feedback">
-                        Completa todos los campos.**
-                    </div>
+                    <button type="submit" (click)="enviarCorreo()" class="btn btn-warning" [disabled]="forma.invalid">Enviar </button>
+                   
                 </div>
             </div>
         </div>

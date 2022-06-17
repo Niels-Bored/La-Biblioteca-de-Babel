@@ -24,7 +24,7 @@
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "sub1 sub1 sub2";
-    height: 270px;
+    height: 600px;
 }
 
 .div1 .sub1 {
