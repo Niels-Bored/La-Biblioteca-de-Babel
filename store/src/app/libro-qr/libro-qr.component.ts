@@ -17,12 +17,17 @@ export class LibroQRComponent implements OnInit {
   imagen:string="";
   descargas:number = 0;
   libro:any;
+  urltemp:string="";
 
   constructor(public activatedRoute:ActivatedRoute, public firebase:FirebaseService) { 
     this.activatedRoute.params.subscribe(params=>{
       this.titulo = params['titulo'];
-      this.libro = this.firebase.recuperarLibro(this.titulo).subscribe((res: any) => {
+      this.firebase.recuperarLibro(this.titulo).subscribe((res: any) => {
         this.libro = res;
+      });
+      this.firebase.consultaURL(this.titulo).subscribe((res: any) => {
+        this.urltemp = res;
+        console.log("El libro es " + res);
       });
     });
     setTimeout(() => {  

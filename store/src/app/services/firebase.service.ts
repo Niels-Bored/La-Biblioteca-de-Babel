@@ -16,6 +16,15 @@ export class FirebaseService {
   insertar(libro:string, autor:string, genero:string, sinopsis:string, imagen:string, url:string, descargas:number) {
     return this.httpClient.get(`http://localhost:3000/insercion/?titulo=${libro}&autor=${autor}&genero=${genero}&sinopsis=${sinopsis}&imagen=${imagen}&url=${url}&descargas=${descargas}`);
   }
+  consultaURL(libro:string){
+    return this.httpClient.get(`http://localhost:3000/recuperacionURL/${libro}`);
+  }
+  consultaDescargas(){
+    return this.httpClient.get(`http://localhost:3000/recuperacionDescargas`);
+  }
+  consultaGeneros(){
+    return this.httpClient.get(`http://localhost:3000/recuperacionGeneros`);
+  }
   recuperar(){
     return this.httpClient.get(`http://localhost:3000/recuperacion`);
   }
