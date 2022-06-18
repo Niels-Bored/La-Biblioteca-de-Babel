@@ -19,7 +19,8 @@ export class LogincelComponent implements OnInit {
 
   constructor(private win: FirebaseService, private router:Router) {
     this.formu = new FormGroup({
-      'telefono': new FormControl(this.telefono,Validators.required)
+      'telefono': new FormControl(this.telefono,Validators.required),
+      'codigo': new FormControl(this.codigoVerif,[Validators.required,Validators.pattern('[0-9]{1,15}')])
     });
   }
 

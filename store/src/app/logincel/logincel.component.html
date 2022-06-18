@@ -4,27 +4,31 @@
         <div class="s1">
             <h1>LOGIN CELULAR</h1>
             <form class="Form" [formGroup]="formu" class="needs-validation" novalidate>
-                <div class="ss1">
-                    <label for="phone">Telefono</label><br>
-                    <input type="text" [(ngModel)]="telefono" 
-                            placeholder="Telefono"  
-                            class="input"
-                            [ngClass]="{'is-invalid':!formu.get('telefono')?.valid}"
-                            formControlName="telefono"
-                            pattern="[0-9]{1,15}"><br><br>
-                    <div *ngIf="formu.controls['telefono'].errors?.['required']" class="invalid-feedback">
-                        Campo obligatorio. Solo numeros.
-                    </div>
+                <div class="container ss1">
+                    <div class="form-group row">
+                        <label>Telefono:</label>
+                        <div class="col-8">
+                          <input type="text" class="form-control" 
+                                placeholder="XXX-XXX-XX-XX" 
+                                [(ngModel)]="telefono"
+                                [ngClass]="{'is-invalid':!formu.get('telefono')?.valid}"
+                                formControlName="telefono"
+                                pattern="[0-9]{1-10}">             
+                        </div>
+                        <div *ngIf="formu.controls['telefono'].errors?.['required']" class="invalid-feedback">
+                            Campo obligatorio. Solo numeros.
+                        </div>
+                      </div>
                     <!-- TERMINOS -->
-                <div class="form-group col">
-                    <input type="checkbox" value="" id="invalidCheck2" required>
-                    <label for="invalidCheck2">
-                        Recibir novedades y ofertas de los productos.
-                    </label>
-                </div>
+                    <div class="form-group col">
+                        <input type="checkbox" value="" id="invalidCheck2">
+                        <label for="invalidCheck2">
+                            Recibir novedades y ofertas de los productos.
+                        </label>
+                    </div>
                     <div id="recaptcha-container"></div>
                     <br>
-                    <button (click)="sendLoginCode()" [disabled]="formu.invalid">Enviar Código</button><br>
+                    <button type="submit" (click)="sendLoginCode()" [disabled]="formu.invalid">Enviar Código</button><br>
                 </div>
                 
                 <div class="ss2" *ngIf="windowRef.confirmationResult">

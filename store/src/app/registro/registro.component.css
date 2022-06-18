@@ -96,6 +96,13 @@ button {
     margin: 50px auto;
     width: 250px;
 }
+.margencito{
+    padding: 10px;
+}
+.contain{
+    display: flex;
+    gap: 20px;
+}
 
 @media only screen and (min-width: 730px){
     .Form{

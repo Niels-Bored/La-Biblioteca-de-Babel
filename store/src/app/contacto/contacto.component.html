@@ -12,14 +12,13 @@
                             type="text"
                             placeholder="Nombre"
                             formControlName="nombre" [(ngModel)]="nombre">
-                
+                </div>
                     <div *ngIf="forma.controls['nombre'].errors?.['required']" class="invalid-feedback">
                         Campo obligatorio
                     </div>
                     <div *ngIf="forma.controls['nombre'].errors?.['minlength']" class="invalid-feedback">
                         Por lo menos tres caracteres
                     </div>
-                </div>
             </div>
 
             <!-- aqui empezamos el div 2 del apellido -->
@@ -57,15 +56,15 @@
 
              <!-- aqui empieza div 5 del asunto -->
             <div class="contain">
-                <div class=".margencito">
+                <div class="margencito">
                     <input type="radio" id="queja" name="asunto" value="Queja" formControlName="asunto" required>
                     <label for="queja">Queja</label>
                 </div>
-                <div class=".margencito">
+                <div class="margencito">
                     <input type="radio" id="duda" name="asunto" value="Duda" formControlName="asunto" required>
                     <label for="duda">Duda</label>                   
                 </div>  
-                <div class=".margencito">
+                <div class="margencito">
                     <input type="radio" id="negocio" name="asunto" value="Negocio" formControlName="asunto" required>
                     <label for="negocio">Negocio</label>                  
                 </div>   

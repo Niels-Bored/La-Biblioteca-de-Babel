@@ -3,144 +3,138 @@
   <div class="divForm">
     <div class="div1">
       <h1>REGISTRO</h1>
-      <form class="Form" [formGroup]="formu" (ngSubmit)="insertarUsuario()" class="needs-validation" novalidate>
-        <div class="container">
-           <!-- USER NAME -->
-           <div class="form-group row">
-            <label>Nombre de Usuario: </label>
-            <div class="col-8">
-              <input type="text" class="form-control" 
-                      placeholder="Name" 
-                      [(ngModel)]="userName"
-                      [ngClass]="{'is-invalid':!formu.get('userName')?.valid}"
-                      formControlName="userName">
-            </div>
-            <div *ngIf="formu.controls['userName'].errors?.['required']" class="invalid-feedback">
-              Nombre de usuario obligatorio
-            </div>
-            <div *ngIf="formu.controls['userName'].errors?.['minlength']" class="invalid-feedback">
-              Por lo menos tres caracteres
-            </div>
-          </div>
+      <div>
+        <form [formGroup]="forma" (ngSubmit)="insertarUsuario()" class="needs-validation" novalidate>
+            <div class="container">
+                <!-- aqui empieza div 1 del nombre -->
+                <div class="form-group row has-danger">
+                    <!-- <label> class="col-2 col-form-label>">Nombre de usuario:</label>> -->
+                    <div class="col-8">
+                        <input class="form-control"
+                                [ngClass]="{forma.controls['userName'].invalid ? 'is-invalid' :''}"
+                                type="text"
+                                placeholder="Nombre de Usuario"
+                                formControlName="userName" [(ngModel)]="userName">
+                    </div>
+                        <div *ngIf="forma.controls['userName'].hasError('required')" class="invalid-feedback">
+                            Campo obligatorio
+                        </div>
+                        <div *ngIf="forma.controls['nouserNamembre'].errors?.['minlength']" class="invalid-feedback">
+                            Por lo menos tres caracteres
+                        </div>
+                </div>
+                
+                <!-- aqui empieza div 2 del correo -->
+                <div class="form-group row has-danger">
+                  <!-- <label> class="col-2 col-form-label>">Correo:</label>> -->
+                  <div class="col-8">
+                      <input class="form-control"
+                              [ngClass]="{forma.controls['mail'].invalid ? 'is-invalid' :''}"
+                              type="text"
+                              placeholder="Correo"
+                              formControlName="mail" [(ngModel)]="mail">
+                  </div>
+                      <div *ngIf="forma.controls['mail'].hasError('required')" class="invalid-feedback">
+                          Campo obligatorio
+                      </div>
+                      <div *ngIf="forma.controls['mail'].hasError('email')" class="invalid-feedback">
+                          Por lo menos tres caracteres
+                      </div>
+                </div>
+    
+                <!-- aqui empezamos el div 3 del telefono -->
+                <div class="form-group row">
+                    <!-- <label> class="col-2 col-form-label>">Telefono:</label>> -->
+                    <div class="col-8">
+                        <input class="form-control"
+                                [ngClass]="{forma.controls['phone'].invalid ? 'is-invalid' :''}"
+                                placeholder="Telefono"
+                                formControlName="phone" [(ngModel)]="phone">
+                    </div>
+                    <div *ngIf="forma.controls['phone'].hasError('required')" class="invalid-feedback">
+                        Campo obligatorio
+                    </div>
+                    <div *ngIf="forma.controls['phone'].hasError('hasNumber')" class="invalid-feedback">
+                      Solo numeros
+                  </div>
+                </div>
+    
+                <!-- aqui empieza el div 4 del password 1 -->
+                <div class="form-group row">
+                    <!-- <label> class="col-2 col-form-label>"></label>> -->
+                    <div class="col-8">
+                        <input class="form-control"
+                        [ngClass]="{forma.controls['pass_1'].invalid ? 'is-invalid' :''}"
+                        type="text"
+                        placeholder="Contraseña"
+                        formControlName="pass_1"
+                        [(ngModel)]="pass_1">          
+                    </div>
+                    <div *ngIf="forma.controls['pass_1'].hasError('required')" class="invalid-feedback">
+                      Campo obligatorio
+                  </div> 
+                </div>
 
-          <!-- CORREO -->
-          <div class="form-group row">
-            <label>Correo:</label>
-            <div class="col-8">
-              <input type="text" class="form-control"                   
-                    placeholder="example@mail.com" 
-                    [ngClass]="{'is-invalid':!formu.get('mail')?.valid}"
-                    formControlName="mail"
-                    [(ngModel)]="mail">
-              <div *ngIf="formu.controls['mail'].errors?.['required']" class="invalid-feedback">
-                Correo obligatorio
+                <!-- aqui empieza el div 5 del password 2 -->
+                <div class="form-group row">
+                  <!-- <label> class="col-2 col-form-label>"></label>> -->
+                  <div class="col-8">
+                      <input class="form-control"
+                      [ngClass]="{forma.controls['pass_2'].invalid ? 'is-invalid' :''}"
+                      type="text"
+                      placeholder="Confirmar contraseña"
+                      formControlName="pass_2"
+                      [(ngModel)]="pass_2">
+                              
+                  </div>
+                  <div *ngIf="forma.controls['pass_2'].hasError('NoPassswordMatch')
+                              || forma.controls['pass_2'].hasError('required)" class="invalid-feedback">
+                      Las contraseñas no coinciden
+                  </div>   
               </div>
-              <div *ngIf="formu.controls['mail'].errors?.['email']" class="invalid-feedback">
-                El correo no tiene el formato correcto
+
+              <!-- aqui empieza div 6 del select  -->
+              <div class="form-group row">
+                <!-- <label> class="col-2 col-form-label>"></label>> -->
+                <div class="col-8">
+                  <p>Sexo:
+                    <select formControlName="sexo">
+                      <option>Femenino</option>
+                      <option>Masculino</option>
+                      <option>Dejarlo sin definir</option>
+                      </select>
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <!-- TELEFONO -->
-          <div class="form-group row">
-            <label>Telefono:</label>
-            <div class="col-8">
-              <input type="text" class="form-control" 
-                    placeholder="XXX-XXX-XX-XX" 
-                    [(ngModel)]="phone"
-                    [ngClass]="{'is-invalid':!formu.get('phone')?.valid}"
-                    formControlName="phone"
-                    pattern="[0-9]{1,15}"
-                    title=" El numero de telefono no tiene el formato correcto">
-              <div *ngIf="formu.controls['phone'].errors?.['required']" class="invalid-feedback">
-                Campo obligatorio. Solo numeros.
+    
+                 <!-- aqui empieza div 7 del url -->
+                 <div class="form-group row">
+                  <!-- <label> class="col-2 col-form-label>"></label>> -->
+                  <div class="col-8">
+                      <input class="form-control"
+                      [ngClass]="{forma.controls['url'].invalid ? 'is-invalid' :''}"
+                      type="text"
+                      placeholder="URL de tu foto"
+                      formControlName="url"
+                      [(ngModel)]="url">
+                                 
+                  </div>
+                  <div *ngIf="forma.controls['url'].hasError('required')" class="invalid-feedback">
+                      Campo obligatorio
+                  </div>
               </div>
+
+              <!-- aqui empieza div 8 del boton -->
+                <div class="form-group row">
+                    <div class="input-group col-md-8">
+                        <button type="submit" (click)="insertarUsuario()" class="btn btn-warning" [disabled]="forma.invalid">Enviar </button>
+                       
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <!-- SEXO -->
-          <div class="form-group row ">
-            <label>Sexo:</label>
-            <div class="col-8">
-              <select class="custom-select">
-                <option selected>Selecciona una respuesta...</option>
-                <option value="1">Hombre</option>
-                <option value="2">Mujer</option>
-                <option value="3">Prefiero no decirlo</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- PASSWORD 1-->
-          <div class="form-group row">
-            <label>Contraseña:</label>
-            <div class="col-8">
-              <input type="text" class="form-control" 
-                      placeholder="password" 
-                      [(ngModel)]="pass_1"
-                      [ngClass]="{'is-invalid':!formu.get('pass_1')?.valid}"
-                      formControlName="pass_1">
-
-              <div *ngIf="formu.controls['pass_1'].errors?.['required']" class="invalid-feedback">
-                Ingrese contraseña**
-              </div>
-            </div>
-          </div>
-
-          <!-- PASSWORD 2-->
-          <div class="form-group row">
-            <label>Confirmar contraseña:</label>
-            <div class="col-8">
-              <input type="text" class="form-control" 
-                      placeholder=" Confirm password"
-                      [(ngModel)]="pass_2"
-                      [ngClass]="{'is-invalid':!formu.get('pass_2')?.valid}"
-                      formControlName="pass_2">
-
-              <div *ngIf="formu.controls['pass_2'].errors?.['required']" class="invalid-feedback">
-                Ingrese contraseña**
-              </div>
-              
-            </div>
-          </div>
-
-          <!-- URL FOTO -->
-          <div class="form_box form-group row">
-            <label class="form_label">Foto URL: </label> 
-            <div class="col-8">
-              <input type="text" class="form-control form_input" 
-                      placeholder="Url de tu foto" 
-                      [(ngModel)]="url"
-                      [ngClass]="{'is-invalid':!formu.get('url')?.valid}"
-                      formControlName="url">
-              <div *ngIf="formu.controls['url'].errors?.['required']" class="invalid-feedback">
-                  Campo necesario
-              </div>
-            </div>          
-          </div>
-          
-
-          <!-- TERMINOS -->
-          <div class="form-group col">
-            <input type="checkbox" value="" id="invalidCheck2" required>
-            <label for="invalidCheck2">
-              Recibir novedades y ofertas de los productos.
-            </label>
-          </div>
-          <div *ngIf="confirmPass()" class="invalid-feedback">
-            Las contraseñas no coinciden.
-          </div>
-
-          <!-- BOTON DE AGREGAR -->
-          <div class="form-group row">
-            <div class="input-group col-md-8">
-              <button type="submit" class="btn btn-primary btn-block" (click)="insertarUsuario()" [disabled]="formu.invalid">Registrar</button>
-            </div>
-
-          </div>
-
-        </div>
-      </form>
+        </form>
+    </div>
+      
       <br>
       <button routerLink="/logincel">Resgitrarse con telefono</button>
     </div>
