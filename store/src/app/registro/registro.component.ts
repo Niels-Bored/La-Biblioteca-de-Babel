@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
-import { FormGroup, FormControl, Validators, Validator } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { contrasenasConfirm } from '../registro.validator';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,15 +16,15 @@ export class RegistroComponent implements OnInit {
   userName:string="";
   mail:string="";
   phone:string="";
-  pass_1:string="";
-  pass_2:string="";
+  pass_1:string ="";
+  pass_2:string ="";
   
   url:string="";
   usuarios : any;
 
   band:boolean=false;
 
-  constructor(public firebase:FirebaseService, private router:Router) { 
+  constructor(public firebase:FirebaseService, private router:Router, private fb:FormBuilder) { 
 
     this.formu = new FormGroup({
       'userName': new FormControl(this.userName,[Validators.required,Validators.minLength(3)] ),
@@ -40,6 +41,8 @@ export class RegistroComponent implements OnInit {
         //CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true })]
         ),
       'pass_2': new FormControl(this.pass_2,Validators.required)
+    }, {
+      validators: contrasenasConfirm
     });
     this.consultaDatos();
     
@@ -67,13 +70,10 @@ export class RegistroComponent implements OnInit {
     });
   }
 
-  confirmPass():boolean{
-    if(this.pass_2 !== this.pass_1){
-     return true;
-    }
-    else{
-      return false;
-    }
+  confirmPass():boolean | undefined {
+    return this.formu.hasError('noSonIguales') &&
+      this.formu.get('pass_1') ?.dirty &&
+      this.formu.get('pass_2') ?.dirty ; 
   }
 
   ngOnInit(): void {
