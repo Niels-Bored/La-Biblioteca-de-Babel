@@ -3,3 +3,22 @@
     bottom: 0;
     z-index: 1;
 }
+
+#divChart{
+    width: 90%;
+    height: 400px;
+    border-style: solid;
+    border: 2px white;
+    margin: auto;
+    margin-bottom: 20px;
+
+}
+
+#divChartt{
+    width: 90%;
+    height: 650px;
+    border-style: solid;
+    border: 2px white;
+    margin: auto;
+}
+

@@ -25,8 +25,11 @@ export class AnalyticsComponent implements OnInit {
   generos: any[] = ["Dark Humor", "Fantasy", "Romance", "Science Fiction", "Terror", "Thriller", "Other"];
   numGen: number[] = [0, 0, 0, 0, 0, 0, 0];
 
+  myChart: any;
+  myChart2: any;
+  ctx: any;
 
-  constructor(public firebase: FirebaseService, public router: Router, private spinnerService: SpinnerService, public accesib:AccesibilidadService) {
+  constructor(public firebase: FirebaseService, public router: Router, private spinnerService: SpinnerService, public accesib: AccesibilidadService) {
     this.firebase.consultaDescargas().subscribe((res: any) => {
       this.libros = res;
       console.log(this.libros);
@@ -60,7 +63,13 @@ export class AnalyticsComponent implements OnInit {
       this.topN[j] = this.libros[this.orden[j]]['Titulo'];
     }
 
-    const graficatop = new Chart("top10", {
+    this.ctx = document.getElementById("top10");
+    this.ctx.getContext('2d');
+    if (this.myChart) {
+      this.myChart.destroy();
+    }
+
+    this.myChart = new Chart("top10", {
       type: 'bar',
       data: {
         labels: this.topN,
@@ -68,7 +77,7 @@ export class AnalyticsComponent implements OnInit {
           label: 'Descargas',
           data: this.topD,
           backgroundColor: [
-            this.accesib.getGrafica1(0),this.accesib.getGrafica1(1),this.accesib.getGrafica1(2),this.accesib.getGrafica1(3),this.accesib.getGrafica1(4),
+            this.accesib.getGrafica1(0), this.accesib.getGrafica1(1), this.accesib.getGrafica1(2), this.accesib.getGrafica1(3), this.accesib.getGrafica1(4),
           ]
         }]
       },
@@ -78,7 +87,8 @@ export class AnalyticsComponent implements OnInit {
             beginAtZero: true
           }
         },
-        responsive: true
+        responsive: true,
+        maintainAspectRatio: false
       }
     });
 
@@ -108,7 +118,13 @@ export class AnalyticsComponent implements OnInit {
       }
     }
 
-    const graficat = new Chart("topCat", {
+    this.ctx = document.getElementById("topCat");
+    this.ctx.getContext('2d');
+    if (this.myChart2) {
+      this.myChart2.destroy();
+    }
+
+    this.myChart2 = new Chart("topCat", {
       type: 'pie',
       data: {
         labels: this.generos,
@@ -116,7 +132,7 @@ export class AnalyticsComponent implements OnInit {
           label: 'Descargas',
           data: this.numGen,
           backgroundColor: [
-            this.accesib.getGrafica1(0),this.accesib.getGrafica1(1),this.accesib.getGrafica1(2),this.accesib.getGrafica1(3),this.accesib.getGrafica1(4),
+            this.accesib.getGrafica1(0), this.accesib.getGrafica1(1), this.accesib.getGrafica1(2), this.accesib.getGrafica1(3), this.accesib.getGrafica1(4),
           ]
         }]
       },
@@ -126,7 +142,8 @@ export class AnalyticsComponent implements OnInit {
             beginAtZero: true
           }
         },
-        responsive: true
+        responsive: true,
+        maintainAspectRatio: false
       }
     });
 
