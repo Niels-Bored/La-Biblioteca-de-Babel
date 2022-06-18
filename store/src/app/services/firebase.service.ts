@@ -59,6 +59,7 @@ export class FirebaseService {
     try {
       return await this.afauth.signInWithEmailAndPassword(email, password);
     } catch (error) {
+      alert("Error, datos incorrectos")
       console.log("error en login: ",error);
       return null;
     }

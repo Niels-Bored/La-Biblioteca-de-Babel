@@ -24,7 +24,7 @@ export class RegistroComponent implements OnInit {
     this.firebase.insertarUsuario(this.mail, this.phone,this.password,this.userName,this.url).subscribe((res: any) => {
       console.log(res);
     });
-    alert("Usuario insertado éxitosamente");
+    alert("Usuario registrado éxitosamente");
     this.router.navigate(['inicio']);
   }
 

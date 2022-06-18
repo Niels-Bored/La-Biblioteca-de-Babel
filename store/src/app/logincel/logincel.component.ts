@@ -30,7 +30,10 @@ export class LogincelComponent implements OnInit {
             .then((result: any) => {
                 this.windowRef.confirmationResult = result;
             })
-            .catch( (error: any) => console.log(error) );
+            .catch( (error: any) => {
+              console.log(error) 
+              alert("Ha habido un error")
+            });
   }
 
   verifyLoginCode() {
@@ -39,7 +42,10 @@ export class LogincelComponent implements OnInit {
                   .then( (result: { user: any; }) => {
                     this.user = result.user;
     })
-    .catch( (error: any) => console.log(error, "Incorrect code entered?"));
+    .catch( (error: any) => {
+      console.log(error, "Incorrect code entered?")
+      alert("Ha habido un error")
+  });
     this.router.navigate(['inicio']);
   }
 }
