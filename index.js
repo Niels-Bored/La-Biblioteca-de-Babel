@@ -16,7 +16,7 @@ admin.initializeApp({
 });
 
 const app = express(); //crear al servidor
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 10000;
 
 app.use(bodyParser.urlencoded({ extended:false}));
 app.use(bodyParser.json());
