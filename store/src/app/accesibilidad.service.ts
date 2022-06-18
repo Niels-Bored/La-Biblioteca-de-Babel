@@ -16,11 +16,14 @@ export class AccesibilidadService {
   b_color: string = "white";
   enter:string="rgba(33, 5, 189, 0.871)";
   bootstrap: string = "info";
+  ayuda:string="#F2D1D1";
+  grafica1:string[]=["#FFE6E6","#F2D1D1","#DAEAF1","#C6DCE4","#CDF0EA"];
+  tayuda:string="#FFE6E6";
   presentacion = {
     'color': this.color,
     'font-size.px': this.tamano,
   };
-  filtro: string ="";
+  filtro: string ="brightness(1%)";
   icono: string = "../../assets/Accesibilidad/icono_normal.png";
   img0: string = "../../assets/Insercion/Nubes.jpg ";
   img1: string = " ../../assets/Inicio/logo.png";
@@ -94,6 +97,10 @@ export class AccesibilidadService {
         this.img0="../../assets/Accesibilidad/fondo_gris_0.png";
         this.enter="grey";
         this.footer="#CDD0CB";
+        this.filtro="grayscale(100%)";
+        this.ayuda="#E0DECA";
+        this.tayuda="#EEEEEE";
+        this.grafica1=["#DAD0C2","#D6D2C4","#C8C2BC","#CDC7BE","#E4D3CF"];
         break;
       case "Normal":
         this.presentacion['color'] = "black";
@@ -106,6 +113,10 @@ export class AccesibilidadService {
         this.img0="../../assets/Insercion/Nubes.jpg";
         this.enter="rgba(33, 5, 189, 0.871)";
         this.footer="#C6DCE4";
+        this.filtro="brightness(100%)";
+        this.ayuda="#F2D1D1";
+        this.tayuda="#FFE6E6";
+        this.grafica1=["#FFE6E6","#F2D1D1","#DAEAF1","#C6DCE4","#CDF0EA"];
         break;
       case "Alto Contraste":
         this.presentacion['color'] = "blue";
@@ -118,6 +129,10 @@ export class AccesibilidadService {
         this.img0="../../assets/Accesibilidad/fondo_alto_0.png";
         this.enter="black";
         this.footer="#3E065F";
+        this.filtro="contrast(200%)";
+        this.ayuda="#3E065F";
+        this.tayuda="#000000";
+        this.grafica1=["#F806CC","#570A57","#A91079","#4C0027","#610094"];
         break;
     } 
     this.cambiarIcono(fondo);
@@ -137,6 +152,9 @@ export class AccesibilidadService {
         this.img0="../../assets/Accesibilidad/fondo_gris_0.png";
         this.enter="grey";
         this.filtro="grayscale(100%)";
+        this.ayuda="#E0DECA";
+        this.tayuda="#EEEEEE";
+        this.grafica1=["#DAD0C2","#D6D2C4","#C8C2BC","#CDC7BE","#E4D3CF"];
         break;
       case "Normal":
         this.presentacion['color'] = "black";
@@ -148,8 +166,10 @@ export class AccesibilidadService {
         this.icono = "../../assets/Accesibilidad/icono_normal.png";
         this.img0="../../assets/Insercion/Nubes.jpg";
         this.enter="rgba(33, 5, 189, 0.871)";
-        this.filtro="brightness(1%)";
-
+        this.filtro="brightness(100%)";
+        this.ayuda="#F2D1D1";
+        this.tayuda="#FFE6E6";
+        this.grafica1=["#FFE6E6","#F2D1D1","#DAEAF1","#C6DCE4","#CDF0EA"];
         break;
       case "Alto Contraste":
         this.presentacion['color'] = "blue";
@@ -161,7 +181,10 @@ export class AccesibilidadService {
         this.icono = "../../assets/Accesibilidad/icono_normal.png";
         this.img0="../../assets/Accesibilidad/fondo_alto_0.png";
         this.enter="black";
-        this.filtro="contrast(100%)";
+        this.filtro="contrast(200%)";
+        this.ayuda="#3E065F";
+        this.tayuda="#000000";
+        this.grafica1=["#F806CC","#570A57","#A91079","#4C0027","#610094"];
         break;
     } 
     this.cambiarIcono(this.fondo);
@@ -210,7 +233,9 @@ export class AccesibilidadService {
   this.icono= "../../assets/Accesibilidad/icono_normal.png";
   this.img0= "../../assets/Insercion/Nubes.jpg ";
   }
-
+  getGrafica1(pos:number){
+    return this.grafica1[pos];
+  }
   cambiarTamano(e:any) {
     this.presentacion['font-size.px'] = e.target.value;
     this.tamano=e.target.value;

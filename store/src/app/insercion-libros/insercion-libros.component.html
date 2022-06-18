@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="sub2">
-        <img class="img2" src="../../assets/Insercion/Libro.png" alt="">
+        <img class="img2" src="../../assets/Insercion/Libro.png" style="filter: {{accesib.filtro}}"alt="">
       </div>
 
     </div>
@@ -57,7 +57,7 @@
         <div *ngFor="let libro of libros" class="card">
           <div class="card-body">
             <div class="face front">
-              <img class="imagen" src="{{libro.Imagen}}">
+              <img class="imagen" src="{{libro.Imagen}}" style="filter: {{accesib.filtro}}">
             </div>
             <div class="face back">
               <h5 class="card-title">{{libro.Titulo}}</h5>

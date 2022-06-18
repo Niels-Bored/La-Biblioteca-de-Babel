@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
 import { FirebaseService } from '../services/firebase.service';
 import { SpinnerService } from 'src/app/spinner.service';
+import { AccesibilidadService } from '../accesibilidad.service';
 
 @Component({
   selector: 'app-analytics',
@@ -25,7 +26,7 @@ export class AnalyticsComponent implements OnInit {
   numGen: number[] = [0, 0, 0, 0, 0, 0, 0];
 
 
-  constructor(public firebase: FirebaseService, public router: Router, private spinnerService: SpinnerService) {
+  constructor(public firebase: FirebaseService, public router: Router, private spinnerService: SpinnerService, public accesib:AccesibilidadService) {
     this.firebase.consultaDescargas().subscribe((res: any) => {
       this.libros = res;
       console.log(this.libros);
@@ -65,7 +66,10 @@ export class AnalyticsComponent implements OnInit {
         labels: this.topN,
         datasets: [{
           label: 'Descargas',
-          data: this.topD
+          data: this.topD,
+          backgroundColor: [
+            this.accesib.getGrafica1(0),this.accesib.getGrafica1(1),this.accesib.getGrafica1(2),this.accesib.getGrafica1(3),this.accesib.getGrafica1(4),
+          ]
         }]
       },
       options: {
@@ -112,7 +116,7 @@ export class AnalyticsComponent implements OnInit {
           label: 'Descargas',
           data: this.numGen,
           backgroundColor: [
-            
+            this.accesib.getGrafica1(0),this.accesib.getGrafica1(1),this.accesib.getGrafica1(2),this.accesib.getGrafica1(3),this.accesib.getGrafica1(4),
           ]
         }]
       },
