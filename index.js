@@ -295,10 +295,10 @@ app.get('*', (req,res) => {
   res.sendFile(process.cwd()+"/store/dist/store/index.html")
 });
 
-// app.listen(port, () => {
-//  console.log(`servidor corriendo en http://localhost:${port}`);
-// })
-
 app.listen(port, () => {
-  console.log(`Node Express server listening on https://<store>.firebaseapp.com:${port}`);
-});
+ console.log(`servidor corriendo en http://localhost:${port}`);
+})
+
+// app.listen(port, () => {
+//   console.log(`Node Express server listening on https://<store>.firebaseapp.com:${port}`);
+// });
