@@ -1,34 +1,89 @@
 <div [ngStyle]="accesib.presentacion">
-<ul class="nav nav-tabs" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}};">
-  <li class="nav-item" >
-    <a routerLink="/inicio" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};" class="nav-link active">Inicio</a>
-  </li>
-  <li class="nav-item" *ngIf="userLogged|async as user">
-    <a *ngIf="user.emailVerified" routerLink="/incersionLibros" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Insercion Libros</a>
-  </li>
-  <li class="nav-item" *ngIf="userLogged|async as user">
-    <a *ngIf="user.emailVerified" routerLink="/analytics" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Analíticas</a>
-  </li>
-  <li class="nav-item" *ngIf="userLogged|async as user">
-    <a routerLink="/libros" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Libros</a>
-  </li>
-  <li class="nav-item">
-    <a routerLink="/contacto" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Contacto</a>
-  </li>
-  <li class="nav-item">
-    <a routerLink="/ayuda" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Ayuda</a>
-  </li>
-  <li class="nav-item">
-    <a routerLink="/login" class="nav-link active" style="background-color: {{accesib.nav}}; border-color: {{accesib.borde}}; color: {{accesib.nav_letra}};">Login</a>
-  </li>
-  <li class="nav-item" *ngIf="userLogged|async as user">
+  <ul
+    class="nav nav-tabs"
+    style="background-color: {{ accesib.nav }}; border-color: {{
+      accesib.borde
+    }};"
+  >
+    <li class="nav-item">
+      <a
+        routerLink="/inicio"
+        style="background-color: {{ accesib.nav }}; border-color: {{
+          accesib.borde
+        }}; color: {{ accesib.nav_letra }};"
+        class="nav-link active"
+        >Inicio</a
+      >
+    </li>
+    <li class="nav-item" *ngIf="userLogged | async as user">
+      <a
+        *ngIf="user.emailVerified"
+        routerLink="/incersionLibros"
+        class="nav-link active"
+        style="background-color: {{ accesib.nav }}; border-color: {{
+          accesib.borde
+        }}; color: {{ accesib.nav_letra }};"
+        >Insercion Libros</a
+      >
+    </li>
+    <li class="nav-item" *ngIf="userLogged | async as user">
+      <a
+        *ngIf="user.emailVerified"
+        routerLink="/analytics"
+        class="nav-link active"
+        style="background-color: {{ accesib.nav }}; border-color: {{
+          accesib.borde
+        }}; color: {{ accesib.nav_letra }};"
+        >Analíticas</a
+      >
+    </li>
+    <li class="nav-item" *ngIf="userLogged | async as user">
+      <a
+        routerLink="/libros"
+        class="nav-link active"
+        style="background-color: {{ accesib.nav }}; border-color: {{
+          accesib.borde
+        }}; color: {{ accesib.nav_letra }};"
+        >Libros</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        routerLink="/contacto"
+        class="nav-link active"
+        style="background-color: {{ accesib.nav }}; border-color: {{
+          accesib.borde
+        }}; color: {{ accesib.nav_letra }};"
+        >Contacto</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        routerLink="/ayuda"
+        class="nav-link active"
+        style="background-color: {{ accesib.nav }}; border-color: {{
+          accesib.borde
+        }}; color: {{ accesib.nav_letra }};"
+        >Ayuda</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        routerLink="/login"
+        class="nav-link active"
+        style="background-color: {{ accesib.nav }}; border-color: {{
+          accesib.borde
+        }}; color: {{ accesib.nav_letra }};"
+        >Login</a
+      >
+    </li>
+    <li class="nav-item usuario" *ngIf="userLogged|async as user">
     <img style="border-radius: 100%" *ngIf="user.photoURL" src="{{user.photoURL}}" 
       alt="" width="30" height="30" class="d-inline-block alignt-top">
-    {{user.displayName | uppercase}}
+    {{user.displayName | uppercase}} 
   </li>
-</ul>
+  </ul>
 </div>
 <!-- <button *ngIf="userLogged|async as user" (click)="cambiarAccesibilidad({{user.uid}})"></button> -->
 
 <router-outlet></router-outlet>
-

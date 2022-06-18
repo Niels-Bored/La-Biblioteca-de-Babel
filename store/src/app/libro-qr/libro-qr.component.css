@@ -22,7 +22,7 @@
 
 .custom-shape-divider-top-1655514499 {
     position: absolute;
-    top: 0;
+    top: 100;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -38,5 +38,12 @@
 }
 
 .custom-shape-divider-top-1655514499 .shape-fill {
-    fill: pink;
+    fill: #00FFDD;
+}
+
+h1, h4{
+    text-align: center;
+}
+#qrcode, #boton{
+    display: flex; justify-content: center; text-align: center;
 }

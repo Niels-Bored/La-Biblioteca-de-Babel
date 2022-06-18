@@ -1,0 +1,9 @@
+.usuario{
+    position: relative;
+    padding-left: 750px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+   top: 10px;
+    justify-content: center; 
+}

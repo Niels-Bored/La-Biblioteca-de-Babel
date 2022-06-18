@@ -3,10 +3,27 @@
         <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="shape-fill"></path>
     </svg>
 </div>
-<h1>Disfruta tu libro</h1>
-<h4>Escanea el código o presiona el botón</h4>
-<qrcode [qrdata]="url" [width]="256" [errorCorrectionLevel]="'L'"></qrcode>
-<button (click)="btnDescarga()">Descarga el libro</button>
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2">
+      </div>
+      <div class="col-md-auto"><br><br><br>
+        <h1>Disfruta tu libro</h1>
+        <h4>Escanea el código o presiona el botón</h4>
+        <div  id="qrcode">
+            
+        <qrcode [qrdata]="url" [width]="256" [errorCorrectionLevel]="'L'"></qrcode>
+        </div>
+        <div id="boton">
+                
+        <button class="btn btn-warning" (click)="btnDescarga()">Descarga el libro</button>
+        </div>
+      </div>
+      <div class="col col-lg-2">
+      </div>
+    </div>
+  </div>
+
 
 <ngx-spinner>
     <div class="loadingio-spinner-interwind-6lqxuekrkqu">
