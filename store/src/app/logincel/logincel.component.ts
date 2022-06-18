@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from '@firebase/app-compat';
 import { FirebaseService } from '../services/firebase.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-logincel',
@@ -32,7 +33,13 @@ export class LogincelComponent implements OnInit {
             })
             .catch( (error: any) => {
               console.log(error) 
-              alert("Ha habido un error")
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Ha habido un error',
+                showConfirmButton: false,
+                timer: 2000
+              });
             });
   }
 
@@ -44,7 +51,13 @@ export class LogincelComponent implements OnInit {
     })
     .catch( (error: any) => {
       console.log(error, "Incorrect code entered?")
-      alert("Ha habido un error")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Ha habido un error',
+        showConfirmButton: false,
+        timer: 2000
+      });
   });
     this.router.navigate(['inicio']);
   }

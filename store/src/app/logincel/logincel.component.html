@@ -11,7 +11,11 @@
                         
                     </div>
                     <div id="recaptcha-container"></div>
-                    <button (click)="sendLoginCode()"  class="button">Enviar Código</button><br>
+                    <button 
+                        type="submit" 
+                        (click)="sendLoginCode()"  
+                        class="button"
+                    >Enviar Código</button><br>
                 </div>
                 <div class="ss2" *ngIf="windowRef.confirmationResult">
                     <h4>Introducir Codigo</h4>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
+import Swal from 'sweetalert2';
 /*Para la librería  de arriba se necesita:
 npm i firebase
 npm i @angular/fire
@@ -14,52 +15,58 @@ export class FirebaseService {
   constructor(public httpClient: HttpClient, private afauth:AngularFireAuth) { }
 
   insertar(libro:string, autor:string, genero:string, sinopsis:string, imagen:string, url:string, descargas:number) {
-    return this.httpClient.get(`http://localhost:10000/insercion/?titulo=${libro}&autor=${autor}&genero=${genero}&sinopsis=${sinopsis}&imagen=${imagen}&url=${url}&descargas=${descargas}`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/insercion/?titulo=${libro}&autor=${autor}&genero=${genero}&sinopsis=${sinopsis}&imagen=${imagen}&url=${url}&descargas=${descargas}`);
   }
   consultaURL(libro:string){
-    return this.httpClient.get(`http://localhost:10000/recuperacionURL/${libro}`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/recuperacionURL/${libro}`);
   }
   consultaDescargas(){
-    return this.httpClient.get(`http://localhost:10000/recuperacionDescargas`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/recuperacionDescargas`);
   }
   consultaGeneros(){
-    return this.httpClient.get(`http://localhost:10000/recuperacionGeneros`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/recuperacionGeneros`);
   }
   recuperar(){
-    return this.httpClient.get(`http://localhost:10000/recuperacion`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/recuperacion`);
   }
   recuperarLibro(libro:string){
-    return this.httpClient.get(`http://localhost:10000/recuperacion/${libro}`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/recuperacion/${libro}`);
   }
   eliminarLibro(libro:string){
-    return this.httpClient.get(`http://localhost:10000/eliminacion/${libro}`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/eliminacion/${libro}`);
   }
 
   enviarCorreo(mensaje:string){
-    return this.httpClient.get(`http://localhost:10000/enviarCorreo/${mensaje}`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/enviarCorreo/${mensaje}`);
   }
 
   insertarUsuario(mail:string, phone:string, password:string, displayName:string, photoUrl:string) {
-    return this.httpClient.get(`http://localhost:10000/insercionUsuario/?mail=${mail}&phone=${phone}&password=${password}&displayName=${displayName}&photoUrl=${photoUrl}`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/insercionUsuario/?mail=${mail}&phone=${phone}&password=${password}&displayName=${displayName}&photoUrl=${photoUrl}`);
   }
 
   consultaDatos(){
-    return this.httpClient.get(`http://localhost:10000/datosu`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/datosu`);
   }
 
   datosAccesibilidad(userID:string){
-    return this.httpClient.get(`http://localhost:10000/recuperacionAccesibilidad/${userID}`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/recuperacionAccesibilidad/${userID}`);
   }
 
   cambiarDatosAccesibilidad(userID:string, letra:string, fondo:string){
-    return this.httpClient.get(`http://localhost:10000/cambiarAccesibilidad/?userID=${userID}&letra=${letra}&fondo=${fondo}`);
+    return this.httpClient.get(`https://la-biblioteca-de-babel.onrender.com/cambiarAccesibilidad/?userID=${userID}&letra=${letra}&fondo=${fondo}`);
   }
 
   async login(email: string, password: string){
     try {
       return await this.afauth.signInWithEmailAndPassword(email, password);
     } catch (error) {
-      alert("Error, datos incorrectos")
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Error, datos incorrectos',
+        showConfirmButton: false,
+        timer: 2000
+      });
       console.log("error en login: ",error);
       return null;
     }

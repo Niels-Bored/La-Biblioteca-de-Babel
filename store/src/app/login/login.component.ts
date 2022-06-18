@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 import { AccesibilidadService } from '../accesibilidad.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,6 +17,10 @@ export class LoginComponent implements OnInit {
     password: ''
   }
   
+  formularioContacto = new FormGroup({
+    pass: new FormControl('', [Validators.required]),
+    mail: new FormControl('', [Validators.required, Validators.email])
+  });
 
   constructor(public firebase: FirebaseService, private router: Router, public accesib: AccesibilidadService) {
   }
@@ -36,7 +42,7 @@ export class LoginComponent implements OnInit {
 
       });
       this.router.navigate(['inicio']);
-    }, 5000);
+    }, 500);
 
   }
 

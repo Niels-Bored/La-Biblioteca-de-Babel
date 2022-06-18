@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
@@ -24,7 +25,13 @@ export class RegistroComponent implements OnInit {
     this.firebase.insertarUsuario(this.mail, this.phone,this.password,this.userName,this.url).subscribe((res: any) => {
       console.log(res);
     });
-    alert("Usuario registrado éxitosamente");
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Usuario regristrado exitosamente!',
+      showConfirmButton: false,
+      timer: 2000
+    });
     this.router.navigate(['inicio']);
   }
 

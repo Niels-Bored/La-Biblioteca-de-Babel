@@ -26,6 +26,7 @@ import { NgxSpinnerModule  } from 'ngx-spinner';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'; 
 import { InterceptorService } from './interceptor.service';
 import { LibroComponent } from './libro/libro.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { LibroComponent } from './libro/libro.component';
     QRCodeModule,
     NgChartsModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}

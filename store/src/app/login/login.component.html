@@ -44,18 +44,33 @@
             (click)="logOut()">LogOut</button>
         </div>
         <ng-template #entrar>
-          <form action="">
+          <form [formGroup]="formularioContacto" (ngSubmit)="Ingresar()">
             <div class="form_box">
-              <input type="email" class="form_input" placeholder=" " [(ngModel)]="usuario.email" value="">
+              <input type="email" class="form_input" placeholder=" " [(ngModel)]="usuario.email" value="" formControlName="mail">
               <label for="textUser" class="form_label" style="float: left;">Email</label>
             </div>
+            <span *ngIf="this.formularioContacto.get('mail')?.errors?.['required']">
+              El mail no puede quedar vacío
+            </span>
+            <span *ngIf="this.formularioContacto.get('mail')?.errors?.['email']">
+              El mail no es válido
+            </span>
             <div class="form_box">
-              <input type="password" class="form_input" placeholder=" " [(ngModel)]="usuario.password" value="">
+              <input type="password" class="form_input" placeholder=" " [(ngModel)]="usuario.password" value="" formControlName="pass">
               <label for="textUser" class="form_label" style="float: left;">Contraseña</label>
             </div>
+            <span *ngIf="this.formularioContacto.get('pass')?.errors?.['required']">
+              La contraseña no puede quedar vacía
+            </span>
 
-            <button class="btn btn-block m-2 bg-{{accesib.bootstrap}} text-{{accesib.b_color}}" id="button"
-              (click)="Ingresar()">Ingresar</button>
+            <button 
+              type="submit"
+              class="btn btn-block m-2 bg-{{accesib.bootstrap}} text-{{accesib.b_color}}" 
+              id="button"
+              (click)="Ingresar()"
+              [disabled]="formularioContacto.invalid"
+              >Ingresar</button>
+
             <button class="btn  btn-block m-2 bg-{{accesib.bootstrap}} text-{{accesib.b_color}}" id="button"
               routerLink="/logincel">Ingresar con Telefono</button>
             <label>¿No tienes cuenta? <a routerLink="/registro">Registrate</a></label>

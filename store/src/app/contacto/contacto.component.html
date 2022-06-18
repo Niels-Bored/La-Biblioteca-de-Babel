@@ -6,18 +6,39 @@
       <div class="s1">
         <div class="ss1">
           <h1>¿En qué podemos ayudarte?</h1>
-          <form action="">
+          <form [formGroup]="forma" (ngSubmit)="enviarCorreo()" class="needs-validation" novalidate>
             <div class="form_box">
-              <input class="form_input" type="text" [(ngModel)]="nombre" placeholder=" " />
+              <input 
+                class="form_input"
+                [ngClass]="{'is-invalid':!forma.get('nombre')?.valid}"
+                type="text"
+                formControlName="nombre"
+                required
+              />
               <label for="textUser" class="form_label">Nombre</label>
             </div>
-
+            <div *ngIf="forma.controls['nombre'].errors?.['required']" class="invalid-feedback">
+              Campo obligatorio
+            </div>
             <div class="form_box">
-              <input class="form_input" type="text" [(ngModel)]="apellido" placeholder=" " />
+              <input 
+                class="form_input" 
+                type="text" 
+                formControlName="apellido" 
+                placeholder=" " 
+                [ngClass]="{'is-invalid':!forma.get('apellido')?.valid}"
+                required
+              />
               <label for="textUser" class="form_label">Apellido</label>
             </div>
-            <textarea cols="30" rows="10" placeholder="Dejanos tu comentario..." [(ngModel)]="mensaje"></textarea><br>
-            <button (click)="enviarCorreo()" class="button">Enviar</button>
+            <div *ngIf="forma.controls['apellido'].errors?.['required']" class="invalid-feedback">
+              Campo obligatorio
+            </div>
+            <textarea cols="30" rows="10" placeholder="Dejanos tu comentario..." formControlName="mensaje" [ngClass]="{'is-invalid':!forma.get('mensaje')?.valid}" required></textarea><br>
+            <div *ngIf="forma.controls['mensaje'].errors?.['required']" class="invalid-feedback">
+              No puede haber campos vacíos
+            </div>
+            <button (click)="enviarCorreo()" [disabled]="forma.invalid" class="button">Enviar</button>
           </form>
         </div>
       </div><br>
