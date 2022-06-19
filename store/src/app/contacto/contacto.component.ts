@@ -29,7 +29,11 @@ export class ContactoComponent implements OnInit {
   }
 
   enviarCorreo(){
-    this.servicio.enviarCorreo("Asunto: "+this.asunto+"       "+this.nombre+" "+this.apellido+" dice: "+this.mensaje+"Responder al correo: "+this.correo).subscribe((res: any) => {
+    const nombre = this.forma.get('nombre')?.value as string;
+    const apellido = this.forma.get('apellido')?.value as string;
+    const mensaje = this.forma.get('mensaje')?.value as string;
+    
+    this.servicio.enviarCorreo(nombre+" "+apellido+" dice: "+mensaje).subscribe((res: any) => {
       console.log(res);
     });
     
