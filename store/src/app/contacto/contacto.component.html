@@ -34,6 +34,17 @@
               />
               <label for="textUser" class="form_label">Apellido</label>
             </div>
+            <div *ngIf="forma.controls['apellido'].errors?.['required']" class="invalid-feedback">
+              Campo obligatorio
+            </div>
+            <div class="form_box">
+              <textarea class="form_input" style="height: 150px;" placeholder=" " 
+                        formControlName="mensaje" 
+                        [ngClass]="{'is-invalid':!forma.get('mensaje')?.valid}" 
+                        required></textarea>
+                        <label for="textUser" class="form_label">Deja tu comentario...</label>
+            </div>          
+                      <br>
             <div *ngIf="forma.controls['mensaje'].errors?.['required']" class="invalid-feedback">
               No puede dejar este campo vacío
             </div>

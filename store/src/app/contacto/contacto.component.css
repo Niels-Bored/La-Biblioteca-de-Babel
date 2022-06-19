@@ -72,7 +72,11 @@
 .form_box {
     position: relative;
     padding: 1rem;
-    
+    width: 90%;
+}
+
+#login label{
+    font-size: 80%;
 }
 
 .form_input:focus{
@@ -98,7 +102,7 @@ textarea {
     width: 95%;
     height: 150px;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 50%);
+    background: white;
     outline: solid 2px white;
     border: 0;
 }

@@ -22,7 +22,7 @@
         </div>
         <div class="form_box">
           <input type="text" class="form_input" placeholder=" " [(ngModel)]="phone" formControlName="telefono">
-          <label class="form_label">Numero de Telefono:</label>
+          <label class="form_label">Telefono:</label>
         </div>
         <div *ngIf="this.formularioContacto.get('pass')?.errors?.['required']">
           Es necesario escribir una contraseña

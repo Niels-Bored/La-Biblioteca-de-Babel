@@ -36,7 +36,7 @@
     <div class="div1">
       <h1 style="text-align: center;">Login</h1><br><br>
       <div class="card-body p-4">
-        <div *ngIf="userLogged|async as user; else entrar">
+        <div id="login" *ngIf="userLogged|async as user; else entrar">
           <label>Nombre: {{user.displayName}}</label><br>
           <label>Telefono: {{user.phoneNumber | formatoTel}}</label><br>
           <label>Email: {{user.email}}</label><br>
@@ -73,7 +73,7 @@
 
             <button class="btn  btn-block m-2 bg-{{accesib.bootstrap}} text-{{accesib.b_color}}" id="button"
               routerLink="/logincel">Ingresar con Telefono</button>
-            <label>¿No tienes cuenta? <a routerLink="/registro">Registrate</a></label>
+            <label id="regis">¿No tienes cuenta? <a routerLink="/registro">Registrate</a></label>
           </form>
         </ng-template>
       </div>
