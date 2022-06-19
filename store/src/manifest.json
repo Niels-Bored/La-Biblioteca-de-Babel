@@ -1,0 +1,36 @@
+{ 
+    "short_name": "LaBibliotecaDeBabel",
+    "name": "Biblio de Babel",  
+    "description": "El que se acuesta leyendo, se levanta sabiendo. Encuentra y Descubre",  
+    "background_color": "#A5F1DA",  
+    "theme_color": "#A5F1DA",  
+    "orientation": "portrait",  
+    "display": "standalone",  
+    "icons":[
+      {  
+        "src": "assets/Login/SubLogo1.png",  
+        "type": "image/png",  
+        "sizes": "512x512",  
+        "purpose": "maskable"
+      },
+      {
+        "src": "assets/Login/SubLogo1.png",  
+        "type": "image/png",  
+        "sizes": "192x192", 
+        "purpose": "maskable"  
+      },
+      {
+        "src": "assets/Login/SubLogo1.png",  
+        "type": "image/png",  
+        "sizes": "96x96", 
+        "purpose": "maskable"  
+      },
+      {
+        "src": "assets/Login/SubLogo1.png",  
+        "type": "image/png",  
+        "sizes": "48x48", 
+        "purpose": "maskable"  
+      }
+    ]
+    
+  }
