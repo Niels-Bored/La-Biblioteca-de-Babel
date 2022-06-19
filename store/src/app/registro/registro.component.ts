@@ -69,7 +69,7 @@ export class RegistroComponent implements OnInit {
     console.log(con);
     console.log(nombre);
 
-    this.firebase.insertarUsuario(correo, telefono, con, nombre,this.url).subscribe((res: any) => {
+    this.firebase.insertarUsuario(correo, telefono, con, nombre,"https://upload.wikimedia.org/wikipedia/commons/3/32/Star_Wars_-_Darth_Vader.jpg").subscribe((res: any) => {
       console.log(res);
     });
     Swal.fire({

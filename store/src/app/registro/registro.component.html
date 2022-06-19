@@ -51,10 +51,6 @@
           <input type="text" class="form_input" placeholder=" " [(ngModel)]="userName" formControlName="nombre">
           <label class="form_label">Nombre de Usuario: </label>
         </div>
-        <div class="form_box">
-          <input type="text" class="form_input" [(ngModel)]="url" placeholder=" ">
-          <label class="form_label">Foto URL: </label>
-        </div>
         <button class="btn btn-primary btn-block" (click)="insertarUsuario()" [disabled]="formularioContacto.invalid">Registrar</button>
         <button class="btn btn-primary btn-block" routerLink="/logincel">Resgitrarse con telefono</button>
       </form>

@@ -29,6 +29,7 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 //Insercion usuario
 app.get('/insercionUsuario', (req, res) =>{
+    console.log("Datos");
     console.log(req.query.mail);
     console.log("+"+req.query.phone);
     console.log(req.query.password);
