@@ -45,10 +45,6 @@
         </div>
         <ng-template #entrar>
           <form [formGroup]="formularioContacto" (ngSubmit)="Ingresar()">
-            <div class="form_box">
-              <input type="email" class="form_input" placeholder=" " [(ngModel)]="usuario.email" value="" formControlName="mail">
-              <label for="textUser" class="form_label" style="float: left;">Email</label>
-            </div>
             <span *ngIf="this.formularioContacto.get('mail')?.errors?.['required']">
               El mail no puede quedar vacío
             </span>
@@ -56,12 +52,16 @@
               El mail no es válido
             </span>
             <div class="form_box">
-              <input type="password" class="form_input" placeholder=" " [(ngModel)]="usuario.password" value="" formControlName="pass">
-              <label for="textUser" class="form_label" style="float: left;">Contraseña</label>
+              <input type="email" class="form_input" placeholder=" " [(ngModel)]="usuario.email" value="" formControlName="mail">
+              <label for="textUser" class="form_label" style="float: left;">Email</label>
             </div>
             <span *ngIf="this.formularioContacto.get('pass')?.errors?.['required']">
               La contraseña no puede quedar vacía
             </span>
+            <div class="form_box">
+              <input type="password" class="form_input" placeholder=" " [(ngModel)]="usuario.password" value="" formControlName="pass">
+              <label for="textUser" class="form_label" style="float: left;">Contraseña</label>
+            </div>
 
             <button 
               type="submit"

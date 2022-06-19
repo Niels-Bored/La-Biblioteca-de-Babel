@@ -29,7 +29,7 @@
     color: white;
     position: relative;
     top: 10px;
-    height: 520px;
+    height: 600px;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;

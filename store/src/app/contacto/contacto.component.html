@@ -7,6 +7,9 @@
         <div class="ss1">
           <h1>¿En qué podemos ayudarte?</h1>
           <form [formGroup]="forma" (ngSubmit)="enviarCorreo()" class="needs-validation" novalidate>
+            <div *ngIf="forma.controls['nombre'].errors?.['required']" class="invalid-feedback">
+              Campo obligatorio
+            </div>
             <div class="form_box">
               <input 
                 class="form_input"
@@ -17,7 +20,7 @@
               />
               <label for="textUser" class="form_label">Nombre</label>
             </div>
-            <div *ngIf="forma.controls['nombre'].errors?.['required']" class="invalid-feedback">
+            <div *ngIf="forma.controls['apellido'].errors?.['required']" class="invalid-feedback">
               Campo obligatorio
             </div>
             <div class="form_box">
@@ -31,13 +34,10 @@
               />
               <label for="textUser" class="form_label">Apellido</label>
             </div>
-            <div *ngIf="forma.controls['apellido'].errors?.['required']" class="invalid-feedback">
-              Campo obligatorio
+            <div *ngIf="forma.controls['mensaje'].errors?.['required']" class="invalid-feedback">
+              No puede dejar este campo vacío
             </div>
             <textarea cols="30" rows="10" placeholder="Dejanos tu comentario..." formControlName="mensaje" [ngClass]="{'is-invalid':!forma.get('mensaje')?.valid}" required></textarea><br>
-            <div *ngIf="forma.controls['mensaje'].errors?.['required']" class="invalid-feedback">
-              No puede haber campos vacíos
-            </div>
             <button (click)="enviarCorreo()" [disabled]="forma.invalid" class="button">Enviar</button>
           </form>
         </div>

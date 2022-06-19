@@ -34,11 +34,11 @@ app.get('/insercionUsuario', (req, res) =>{
     console.log(req.query.password);
     at.createUser({
         email: req.query.mail,
+        emailVerified:false,
         phoneNumber: "+"+req.query.phone,
         password: req.query.password,
         displayName: req.query.displayName,
-        photoURL: req.query.photoUrl,
-        rol:"admin",
+        photoURL: req.query.photoUrl
       })
       .then((userRecord) => {
         // See the UserRecord reference doc for the contents of userRecord.

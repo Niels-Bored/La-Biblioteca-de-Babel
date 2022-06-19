@@ -3,21 +3,49 @@
   <div class="divForm">
     <div class="div1">
       <h1>REGISTRO</h1>
-      <form class="Form">
+      <form class="Form" [formGroup]="formularioContacto" (ngSubmit)="insertarUsuario()">
+        <span *ngIf="this.formularioContacto.get('mail')?.errors?.['required']">
+          El correo no puede quedar vacío
+        </span>
+        <span *ngIf="this.formularioContacto.get('mail')?.errors?.['email']">
+          El correo no es válido
+        </span>
         <div class="form_box">
-          <input type="text" class="form_input" placeholder=" " [(ngModel)]="mail">
+          <input type="text" class="form_input" placeholder=" " [(ngModel)]="mail" formControlName="mail">
           <label class="form_label">Correo:</label>
         </div>
+        <div *ngIf="this.formularioContacto.get('telefono')?.errors?.['required']">
+          El telefono no puede quedar vacío
+        </div>
+        <div *ngIf="this.formularioContacto.get('telefono')?.errors?.['minlength']">
+          Debe tener como mínimo 12 caracteres
+        </div>
         <div class="form_box">
-          <input type="text" class="form_input" placeholder=" " [(ngModel)]="phone">
+          <input type="text" class="form_input" placeholder=" " [(ngModel)]="phone" formControlName="telefono">
           <label class="form_label">Numero de Telefono:</label>
         </div>
-        <div class="form_box">
-          <input type="password" class="form_input" placeholder=" " [(ngModel)]="password">
-          <label class="form_label">Contraseña:</label>
+        <div *ngIf="this.formularioContacto.get('pass')?.errors?.['required']">
+          Es necesario escribir una contraseña
+        </div>
+        <div *ngIf="this.formularioContacto.get('pass')?.errors?.['minlength']">
+          Debe tener como mínimo 6 caracteres
         </div>
         <div class="form_box">
-          <input type="text" class="form_input" placeholder=" " [(ngModel)]="userName">
+          <input type="password" class="form_input" placeholder=" " [(ngModel)]="password" formControlName="pass">
+          <label class="form_label">Contraseña:</label>
+        </div>
+        <div *ngIf="this.formularioContacto.get('confirmacion')?.errors?.['required']">
+          Confirme su contraseña
+        </div>
+        <div class="form_box">
+          <input type="password" class="form_input" placeholder=" " [(ngModel)]="conf" formControlName="confirmacion">
+          <label class="form_label">Confirme la contraseña:</label>
+        </div>
+        <div *ngIf="this.formularioContacto.get('nombre')?.errors?.['required']">
+          El nombre de usuario no puede quedar vacío
+        </div>
+        <div class="form_box">
+          <input type="text" class="form_input" placeholder=" " [(ngModel)]="userName" formControlName="nombre">
           <label class="form_label">Nombre de Usuario: </label>
         </div>
         <div class="form_box">

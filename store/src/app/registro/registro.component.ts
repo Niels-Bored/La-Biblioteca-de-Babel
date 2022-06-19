@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,10 +16,21 @@ export class RegistroComponent implements OnInit {
   password:string="";
   userName:string="";
   url:string="";
+  conf:string="";
   usuarios : any;
+  pasa : boolean = false;
+
+  formularioContacto = new FormGroup({
+    mail: new FormControl('', [Validators.required, Validators.email]),
+    telefono: new FormControl('', [Validators.required, Validators.minLength(12)]),
+    pass: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    confirmacion : new FormControl('', [Validators.required]),
+    nombre : new FormControl('', [Validators.required])
+  });
 
   constructor(public firebase:FirebaseService, private router:Router) { 
     this.consultaDatos();
+    this.pasa=true;
   }
 
   insertarUsuario(){
