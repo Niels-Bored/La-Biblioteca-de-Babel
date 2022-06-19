@@ -138,4 +138,7 @@ textarea:focus {
         display: none;
 
     }
+    .form_input{
+        width:80%;
+    }
 }
