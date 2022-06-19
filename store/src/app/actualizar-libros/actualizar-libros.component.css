@@ -1,0 +1,343 @@
+.divImg {
+    background: url(../../assets/Insercion/Fondo3.jpg);
+    width: 100%;
+    height: 664px;
+    background-size: cover;
+    display: flex;
+    position: absolute;
+    filter: blur(30px);
+}
+
+#accesibilidad {
+    position: fixed;
+    bottom: 0;
+}
+
+.divPrin {
+    position: relative;
+}
+
+.div1 {
+    background: rgba(255, 255, 255, 40%);
+    width: 50%;
+    margin: 0px 38px;
+    border-radius: 15px;
+    margin-top: 40px;
+    border-style: solid;
+    border-color: white;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "sub1 sub1 sub2";
+    height: 570px;
+}
+
+.div1 .sub1 {
+    grid-area: sub1;
+
+}
+
+.div1 .sub2 {
+    grid-area: sub2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.Form {
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "s1 s2";
+}
+
+.Form .s1 {
+    grid-area: s1;
+}
+
+.Form .s2 {
+    grid-area: s2;
+}
+
+.Form .Enter {
+    width: 60%;
+    margin: 0px auto;
+    border-radius: 10px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: rgba(33, 5, 189, 0.871);
+    color: white;
+}
+
+img {
+    width: 80%;
+}
+
+.Enter {
+    width: 60%;
+    margin: 0px auto;
+    border-radius: 10px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: rgba(33, 5, 189, 0.871);
+    color: white;
+}
+
+
+
+.Eliminar {
+    width: 60%;
+    margin: auto;
+    border-radius: 10px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: yellow;
+    color: black;
+    border: solid black;
+}
+
+.Actualizar{
+    width: 60%;
+    margin: auto;
+    border-radius: 10px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: blue;
+    color: white;
+    border: solid black;
+}
+
+/* Estilos Input */
+.form_input {
+    display: block;
+    margin-bottom: 2rem;
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    border: 0;
+    outline: solid 2px white;
+    height: 32px;
+    width: 90%;
+    margin-left: 50px;
+}
+
+.form_label {
+    position: absolute;
+    top: 5px;
+    left: 2rem;
+    background: white;
+    padding: 0 .5rem;
+    height: 25px;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+
+.form_box {
+    position: relative;
+    padding: 0px;
+
+}
+
+.form_input:focus {
+    outline: solid 2px rgb(47, 143, 157);
+    box-shadow: blue 0px 0px 8px;
+}
+
+.form_input:focus+.form_label {
+    transform: translateY(-1.2rem);
+    transition: .5s;
+}
+
+.form_input:not(:placeholder-shown)+.form_label {
+    transform: translateY(-1.2rem);
+
+}
+
+/* Fin de Estilos Input */
+
+/* Estilos Cards */
+.divCards {
+    margin: auto;
+    width: 95%;
+    background: rgba(255, 255, 255, 40%);
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-columns {
+    width: 100%;
+    margin: 0px auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0%);
+    border: none;
+    border-radius: 10px;
+    margin: auto;
+    width: 240px;
+}
+
+.card-body {
+    position: relative;
+    height: 330px;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.card-body .face {
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card-body .front {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0px 0px 10px #000;
+    width: 200px;
+    height: 319px; 
+}
+
+img {
+    border-radius: 15px;
+}
+
+.card-body .front img {
+    position: relative;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.img{
+    height: 100%;
+}
+
+.card-body .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3, 35, 54);
+    padding: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 320px;
+}
+
+.card-body:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card-body:hover .back {
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/* Fin de estilos Cars */
+
+.Eliminar {
+    border: none;
+    background: yellow;
+}
+
+.Actualizar{
+    border: none;
+    background: blue;   
+}
+
+.imagen{
+    width: 100%;
+    height: 100%;;
+}
+
+@media (min-width: 576px) {
+    .card-columns {
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media (min-width: 700px) {
+    .card-columns {
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-columns {
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-columns {
+        -webkit-column-count: 5;
+        column-count: 5;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .div1 {
+        grid-template-columns: 1fr;
+        grid-template-areas: "sub1";
+        margin: auto;
+        margin-top: 40px;
+    }
+
+    .sub2 {
+        display: none;
+    }
+
+    .img2 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .div1 {
+        margin: auto;
+        margin-top: 40px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+}
+
+@media only screen and (max-width: 575px) {
+    .div1 {
+        margin: auto;
+        width: 90%;
+    }
+
+    .Form {
+        grid-template-columns: 1fr;
+        grid-template-areas: "sub1";
+    }
+}
+
