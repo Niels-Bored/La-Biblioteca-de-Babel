@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ValidatePassword } from '../validate-password';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -20,21 +21,55 @@ export class RegistroComponent implements OnInit {
   usuarios : any;
   pasa : boolean = false;
 
+  /* formularioContacto : FormGroup | null = null; */
   formularioContacto = new FormGroup({
     mail: new FormControl('', [Validators.required, Validators.email]),
     telefono: new FormControl('', [Validators.required, Validators.minLength(12)]),
     pass: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    confirmacion : new FormControl('', [Validators.required]),
+    confirmacion : new FormControl(''),
     nombre : new FormControl('', [Validators.required])
   });
 
   constructor(public firebase:FirebaseService, private router:Router) { 
     this.consultaDatos();
     this.pasa=true;
+
+    this.formularioContacto.get('confirmacion')?.setValidators(
+      [Validators.required,
+      ValidatePassword.equalsValidator(this.formularioContacto.get('pass'))]
+    );
+  }
+
+  checar():boolean{
+    if(this.password === this.conf)
+      return false;
+    else 
+      return true;  
   }
 
   insertarUsuario(){
-    this.firebase.insertarUsuario(this.mail, this.phone,this.password,this.userName,this.url).subscribe((res: any) => {
+    
+    const mail = this.formularioContacto.get('mail')?.value as string;
+    const password = this.formularioContacto.get('pass')?.value as string;
+    const phone = this.formularioContacto.get('telefono')?.value as string;
+    const userName = this.formularioContacto.get('nombre')?.value as string;
+
+    console.log(mail);
+    console.log(password);
+    console.log(phone);
+    console.log(userName);
+
+    var correo = mail;
+    var telefono = phone;
+    var con = password;
+    var nombre = userName;
+
+    console.log(correo);
+    console.log(telefono);
+    console.log(con);
+    console.log(nombre);
+
+    this.firebase.insertarUsuario(correo, telefono, con, nombre,this.url).subscribe((res: any) => {
       console.log(res);
     });
     Swal.fire({

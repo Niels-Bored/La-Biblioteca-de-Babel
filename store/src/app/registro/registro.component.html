@@ -37,8 +37,11 @@
         <div *ngIf="this.formularioContacto.get('confirmacion')?.errors?.['required']">
           Confirme su contraseña
         </div>
+        <div *ngIf="checar()">
+          Las contraseñas no coinciden
+        </div>
         <div class="form_box">
-          <input type="password" class="form_input" placeholder=" " [(ngModel)]="conf" formControlName="confirmacion">
+          <input type="password" class="form_input" placeholder=" " [(ngModel)]="conf" formControlName="confirmacion" required>
           <label class="form_label">Confirme la contraseña:</label>
         </div>
         <div *ngIf="this.formularioContacto.get('nombre')?.errors?.['required']">
@@ -52,7 +55,7 @@
           <input type="text" class="form_input" [(ngModel)]="url" placeholder=" ">
           <label class="form_label">Foto URL: </label>
         </div>
-        <button class="btn btn-primary btn-block" (click)="insertarUsuario()">Registrar</button>
+        <button class="btn btn-primary btn-block" (click)="insertarUsuario()" [disabled]="formularioContacto.invalid">Registrar</button>
         <button class="btn btn-primary btn-block" routerLink="/logincel">Resgitrarse con telefono</button>
       </form>
     </div>
