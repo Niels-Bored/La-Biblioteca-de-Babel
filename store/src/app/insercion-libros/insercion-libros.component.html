@@ -5,46 +5,55 @@
     <div class="div1">
       <div class="sub1">
         <h1>Insercion libros</h1>
-        <div class="Form">
-          <div class="s1">
-            <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="titulo">
-              <label for="textUser" class="form_label">Titulo</label>
-            </div>
-            <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="genero">
-              <label for="textUser" class="form_label">Genero</label>
-            </div>
+        <form [formGroup]="formularioContacto" (ngSubmit)="insertar()">
+          <div class="Form">
+            <div class="s1">
+              <div class="form_box">
+                <input type="text" class="form_input" placeholder=" " [(ngModel)]="titulo" formControlName="titulo">
+                <label for="textUser" class="form_label">Titulo</label>
+              </div>
+              <span *ngIf="this.formularioContacto.get('titulo')?.errors?.['required']">
+                El titulo no puede quedar vacío
+              </span>
+              <div class="form_box">
+                <input type="text" class="form_input" placeholder=" " [(ngModel)]="genero">
+                <label for="textUser" class="form_label">Genero</label>
+              </div>
 
+            </div>
+            <div class="s2">
+              <div class="form_box">
+                <input type="text" class="form_input" placeholder=" " [(ngModel)]="autor">
+                <label for="textUser" class="form_label">Autor</label>
+              </div>
+              <div class="form_box">
+                <input type="text" class="form_input" placeholder=" " [(ngModel)]="sinopsis">
+                <label for="textUser" class="form_label">Sinopsis</label>
+              </div>
+            </div>
+            <div>
+              <div class="form_box">
+                <input type="text" class="form_input" placeholder=" "
+                  [(ngModel)]="imagen">
+                <label for="textUser" class="form_label">Imagen URL</label>
+              </div>
+              <div class="form_box">
+                <input type="url" class="form_input" placeholder=" " [(ngModel)]="url" formControlName="url">
+                <label for="textUser" class="form_label">url</label>
+              </div>
+              <span *ngIf="this.formularioContacto.get('url')?.errors?.['required']">
+                El url no puede quedar vacío
+              </span>
+            </div>
+            <button 
+              type="submit"
+              class="Enter" 
+              style="background:{{accesib.enter}};" 
+              (click)="insertar()"
+              [disabled]="formularioContacto.invalid"
+              >Insertar: </button>
           </div>
-          <div class="s2">
-            <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="autor">
-              <label for="textUser" class="form_label">Autor</label>
-            </div>
-            <div class="form_box">
-              <input type="text" class="form_input" placeholder=" " [(ngModel)]="sinopsis">
-              <label for="textUser" class="form_label">Sinopsis</label>
-            </div>
-          </div>
-          <div>
-            <div class="form_box">
-              <input type="text" class="form_input" placeholder=" "
-                [(ngModel)]="imagen">
-              <label for="textUser" class="form_label">Imagen URL</label>
-
-              <!-- <label class="file">
-                <input  [(ngModel)]="imagen" type="file" id="file" aria-label="File browser example">
-                <span class="file-custom"></span>
-              </label> -->
-            </div>
-            <div class="form_box">
-              <input type="url" class="form_input" placeholder=" " [(ngModel)]="url">
-              <label for="textUser" class="form_label">url</label>
-            </div>
-          </div>
-          <button class="Enter" style="background:{{accesib.enter}};" (click)="insertar()">Insertar: </button>
-        </div>
+        </form>
       </div>
       <div class="sub2">
         <img class="img2" src="../../assets/Insercion/Libro.png" style="filter: {{accesib.filtro}}"alt="">

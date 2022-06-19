@@ -35,7 +35,7 @@ export class LogincelComponent implements OnInit {
               console.log(error) 
               Swal.fire({
                 position: 'center',
-                icon: 'success',
+                icon: 'error',
                 title: 'Ha habido un error',
                 showConfirmButton: false,
                 timer: 2000
@@ -53,7 +53,7 @@ export class LogincelComponent implements OnInit {
       console.log(error, "Incorrect code entered?")
       Swal.fire({
         position: 'center',
-        icon: 'success',
+        icon: 'error',
         title: 'Ha habido un error',
         showConfirmButton: false,
         timer: 2000

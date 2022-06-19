@@ -3,6 +3,7 @@ import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
 import { SpinnerService } from 'src/app/spinner.service';
 import { AccesibilidadService } from '../accesibilidad.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-insercion-libros',
@@ -20,6 +21,10 @@ export class InsercionLibrosComponent implements OnInit {
   url:string="";
   imagen:string="";
 
+  formularioContacto = new FormGroup({
+    titulo: new FormControl('', [Validators.required]),
+    url: new FormControl('', [Validators.required])
+  });
 
   datos : any;
   libros : any[] = [];
