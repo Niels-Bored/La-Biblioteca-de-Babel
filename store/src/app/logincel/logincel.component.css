@@ -69,8 +69,8 @@ img {
 /* Estilos Input */
 .form_input {
     display: block;
-    margin-bottom: 2rem;
-    padding: .5rem 2rem;
+    margin-bottom: 1rem;
+    padding: .5rem 1rem;
     border-radius: 5px;
     border: 0;
     outline: solid 2px white;
@@ -109,6 +109,10 @@ img {
 .form_input:not(:placeholder-shown)+.form_label{
     transform: translateY(-1.2rem);
     
+}
+
+#recaptcha-container{
+    margin-top: -40px;
 }
 
 /* Fin de Estilos Input */

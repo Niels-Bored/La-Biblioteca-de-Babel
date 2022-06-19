@@ -8,11 +8,11 @@
                     <div class="form_box">
                         <input type="text" [(ngModel)]="telefono" placeholder=" " class="form_input">
                         <label class="form_label" for="phone">Telefono</label><br>
-                        
                     </div>
                     <div id="recaptcha-container"></div>
                     <button (click)="sendLoginCode()"  class="button">Enviar Código</button><br>
                 </div>
+                <br><br>
                 <div class="ss2" *ngIf="windowRef.confirmationResult">
                     <h4>Introducir Codigo</h4>
                     <div class="form_box">
